@@ -167,7 +167,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			return fmt.Errorf("Potentially corrupt DaVinci export file.  Variable %s is missing required fields", variable.Name)
 		}
 
-		reg := regexp.MustCompile(`^([a-zA-Z0-9]*)[[#]{2}.+]*$`)
+		reg := regexp.MustCompile(`^([a-zA-Z0-9-_]*)[[#]{2}.+]*$`)
 
 		// Find the first match and capture groups
 		matches := reg.FindStringSubmatch(variable.Name)
