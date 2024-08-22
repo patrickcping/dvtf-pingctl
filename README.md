@@ -60,3 +60,4 @@ cat /path/to/my/export.json | dvtf-pingctl validate -f flow_configuration_json
 - Brew install
 - Multi-arch install
 - Unit tests
+- Debug logging
