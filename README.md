@@ -11,6 +11,8 @@ A simple CLI tool to assist HCL generation and debugging with using the [DaVinci
 
 Generate HCL configuration from a DaVinci service JSON export file.
 
+Supports exports with or without subflows.
+
 Only `davinci_flow`, `davinci_variable`, and `davinci_connector` resources are supported.
 
 Individual resources can be selected using the `--resource` flag (`-r` for short), and if this flag is omitted, all resources will be generated.
@@ -29,6 +31,8 @@ cat /path/to/my/export.json | dvtf-pingctl generate -r davinci_flow
 ## Flow Validation (for use with the `davinci_flow` resource)
 
 Validate the JSON export file as an input to the "davinci_flow" Terraform provider resource.
+
+Supports only exports without subflows (as per the Terraform provider).
 
 Examples:
 
