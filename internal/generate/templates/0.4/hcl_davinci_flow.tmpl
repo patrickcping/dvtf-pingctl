@@ -2,12 +2,12 @@
 resource "davinci_flow" "{{.ResourceName}}" {
 {{- if .DependsOnVarRefs}}
   depends_on = [
-{{range $variableReference := .DependsOnVarRefs }}
+{{- range $variableReference := .DependsOnVarRefs }}
     davinci_variable.{{ $variableReference }},
-  ]
-
-{{end}}
 {{- end}}
+  ]
+{{- end}}
+
   environment_id = local.pingone_environment_id
 
 {{- if .Name}}
@@ -33,7 +33,6 @@ resource "davinci_flow" "{{.ResourceName}}" {
 {{- end}}
 
 {{- if .SubflowLinks}}
-
 {{range $link := .SubflowLinks }}
   // Subflow link: {{$link.SubFlowName}}
   subflow_link {
