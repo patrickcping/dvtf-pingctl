@@ -1,0 +1,10 @@
+{{.CommentInformation}}
+resource "davinci_connection" "{{.ResourceName}}" {
+  environment_id = local.pingone_environment_id
+
+  connector_id = "{{.ID}}"
+  name         = "{{.Name}}"
+
+  // properties based on the connector type
+}
+

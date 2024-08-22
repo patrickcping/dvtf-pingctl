@@ -1,0 +1,47 @@
+{{.CommentInformation}}
+resource "davinci_flow" "{{.ResourceName}}" {
+{{- if .DependsOnVarRefs}}
+  depends_on = [
+{{range $variableReference := .DependsOnVarRefs }}
+    davinci_variable.{{ $variableReference }},
+  ]
+
+{{end}}
+{{- end}}
+  environment_id = local.pingone_environment_id
+
+{{- if .Name}}
+
+  name        = "{{.Name}}"
+{{- end}}
+{{- if .Description}}
+  description = "{{.Description}}"
+{{- end}}
+
+  flow_json = file("{{.FlowJSONPath}}")
+
+{{if .ConnectionLinks}}
+
+{{- range $link := .ConnectionLinks }}
+  // Connector link: {{$link.ConnectorID}}
+  connection_link {
+    id                           = davinci_connection.{{$link.ConnectionRefID}}.id
+    name                         = davinci_connection.{{$link.ConnectionRefID}}.name
+    replace_import_connection_id = "{{$link.ReplaceConnectionID}}"
+  }
+{{end}}
+{{- end}}
+
+{{- if .SubflowLinks}}
+
+{{range $link := .SubflowLinks }}
+  // Subflow link: {{$link.SubFlowName}}
+  subflow_link {
+    id                        = davinci_flow.{{$link.FlowRefID}}.id
+    name                      = davinci_flow.{{$link.FlowRefID}}.name
+    replace_import_subflow_id = "{{$link.ReplaceSubflowID}}"
+  }
+{{end -}}
+{{end -}}
+}
+
