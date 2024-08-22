@@ -149,7 +149,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 	flowResourceName := d.sanitiseResourceName(flow.Name)
 
-	pathVar := fmt.Sprintf("assets/flows/%s_%d.json", flowResourceName, flow.CreatedDate.Unix())
+	pathVar := fmt.Sprintf("assets/flows/%s.json", flowResourceName)
 	createFlow := true
 	if path != nil {
 		pathVar = *path
