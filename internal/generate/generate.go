@@ -220,7 +220,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 			if nodeData := node.Data; nodeData != nil && nodeData.ConnectorID != nil && nodeData.ConnectionID != nil && nodeData.ID != nil {
 
-				resourceName := d.sanitiseResourceName(*nodeData.Name)
+				resourceName := d.sanitiseResourceName(*nodeData.ConnectorID)
 
 				if !slices.ContainsFunc(d.connectionsData, func(v connectionData) bool {
 					return v.ID == *nodeData.ConnectorID
