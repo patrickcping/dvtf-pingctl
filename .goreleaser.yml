@@ -15,8 +15,6 @@ builds:
   flags:
     - -trimpath
   main: ./main.go
-  ldflags:
-    - '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}'
   goos:
     - freebsd
     - windows

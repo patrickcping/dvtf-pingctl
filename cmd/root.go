@@ -12,15 +12,6 @@ import (
 	"github.com/spf13/viper"
 )
 
-var (
-	// these will be set by the goreleaser configuration
-	// to appropriate values for the compiled binary
-	version string = "dev"
-
-	// goreleaser can also pass the specific commit if you want
-	commit string = ""
-)
-
 const (
 	jsonFilePathConfigKey      = "jsonFilePath"
 	jsonFilePathParamNameLong  = "export-file-path"
@@ -75,14 +66,15 @@ var rootCmd = &cobra.Command{
 
 		return nil
 	},
-	Version: fmt.Sprintf("%s-%s", version, commit),
+}
+
+func SetVersionInfo(version, commit string) {
+	rootCmd.Version = fmt.Sprintf("%s (Git Commit SHA %s)", version, commit)
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
-func Execute(versionP, commitP string) {
-	version = versionP
-	commit = commitP
+func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)

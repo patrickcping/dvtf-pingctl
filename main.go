@@ -11,13 +11,13 @@ var (
 	version string = "dev"
 
 	// goreleaser can also pass the specific commit if you want
-	commit string = ""
+	commit string = "none"
 )
 
 func main() {
 	l := logger.Get()
 
 	l.Debug().Msg("Starting dvtf")
-
-	cmd.Execute(version, commit)
+	cmd.SetVersionInfo(version, commit)
+	cmd.Execute()
 }
