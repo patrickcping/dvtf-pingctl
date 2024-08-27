@@ -1,3 +1,4 @@
-testoutput
+testoutput*
 vendor
-env.sh
+env*.sh
+output.log
