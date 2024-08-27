@@ -10,6 +10,7 @@ if [ -d "$DIR" ]; then
   pushd $DIR
     terraform init
     terraform validate
+    terraform plan -out infra.tfout
   popd
 else
   echo "Directory $DIR does not exist."

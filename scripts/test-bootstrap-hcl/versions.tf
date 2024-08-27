@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     davinci = {
-      source = "pingidentity/davinci"
+      source  = "pingidentity/davinci"
       version = "0.4.2"
     }
     pingone = {
-      source = "pingidentity/pingone"
+      source  = "pingidentity/pingone"
       version = "1.1.0"
     }
   }
@@ -18,5 +18,6 @@ provider "pingone" {
 
 provider "davinci" {
   # Configuration options
-  region = "Europe"
+  region         = "Europe"
+  environment_id = var.pingone_dv_admin_environment_id
 }
