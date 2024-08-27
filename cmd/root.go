@@ -22,8 +22,8 @@ var (
 )
 
 const (
-	jsonFilePathConfigKey = "jsonFilePath"
-	jsonFilePathParamNameLong = "export-file-path"	
+	jsonFilePathConfigKey      = "jsonFilePath"
+	jsonFilePathParamNameLong  = "export-file-path"
 	jsonFilePathParamNameShort = "e"
 )
 
@@ -32,7 +32,7 @@ var (
 	jsonContents string
 
 	rootConfigurationParamMapping = map[string]string{
-		jsonFilePathParamNameLong:              jsonFilePathConfigKey,
+		jsonFilePathParamNameLong: jsonFilePathConfigKey,
 	}
 )
 
@@ -80,7 +80,9 @@ var rootCmd = &cobra.Command{
 
 // Execute adds all child commands to the root command and sets flags appropriately.
 // This is called by main.main(). It only needs to happen once to the rootCmd.
-func Execute() {
+func Execute(versionP, commitP string) {
+	version = versionP
+	commit = commitP
 	err := rootCmd.Execute()
 	if err != nil {
 		os.Exit(1)
@@ -101,7 +103,7 @@ func init() {
 	if err := rootCmd.MarkPersistentFlagRequired(jsonFilePathParamNameLong); err != nil {
 		l.Err(err).Msgf("Error marking flag %s as required.", jsonFilePathParamNameLong)
 	}
-	
+
 	if err := bindParams(rootConfigurationParamMapping, rootCmd); err != nil {
 		l.Err(err).Msgf("Error binding parameters: %s", err)
 	}

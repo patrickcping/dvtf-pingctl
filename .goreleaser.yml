@@ -16,7 +16,7 @@ builds:
     - -trimpath
   main: ./main.go
   ldflags:
-    - '-s -w -X "github.com/patrickcping/dvtf-pingctl/cmd/version={{.Version}}" -X "github.com/patrickcping/dvtf-pingctl/cmd/commit={{.Commit}}"'
+    - '-s -w -X main.version={{.Version}} -X main.commit={{.Commit}}'
   goos:
     - freebsd
     - windows
