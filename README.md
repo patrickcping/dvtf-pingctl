@@ -24,6 +24,10 @@ Test the installation with:
 dvtf-pingctl --help
 ```
 
+## Example Usage
+
+Visit the [example](./example/) to view a full example of generation and validation starting with a multi-flow export.
+
 ## Config Generation
 
 Generate HCL configuration from a DaVinci service JSON export file.
