@@ -3,13 +3,14 @@
 DIR="./testoutput"
 
 if [ -d "$DIR" ]; then
-  echo "Directory $DIR exists. Removing it."
+  echo "Directory $DIR exists.  Bootstrapping it."
+
+  cp scripts/test-bootstrap-hcl/* $DIR
   
   pushd $DIR
-    terraform destroy
+    terraform init
+    terraform validate
   popd
-
-  rm -r "$DIR"
 else
   echo "Directory $DIR does not exist."
 fi
