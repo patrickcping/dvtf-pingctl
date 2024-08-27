@@ -60,7 +60,7 @@ var (
 )
 
 type DaVinciValidator struct {
-	exportBytes    []byte
+	exportBytes   []byte
 	providerField terraform.ProviderField
 }
 
@@ -138,14 +138,14 @@ func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.Export
 	return nil
 }
 
-func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok bool, err error) {
+func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning bool, err error) {
 
 	if vErr == nil {
 		output.Print(output.Opts{
 			Message: fmt.Sprintf("The provided flow export passes validation for the davinci_flow field %s!\n", string(d.providerField)),
 			Result:  output.ENUM_RESULT_SUCCESS,
 		})
-		return true, nil
+		return true, false, nil
 	}
 
 	var equatesEmptyError *davinci.EquatesEmptyTypeError
@@ -201,7 +201,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok bool, err er
 		}
 
 	case errors.As(vErr, &missingRequiredFlowFieldsError):
-		
+
 		outputOpts = output.Opts{
 			Message: fmt.Sprintf("The DaVinci Flow Export JSON has been evaluated to be missing required fields.  Please re-export the DaVinci flow."),
 			Result:  output.ENUM_RESULT_FAILURE,
@@ -221,7 +221,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok bool, err er
 		}
 
 	case errors.As(vErr, &minFlowDefsError):
-		
+
 		outputOpts = output.Opts{
 			Message: fmt.Sprintf("There are not enough flows exported in the flow group.  Expecting a minimum of %d", minFlowDefsError.Min),
 			Result:  output.ENUM_RESULT_FAILURE,
@@ -234,14 +234,18 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok bool, err er
 		}
 
 	default:
-		return false, vErr
+		return false, false, vErr
 	}
 
 	output.Print(outputOpts)
 
-	if outputOpts.Result == output.ENUM_RESULT_FAILURE {
-		return false, nil
+	switch outputOpts.Result {
+	case output.ENUM_RESULT_FAILURE:
+		return false, false, nil
+	case output.ENUM_RESULT_NOACTION_WARN:
+		return true, true, nil
+	default:
+		return true, false, nil
 	}
 
-	return true, nil
 }

@@ -67,20 +67,24 @@ var validateCmd = &cobra.Command{
 			}
 
 		} else {
-			
+
 			dvFlow, err = flow.NewFromPath(viper.GetString(jsonFilePathConfigKey))
 			if err != nil {
 				log.Fatal(err)
 			}
 		}
 
-		ok, err := dvFlow.Validate(terraform.ProviderField(viper.GetString(fieldConfigKey)))
+		ok, warning, err := dvFlow.Validate(terraform.ProviderField(viper.GetString(fieldConfigKey)))
 		if err != nil {
 			log.Fatal(err)
 		}
 
 		if !ok {
 			os.Exit(1)
+		}
+
+		if warning {
+			os.Exit(2)
 		}
 
 		os.Exit(0)

@@ -44,7 +44,7 @@ func (d *DaVinciExport) Generate(resources []terraform.ProviderResource, version
 	return true, generate.Generate(version)
 }
 
-func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok bool, err error) {
+func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok, warning bool, err error) {
 	validator := validate.New(d.ExportBytes, providerField)
 
 	return validator.OutputValidationResponse(validator.Validate())

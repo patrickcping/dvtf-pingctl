@@ -90,6 +90,14 @@ cat /path/to/my/export.json | dvtf-pingctl validate --field flow_configuration_j
 cat /path/to/my/export.json | dvtf-pingctl validate -f flow_configuration_json
 ```
 
+### Return Codes
+
+The `dvtf-pingctl validate ...` command will return the following return status codes:
+
+- `0` - Successful validation, no warnings
+- `1` - Unsuccessful validation
+- `2` - Successful validation, with warnings
+
 ## TODO
 
 - Output directory path as a parameter (currently `./testoutput`)
