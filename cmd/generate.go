@@ -73,7 +73,7 @@ var generateCmd = &cobra.Command{
 		l := logger.Get()
 		l.Debug().Msgf("Generate Command called.")
 
-		var dvFlow *flow.DaVinciExport
+		var dvFlow flow.DaVinciExportIntf
 		var err error
 
 		if jsonContents != "" {
@@ -93,7 +93,7 @@ var generateCmd = &cobra.Command{
 				Message: fmt.Sprintf("Generating HCL from JSON at %s to %s, overwrite %v", jsonFilePath, generateOutputPath, overwriteGeneratedFiles),
 			})
 
-			dvFlow, err = flow.NewFromPath(jsonFilePath)
+			dvFlow, err = flow.NewFromPaths(jsonFilePath)
 			if err != nil {
 				log.Fatal(err)
 			}

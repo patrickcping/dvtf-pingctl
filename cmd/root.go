@@ -21,7 +21,7 @@ const (
 )
 
 var (
-	jsonFilePath string
+	jsonFilePath []string
 	jsonContents string
 
 	configKeys = map[string]string{}
@@ -97,7 +97,7 @@ func init() {
 	}
 
 	// Add config flags
-	rootCmd.PersistentFlags().StringVarP(&jsonFilePath, jsonFilePathParamNameLong, jsonFilePathParamNameShort, "", "The path to the JSON export file.  E.g. /path/to/export.json.  This parameter is not required if piping the JSON to the command.")
+	rootCmd.PersistentFlags().StringSliceVarP(&jsonFilePath, jsonFilePathParamNameLong, jsonFilePathParamNameShort, []string{}, "The path to the JSON export file.  E.g. /path/to/export.json.  This parameter is not required if piping the JSON to the command.")
 	if err := rootCmd.MarkPersistentFlagRequired(jsonFilePathParamNameLong); err != nil {
 		l.Err(err).Msgf("Error marking flag %s as required.", jsonFilePathParamNameLong)
 	}

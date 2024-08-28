@@ -1,4 +1,7 @@
-exportFilePath: ./assets/flows/full-basic-vars.json
+exportFilePath:
+  - ./assets/flows/full-basic-vars.json
+  - ./assets/flows/full-basic-subflow-1.json
+  - ./assets/flows/full-basic-subflow-2.json
 
 validate:
   field: flow_json

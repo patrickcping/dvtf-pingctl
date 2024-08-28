@@ -55,7 +55,7 @@ var validateCmd = &cobra.Command{
 		l := logger.Get()
 		l.Debug().Msgf("validate Command called.")
 
-		var dvFlow *flow.DaVinciExport
+		var dvFlow flow.DaVinciExportIntf
 		var err error
 
 		if jsonContents != "" {
@@ -75,7 +75,7 @@ var validateCmd = &cobra.Command{
 				Message: fmt.Sprintf("Running validation for field %s for JSON at %s", terraform.ProviderField(validateField), jsonFilePath),
 			})
 
-			dvFlow, err = flow.NewFromPath(jsonFilePath)
+			dvFlow, err = flow.NewFromPaths(jsonFilePath)
 			if err != nil {
 				log.Fatal(err)
 			}

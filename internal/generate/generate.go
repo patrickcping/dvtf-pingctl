@@ -2,6 +2,7 @@ package generate
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"os"
 	"regexp"
@@ -9,15 +10,14 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/google/go-cmp/cmp"
+	"github.com/patrickcping/dvtf-pingctl/internal/generate/export"
 	"github.com/patrickcping/dvtf-pingctl/internal/logger"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/samir-gandhi/davinci-client-go/davinci"
 )
 
 type DaVinciGenerator struct {
-	exportBytes     []byte
-	path            *string
+	exportDefs      []export.DaVinciGeneratorExport
 	outputPath      string
 	resources       []terraform.ProviderResource
 	flowsData       []flowData
@@ -26,29 +26,32 @@ type DaVinciGenerator struct {
 	flowAssets      []flowAssetData
 }
 
-func New(exportMap []byte, resources []terraform.ProviderResource, outputPath string) *DaVinciGenerator {
+func New(exportDefs []export.DaVinciGeneratorExport, resources []terraform.ProviderResource, outputPath string) *DaVinciGenerator {
 	return &DaVinciGenerator{
-		exportBytes: exportMap,
-		resources:   resources,
-		outputPath:  outputPath,
+		exportDefs: exportDefs,
+		resources:  resources,
+		outputPath: outputPath,
 	}
-}
-
-func (d *DaVinciGenerator) SetPath(path string) {
-	d.path = &path
 }
 
 func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 	// Parse the flow
-	flowExport, parsedIntf, err := d.parseFlow()
+	err := d.parseFlows()
 	if err != nil {
 		return err
 	}
 
 	// Build the template objects
-	err = d.buildData(flowExport, parsedIntf, true)
-	if err != nil {
-		return err
+	for _, exportDef := range d.exportDefs {
+
+		if exportDef.ParsedFlow == nil {
+			return errors.New("exportDef or exportDef.ParsedFlow is nil")
+		}
+
+		err = d.buildData(exportDef.ParsedFlow.FlowObject, exportDef.ParsedFlow.ParsedIntf, exportDef.Path, true)
+		if err != nil {
+			return err
+		}
 	}
 
 	// Write the HCL configuration
@@ -60,54 +63,33 @@ func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 	return nil
 }
 
-func (d *DaVinciGenerator) parseFlow() (any, map[string]interface{}, error) {
+func (d *DaVinciGenerator) parseFlows() error {
 
-	cmpOpts := davinci.ExportCmpOpts{
-		IgnoreConfig:              false,
-		IgnoreDesignerCues:        true,
-		IgnoreEnvironmentMetadata: false,
-		IgnoreUnmappedProperties:  true,
-		IgnoreVersionMetadata:     true,
-		IgnoreFlowMetadata:        false,
-		IgnoreFlowVariables:       false,
-	}
+	newExportDefs := make([]export.DaVinciGeneratorExport, 0)
 
-	data := &davinci.Flows{}
-	err := davinci.Unmarshal(d.exportBytes, data, cmpOpts)
-	if err != nil {
-		return nil, nil, err
-	}
+	for _, exportDef := range d.exportDefs {
 
-	if cmp.Equal(data, &davinci.Flows{}) {
-		data := &davinci.Flow{}
-		err := davinci.Unmarshal(d.exportBytes, data, cmpOpts)
-		if err != nil {
-			return nil, nil, err
+		if !exportDef.IsParsed() {
+			err := exportDef.ParseFlow()
+			if err != nil {
+				return err
+			}
 		}
 
-		var parsedIntf map[string]interface{}
-		err = json.Unmarshal(d.exportBytes, &parsedIntf)
-		if err != nil {
-			return nil, nil, err
-		}
+		newExportDefs = append(newExportDefs, exportDef)
 
-		return data, parsedIntf, nil
 	}
 
-	var parsedIntf map[string]interface{}
-	err = json.Unmarshal(d.exportBytes, &parsedIntf)
-	if err != nil {
-		return nil, nil, err
-	}
+	d.exportDefs = newExportDefs
 
-	return data, parsedIntf, nil
+	return nil
 }
 
-func (d *DaVinciGenerator) buildData(data any, parsedIntf map[string]interface{}, top bool) (err error) {
+func (d *DaVinciGenerator) buildData(data any, parsedIntf map[string]interface{}, path *string, top bool) (err error) {
 
-	var path *string
-	if top && d.path != nil {
-		path = d.path
+	var buildPath *string
+	if top && path != nil {
+		buildPath = path
 	}
 
 	switch t := data.(type) {
@@ -117,7 +99,7 @@ func (d *DaVinciGenerator) buildData(data any, parsedIntf map[string]interface{}
 
 			for _, flowObj := range t.Flow {
 				if flowObj.Name == flowName {
-					err := d.buildData(flowObj, flow.(map[string]interface{}), false)
+					err := d.buildData(flowObj, flow.(map[string]interface{}), nil, false)
 					if err != nil {
 						return err
 					}
@@ -125,12 +107,12 @@ func (d *DaVinciGenerator) buildData(data any, parsedIntf map[string]interface{}
 			}
 		}
 	case *davinci.Flow:
-		err := d.buildDataSingleFlow(*t, parsedIntf, path)
+		err := d.buildDataSingleFlow(*t, parsedIntf, buildPath)
 		if err != nil {
 			return err
 		}
 	case davinci.Flow:
-		err := d.buildDataSingleFlow(t, parsedIntf, path)
+		err := d.buildDataSingleFlow(t, parsedIntf, buildPath)
 		if err != nil {
 			return err
 		}
@@ -224,7 +206,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 			if nodeData := node.Data; nodeData != nil && nodeData.ConnectorID != nil && nodeData.ConnectionID != nil && nodeData.ID != nil {
 
-				resourceName := d.sanitiseResourceName(*nodeData.ConnectorID)
+				resourceName := d.sanitiseResourceName(fmt.Sprintf("%s__%s", *nodeData.ConnectorID, *nodeData.ConnectionID))
 
 				if !slices.ContainsFunc(d.connectionsData, func(v connectionData) bool {
 					return v.ID == *nodeData.ConnectorID
@@ -292,7 +274,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 		DependsOnVarRefs: dependsOnVarRefs,
 		Name:             d.sanitiseStringFieldPtr(&flow.Name),
 		Description:      d.sanitiseStringFieldPtr(flow.Description),
-		FlowJSONPath:     fmt.Sprintf("./%s", pathVar),
+		FlowJSONPath:     fmt.Sprintf("%s", pathVar),
 		ConnectionLinks:  flowConnectionLinks,
 		SubflowLinks:     subflowLinks,
 	})
@@ -520,7 +502,7 @@ func (d *DaVinciGenerator) sanitiseStringField(value string) string {
 }
 
 func (d *DaVinciGenerator) sanitiseStringFieldPtr(value *string) *string {
-	if value == nil {
+	if value == nil || *value == "" {
 		return nil
 	}
 

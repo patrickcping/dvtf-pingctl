@@ -6,18 +6,21 @@ import (
 	"os"
 
 	"github.com/patrickcping/dvtf-pingctl/internal/generate"
+	"github.com/patrickcping/dvtf-pingctl/internal/generate/export"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/patrickcping/dvtf-pingctl/internal/validate"
 )
 
 type DaVinciExport struct {
-	exportPath  *string
+	ExportPath  *string
 	ExportBytes []byte
 }
 
+var _ DaVinciExportIntf = &DaVinciExport{}
+
 func NewFromPath(pathToJson string) (*DaVinciExport, error) {
 	dvExport := DaVinciExport{
-		exportPath: &pathToJson,
+		ExportPath: &pathToJson,
 	}
 
 	// Get the string from file
@@ -35,11 +38,13 @@ func NewFromPipe(exportString string) (*DaVinciExport, error) {
 }
 
 func (d *DaVinciExport) Generate(resources []terraform.ProviderResource, version, outputPath string, overwrite bool) (ok bool, err error) {
-	generate := generate.New(d.ExportBytes, resources, outputPath)
+	exports := make([]export.DaVinciGeneratorExport, 0)
+	exports = append(exports, export.DaVinciGeneratorExport{
+		ExportBytes: d.ExportBytes,
+		Path:        d.ExportPath,
+	})
 
-	if d.exportPath != nil {
-		generate.SetPath(*d.exportPath)
-	}
+	generate := generate.New(exports, resources, outputPath)
 
 	return true, generate.Generate(version, overwrite)
 }
@@ -53,12 +58,12 @@ func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok, war
 // Read the text from the file
 func (d *DaVinciExport) readJSONFile() error {
 
-	if d.exportPath == nil {
+	if d.ExportPath == nil {
 		return errors.New("No export path provided")
 	}
 
 	// Open the JSON file
-	file, err := os.Open(*d.exportPath)
+	file, err := os.Open(*d.ExportPath)
 	if err != nil {
 		return err
 	}
