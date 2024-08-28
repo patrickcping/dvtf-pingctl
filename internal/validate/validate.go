@@ -90,18 +90,16 @@ var ErrSubflowsPresent = errors.New("Subflows are present in the export.  Subflo
 // Replicated from the Terraform provider https://github.com/pingidentity/terraform-provider-davinci/blob/007d4dd02f01438b0f28feee44ad03b6325e3263/internal/framework/customtypes/davinciexporttype/parsed_value.go#L96
 func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.ExportCmpOpts) error {
 
+	var flows davinci.Flows
+
 	// should really use the actual validator
-	err := davinci.ValidFlowsInfoExport(d.exportBytes, davinci.ExportCmpOpts{})
-	if err == nil {
-		return ErrSubflowsPresent
+	err := davinci.Unmarshal(d.exportBytes, &flows, davinci.ExportCmpOpts{})
+	if err != nil {
+		return err
 	}
 
-	var equatesEmptyError *davinci.EquatesEmptyTypeError
-	switch {
-	case errors.Is(err, davinci.ErrEmptyFlow), errors.As(err, &equatesEmptyError): // Isn't a multi-flow export, this is good so we break here
-		break
-	default:
-		return err
+	if len(flows.Flow) > 0 {
+		return ErrSubflowsPresent
 	}
 
 	// Validate just the config of the export

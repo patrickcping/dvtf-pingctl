@@ -194,6 +194,12 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			resourceName += "__" + *flowIDRef
 		}
 
+		var variableValue *string
+		if variable.Fields.Value != nil {
+			v := fmt.Sprintf("%v", variable.Fields.Value)
+			variableValue = &v
+		}
+
 		d.variablesData = append(d.variablesData, variableData{
 			commonData: commonData{
 				CommentInformation: "// Flow Name: " + flow.Name,
@@ -204,7 +210,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			Name:        variableName,
 			Type:        *variable.Fields.Type,
 			Description: d.sanitiseStringFieldPtr(variable.Fields.DisplayName),
-			Value:       variable.Fields.Value,
+			Value:       variableValue,
 			Min:         variable.Fields.Min,
 			Max:         variable.Fields.Max,
 			Mutable:     variable.Fields.Mutable,
