@@ -176,27 +176,32 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			resourceName += "__" + *flowIDRef
 		}
 
-		var variableValue *string
-		if variable.Fields.Value != nil {
-			v := fmt.Sprintf("%v", variable.Fields.Value)
-			variableValue = &v
-		}
+		if !slices.ContainsFunc(d.variablesData, func(v variableData) bool {
+			return v.ResourceName == resourceName
+		}) {
 
-		d.variablesData = append(d.variablesData, variableData{
-			commonData: commonData{
-				CommentInformation: "// Flow Name: " + flow.Name,
-				ResourceName:       resourceName,
-			},
-			Context:     *variable.Context,
-			FlowIDRef:   flowIDRef,
-			Name:        variableName,
-			Type:        *variable.Fields.Type,
-			Description: d.sanitiseStringFieldPtr(variable.Fields.DisplayName),
-			Value:       variableValue,
-			Min:         variable.Fields.Min,
-			Max:         variable.Fields.Max,
-			Mutable:     variable.Fields.Mutable,
-		})
+			var variableValue *string
+			if variable.Fields.Value != nil {
+				v := fmt.Sprintf("%v", variable.Fields.Value)
+				variableValue = &v
+			}
+
+			d.variablesData = append(d.variablesData, variableData{
+				commonData: commonData{
+					CommentInformation: "// Flow Name: " + flow.Name,
+					ResourceName:       resourceName,
+				},
+				Context:     *variable.Context,
+				FlowIDRef:   flowIDRef,
+				Name:        variableName,
+				Type:        *variable.Fields.Type,
+				Description: d.sanitiseStringFieldPtr(variable.Fields.DisplayName),
+				Value:       variableValue,
+				Min:         variable.Fields.Min,
+				Max:         variable.Fields.Max,
+				Mutable:     variable.Fields.Mutable,
+			})
+		}
 	}
 
 	// Connectors
