@@ -100,11 +100,8 @@ The `dvtf-pingctl validate ...` command will return the following return status 
 
 ## TODO
 
-- Output directory path as a parameter (currently `./testoutput`)
-- Overwrite parameter switch (currently fails if the output directory already exists)
 - `davinci_connector` `property` block generation based on connector definition
 - Testing
-- Brew install
 - Multi-arch install
 - Unit tests
 - Debug logging
