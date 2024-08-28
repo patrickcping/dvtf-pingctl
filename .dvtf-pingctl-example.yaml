@@ -1,0 +1,13 @@
+exportFilePath: ./assets/flows/full-basic-vars.json
+
+validate:
+  field: flow_json
+
+generate:
+  resource:
+    - davinci_flow
+    - davinci_variable
+    - davinci_connection
+
+  outputPath: ./testoutput
+  overwrite: true
