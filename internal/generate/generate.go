@@ -24,15 +24,13 @@ type DaVinciGenerator struct {
 	connectionsData []connectionData
 	variablesData   []variableData
 	flowAssets      []flowAssetData
-	overwriteExport bool
 }
 
-func New(exportMap []byte, resources []terraform.ProviderResource) *DaVinciGenerator {
+func New(exportMap []byte, resources []terraform.ProviderResource, outputPath string) *DaVinciGenerator {
 	return &DaVinciGenerator{
-		exportBytes:     exportMap,
-		resources:       resources,
-		overwriteExport: false,
-		outputPath:      "/Users/patrickcowland/Documents/dvtf-cli/testoutput",
+		exportBytes: exportMap,
+		resources:   resources,
+		outputPath:  outputPath,
 	}
 }
 
@@ -40,7 +38,7 @@ func (d *DaVinciGenerator) SetPath(path string) {
 	d.path = &path
 }
 
-func (d *DaVinciGenerator) Generate(version string) error {
+func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 	// Parse the flow
 	flowExport, parsedIntf, err := d.parseFlow()
 	if err != nil {
@@ -54,7 +52,7 @@ func (d *DaVinciGenerator) Generate(version string) error {
 	}
 
 	// Write the HCL configuration
-	err = d.write(version)
+	err = d.write(version, overwrite)
 	if err != nil {
 		return err
 	}
@@ -303,23 +301,23 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 	return nil
 }
 
-func (d *DaVinciGenerator) write(version string) error {
+func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 
 	_, err := os.Stat(d.outputPath)
-	if err == nil && !d.overwriteExport {
-		return fmt.Errorf("generated import file directory for %q already exists. Use --overwrite to overwrite existing export data", d.outputPath)
+	if err == nil && !overwrite {
+		return fmt.Errorf("generated import file directory for %q already exists. Remove the directory first or use --overwrite to overwrite any existing generated files", d.outputPath)
 	}
 
-	err = os.MkdirAll(d.outputPath, os.ModePerm)
+	err = ensureDirExists(d.outputPath)
 	if err != nil {
-		return fmt.Errorf("failed to create directory %q. err: %s", d.outputPath, err.Error())
+		return err
 	}
 
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeVariable) {
 		slices.SortFunc(d.variablesData, func(i, j variableData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
-		err := d.writeVariables(version)
+		err := d.writeVariables(version, overwrite)
 		if err != nil {
 			return err
 		}
@@ -328,7 +326,7 @@ func (d *DaVinciGenerator) write(version string) error {
 		slices.SortFunc(d.connectionsData, func(i, j connectionData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
-		err := d.writeConnections(version)
+		err := d.writeConnections(version, overwrite)
 		if err != nil {
 			return err
 		}
@@ -337,7 +335,7 @@ func (d *DaVinciGenerator) write(version string) error {
 		slices.SortFunc(d.flowsData, func(i, j flowData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
-		err := d.writeFlows(version)
+		err := d.writeFlows(version, overwrite)
 		if err != nil {
 			return err
 		}
@@ -351,7 +349,7 @@ func (d *DaVinciGenerator) write(version string) error {
 	return nil
 }
 
-func (d *DaVinciGenerator) writeVariables(version string) error {
+func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error {
 
 	var templateString string
 
@@ -367,6 +365,15 @@ func (d *DaVinciGenerator) writeVariables(version string) error {
 	}
 
 	fileName := d.outputPath + fmt.Sprintf("/davinci_variables.tf")
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
 
 	outputFile, err := os.Create(fileName)
 	defer outputFile.Close()
@@ -384,7 +391,7 @@ func (d *DaVinciGenerator) writeVariables(version string) error {
 	return nil
 }
 
-func (d *DaVinciGenerator) writeConnections(version string) error {
+func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) error {
 
 	var templateString string
 
@@ -400,6 +407,15 @@ func (d *DaVinciGenerator) writeConnections(version string) error {
 	}
 
 	fileName := d.outputPath + fmt.Sprintf("/davinci_connectors.tf")
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
 
 	outputFile, err := os.Create(fileName)
 	defer outputFile.Close()
@@ -417,7 +433,7 @@ func (d *DaVinciGenerator) writeConnections(version string) error {
 	return nil
 }
 
-func (d *DaVinciGenerator) writeFlows(version string) error {
+func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	var templateString string
 
 	switch version {
@@ -432,6 +448,15 @@ func (d *DaVinciGenerator) writeFlows(version string) error {
 	}
 
 	fileName := d.outputPath + fmt.Sprintf("/davinci_flows.tf")
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
 
 	outputFile, err := os.Create(fileName)
 	defer outputFile.Close()
@@ -495,4 +520,20 @@ func (d *DaVinciGenerator) sanitiseStringFieldPtr(value *string) *string {
 
 	returnVar := d.sanitiseStringField(*value)
 	return &returnVar
+}
+
+func ensureDirExists(dirPath string) error {
+	// Check if the directory exists
+	_, err := os.Stat(dirPath)
+	if os.IsNotExist(err) {
+		// Directory does not exist, create it
+		err = os.MkdirAll(dirPath, os.ModePerm)
+		if err != nil {
+			return fmt.Errorf("failed to create directory %q: %v", dirPath, err)
+		}
+	} else if err != nil {
+		// An error other than "directory does not exist" occurred
+		return fmt.Errorf("failed to check directory %q: %v", dirPath, err)
+	}
+	return nil
 }

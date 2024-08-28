@@ -5,6 +5,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 
 	"github.com/patrickcping/dvtf-pingctl/internal/logger"
 	"github.com/spf13/cobra"
@@ -13,18 +14,17 @@ import (
 )
 
 const (
-	jsonFilePathConfigKey      = "jsonFilePath"
 	jsonFilePathParamNameLong  = "export-file-path"
 	jsonFilePathParamNameShort = "e"
+
+	configEnvPrefix = "PINGCTL_DVTF"
 )
 
 var (
 	jsonFilePath string
 	jsonContents string
 
-	rootConfigurationParamMapping = map[string]string{
-		jsonFilePathParamNameLong: jsonFilePathConfigKey,
-	}
+	configKeys = map[string]string{}
 )
 
 // rootCmd represents the base command when called without any subcommands
@@ -35,6 +35,11 @@ var rootCmd = &cobra.Command{
 		l := logger.Get()
 
 		err := initConfig()
+		if err != nil {
+			return err
+		}
+
+		err = bindParams(cmd)
 		if err != nil {
 			return err
 		}
@@ -54,15 +59,6 @@ var rootCmd = &cobra.Command{
 				return err
 			}
 		}
-
-		cmd.Flags().VisitAll(func(f *pflag.Flag) {
-			if v, ok := rootConfigurationParamMapping[f.Name]; ok && viper.IsSet(v) {
-				if err = cmd.Flags().SetAnnotation(f.Name, cobra.BashCompOneRequiredFlag, []string{"false"}); err != nil {
-					l.Err(err).Msgf("Error setting required status for flag %s", f.Name)
-					return
-				}
-			}
-		})
 
 		return nil
 	},
@@ -90,14 +86,20 @@ func init() {
 		validateCmd,
 	)
 
-	// Add config flags
-	rootCmd.PersistentFlags().StringVarP(&jsonFilePath, jsonFilePathParamNameLong, jsonFilePathParamNameShort, viper.GetString("DVTF_EXPORT_FILE_PATH"), "The path to the JSON export file.  E.g. /path/to/export.json")
-	if err := rootCmd.MarkPersistentFlagRequired(jsonFilePathParamNameLong); err != nil {
-		l.Err(err).Msgf("Error marking flag %s as required.", jsonFilePathParamNameLong)
+	for _, v := range generateConfigKeys {
+		configKeyVal := strings.ReplaceAll(v, "-", "")
+		configKeys[configKeyVal] = fmt.Sprintf("generate.%s", configKeyVal)
 	}
 
-	if err := bindParams(rootConfigurationParamMapping, rootCmd); err != nil {
-		l.Err(err).Msgf("Error binding parameters: %s", err)
+	for _, v := range validateConfigKeys {
+		configKeyVal := strings.ReplaceAll(v, "-", "")
+		configKeys[configKeyVal] = fmt.Sprintf("validate.%s", configKeyVal)
+	}
+
+	// Add config flags
+	rootCmd.PersistentFlags().StringVarP(&jsonFilePath, jsonFilePathParamNameLong, jsonFilePathParamNameShort, "", "The path to the JSON export file.  E.g. /path/to/export.json.  This parameter is not required if piping the JSON to the command.")
+	if err := rootCmd.MarkPersistentFlagRequired(jsonFilePathParamNameLong); err != nil {
+		l.Err(err).Msgf("Error marking flag %s as required.", jsonFilePathParamNameLong)
 	}
 }
 
@@ -118,7 +120,9 @@ func initConfig() error {
 		}
 	}
 
-	viper.SetEnvPrefix("DVTF")
+	viper.SetEnvPrefix(configEnvPrefix)
+
+	viper.SetEnvKeyReplacer(strings.NewReplacer("-", "_"))
 
 	viper.AutomaticEnv()
 
@@ -127,14 +131,32 @@ func initConfig() error {
 	return nil
 }
 
-func bindParams(paramlist map[string]string, command *cobra.Command) error {
-	// Do the binds
-	for k, v := range paramlist {
-		err := viper.BindPFlag(v, command.PersistentFlags().Lookup(k))
-		if err != nil {
-			return err
+func bindParams(cmd *cobra.Command) error {
+	cmd.Flags().VisitAll(func(f *pflag.Flag) {
+		configName := strings.ReplaceAll(f.Name, "-", "")
+
+		if v, ok := configKeys[configName]; ok {
+			configName = v
 		}
-	}
+
+		if !f.Changed && viper.IsSet(configName) {
+			// if err = cmd.Flags().SetAnnotation(f.Name, cobra.BashCompOneRequiredFlag, []string{"false"}); err != nil {
+			// 	l.Err(err).Msgf("Error setting required status for flag %s", f.Name)
+			// 	return
+			// }
+			viperValue := viper.Get(configName)
+			switch v := viperValue.(type) {
+			case []interface{}:
+				values := make([]string, 0)
+				for _, val := range v {
+					values = append(values, fmt.Sprintf("%v", val))
+				}
+				cmd.Flags().Set(f.Name, strings.Join(values, ","))
+			default:
+				cmd.Flags().Set(f.Name, fmt.Sprintf("%v", v))
+			}
+		}
+	})
 
 	return nil
 }

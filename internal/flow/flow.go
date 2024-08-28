@@ -34,14 +34,14 @@ func NewFromPipe(exportString string) (*DaVinciExport, error) {
 	return &dvExport, nil
 }
 
-func (d *DaVinciExport) Generate(resources []terraform.ProviderResource, version string) (ok bool, err error) {
-	generate := generate.New(d.ExportBytes, resources)
+func (d *DaVinciExport) Generate(resources []terraform.ProviderResource, version, outputPath string, overwrite bool) (ok bool, err error) {
+	generate := generate.New(d.ExportBytes, resources, outputPath)
 
 	if d.exportPath != nil {
 		generate.SetPath(*d.exportPath)
 	}
 
-	return true, generate.Generate(version)
+	return true, generate.Generate(version, overwrite)
 }
 
 func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok, warning bool, err error) {

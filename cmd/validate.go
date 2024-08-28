@@ -8,9 +8,9 @@ import (
 
 	"github.com/patrickcping/dvtf-pingctl/internal/flow"
 	"github.com/patrickcping/dvtf-pingctl/internal/logger"
+	"github.com/patrickcping/dvtf-pingctl/internal/output"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
 )
 
 var (
@@ -20,17 +20,16 @@ var (
 const (
 	validateCmdName = "validate"
 
-	fieldConfigKey  = "field"
 	fieldParamLong  = "field"
 	fieldParamShort = "f"
 )
 
 var (
-	validateConfigurationParamMapping = map[string]string{
-		fieldParamLong: fieldConfigKey,
-	}
-
 	defaultParam = string(terraform.ProviderFieldTypeFlowJson)
+
+	validateConfigKeys = []string{
+		fieldParamLong,
+	}
 )
 
 var validateCmd = &cobra.Command{
@@ -61,6 +60,10 @@ var validateCmd = &cobra.Command{
 
 		if jsonContents != "" {
 
+			output.Print(output.Opts{
+				Message: fmt.Sprintf("Running validation for field %s", terraform.ProviderField(validateField)),
+			})
+
 			dvFlow, err = flow.NewFromPipe(string(jsonContents))
 			if err != nil {
 				log.Fatal(err)
@@ -68,13 +71,17 @@ var validateCmd = &cobra.Command{
 
 		} else {
 
-			dvFlow, err = flow.NewFromPath(viper.GetString(jsonFilePathConfigKey))
+			output.Print(output.Opts{
+				Message: fmt.Sprintf("Running validation for field %s for JSON at %s", terraform.ProviderField(validateField), jsonFilePath),
+			})
+
+			dvFlow, err = flow.NewFromPath(jsonFilePath)
 			if err != nil {
 				log.Fatal(err)
 			}
 		}
 
-		ok, warning, err := dvFlow.Validate(terraform.ProviderField(viper.GetString(fieldConfigKey)))
+		ok, warning, err := dvFlow.Validate(terraform.ProviderField(validateField))
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -92,11 +99,5 @@ var validateCmd = &cobra.Command{
 }
 
 func init() {
-	l := logger.Get()
-
 	validateCmd.PersistentFlags().StringVarP(&validateField, fieldParamLong, fieldParamShort, defaultParam, fmt.Sprintf("The davinci_flow field to validate the JSON input for.  Options are %s", strings.Join(terraform.AllowedProviderFields, ", ")))
-
-	if err := bindParams(validateConfigurationParamMapping, validateCmd); err != nil {
-		l.Err(err).Msgf("Error binding parameters: %s", err)
-	}
 }
