@@ -4,6 +4,8 @@ go 1.21
 
 toolchain go1.21.5
 
+replace github.com/samir-gandhi/davinci-client-go => /Users/patrickcowland/Documents/Terraform/davinci-client-go
+
 require (
 	github.com/fatih/color v1.14.1
 	github.com/rs/zerolog v1.31.0

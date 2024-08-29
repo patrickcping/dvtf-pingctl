@@ -168,7 +168,7 @@ The `dvtf-pingctl validate ...` command will return the following return status 
 
 ## Configuration File
 
-The parameters described above can be configured in a static configuration file, expected to be named `.dvtf-pingctl.yaml` in the same directory that the CLI tool is run.  The following describe the properties that can be set, and an example can be found at [./dvtf-pingctl.yaml.example](./dvtf-pingctl.yaml.example)
+The parameters described above can be configured in a static configuration file, expected to be named `.dvtf-pingctl.yaml` in the same directory that the CLI tool is run.  The following describe the properties that can be set, and an example can be found at [./dvtf-pingctl.yaml.example](./blob/main/.dvtf-pingctl.yaml.example)
 
 #### General Properties
 
