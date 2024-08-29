@@ -7,7 +7,6 @@ resource "davinci_variable" "fdgdfgfdg__full_basic" {
 
   name        = "fdgdfgfdg"
   type        = "string"
-  description = ""
 
   // Defines a static value.  Comment out or remove both `value` and `empty_value` if the variable value should not be tracked in Terraform state.
   // value = ""
