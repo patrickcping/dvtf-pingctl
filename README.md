@@ -196,10 +196,9 @@ The following are configuration file settings for the `dvtf-pingctl validate ...
 |-------------------------|------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `validate.field`        | text | `--field` / `-f`     | Defines the field that the JSON should be validated for.  Defaults to `flow_json`.  Options are `flow_json`, `flow_export_json` or `flow_configuration_json` |
 
-## TODO
+## Limitations / TODO
 
-- `davinci_connector` `property` block generation based on connector definition
-- Testing
-- Multi-arch install
-- Unit tests
-- Debug logging
+- `davinci_connector` `property` blocks are not yet generated and must be defined using the [DaVinci Connector Definitions guide](https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference)
+- Homebrew is the only installer currently.  Multi-arch install (including Windows) TBD
+- Housekeeping: Enhanced Debug logging
+- Housekeeping: Unit Testing
