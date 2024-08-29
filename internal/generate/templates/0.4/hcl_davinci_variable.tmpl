@@ -14,7 +14,7 @@ resource "davinci_variable" "{{.ResourceName}}" {
 {{- end}}
 
   // Defines a static value.  Comment out or remove both `value` and `empty_value` if the variable value should not be tracked in Terraform state.
-  {{if .Value}}value = "{{.Value}}"{{else}}// value = ""{{end}}
+  {{if .Value}}value = {{if .Value.JSON}}jsonencode({{.Value.JSON}}){{end}}{{if .Value.Text}}"{{.Value.Text}}"{{end}}{{else}}// value = ""{{end}}
   
   // Defines a static blank string value ("").  Comment out or remove both `value` and `empty_value` if the variable value should not be tracked in Terraform state.
   // empty_value = true

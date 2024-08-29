@@ -180,10 +180,9 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			return v.ResourceName == resourceName
 		}) {
 
-			var variableValue *string
+			var variableValue *variableDataValue
 			if variable.Fields.Value != nil {
-				v := fmt.Sprintf("%v", variable.Fields.Value)
-				variableValue = &v
+				variableValue = d.parseFieldValue(variable.Fields.Value)
 			}
 
 			d.variablesData = append(d.variablesData, variableData{
@@ -503,6 +502,9 @@ func (d *DaVinciGenerator) sanitiseResourceName(name string) string {
 }
 
 func (d *DaVinciGenerator) sanitiseStringField(value string) string {
+	if !strings.Contains(value, `\"`) {
+		value = strings.ReplaceAll(value, `"`, `\"`)
+	}
 	return strings.TrimSpace(value)
 }
 
@@ -529,4 +531,19 @@ func ensureDirExists(dirPath string) error {
 		return fmt.Errorf("failed to check directory %q: %v", dirPath, err)
 	}
 	return nil
+}
+
+func (d *DaVinciGenerator) parseFieldValue(value interface{}) *variableDataValue {
+	v := fmt.Sprintf("%v", value)
+
+	variableDataValue := &variableDataValue{} // Initialize the variableDataValue
+
+	if (strings.HasPrefix(v, "{") || strings.HasPrefix(v, "[")) && json.Valid([]byte(v)) {
+		variableDataValue.JSON = &v
+	} else {
+		sanistisedV := d.sanitiseStringField(v)
+		variableDataValue.Text = &sanistisedV
+	}
+
+	return variableDataValue
 }

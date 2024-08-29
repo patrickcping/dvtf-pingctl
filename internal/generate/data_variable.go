@@ -7,8 +7,13 @@ type variableData struct {
 	Name        string
 	Type        string
 	Description *string
-	Value       *string
+	Value       *variableDataValue
 	Min         *int32
 	Max         *int32
 	Mutable     *bool
+}
+
+type variableDataValue struct {
+	JSON *string
+	Text *string
 }
