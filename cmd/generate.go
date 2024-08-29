@@ -35,7 +35,7 @@ const (
 
 	generateOutputPathParamLong    = "output-path"
 	generateOutputPathParamShort   = "o"
-	generateOutputPathParamDefault = "./"
+	generateOutputPathParamDefault = "./generated"
 
 	overwriteParamLong    = "overwrite"
 	overwriteParamDefault = false
