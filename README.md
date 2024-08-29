@@ -4,9 +4,6 @@ A simple CLI tool to assist HCL generation and debugging with using the [DaVinci
 
 * Supported DaVinci Terraform provider version: `v0.4.2+`
 
-> [!IMPORTANT]  
-> Content in this repository is under development and isn't yet functional.
-
 ## Install
 
 Only Homebrew is supported initially, for other methods of install please [raise an issue](https://github.com/patrickcping/dvtf-pingctl/issues/new?title=New%20installation%20method%20required).
