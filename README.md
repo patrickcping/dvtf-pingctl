@@ -182,11 +182,19 @@ The following are configuration file settings for both `dvtf-pingctl generate ..
 
 The following are configuration file settings for the `dvtf-pingctl generate ...` command.
 
-| Config File Property    | Type          | Equivalent Parameter        | Purpose                                                                                                      |
-|-------------------------|---------------|-----------------------------|--------------------------------------------------------------------------------------------------------------|
-| `generate.resource`     | array / list  | `--resource` / `-r`         | Defines the list of resources to generate HCL for.  Defaults to all.                                         |
-| `generate.outputPath`   | text          | `--output-path` / `-o`      | Defines the output directory to which generated files will be saved.  Defaults to `./generated`              |
-| `generate.overwrite `   | boolean       | `--overwrite`               | Specifies whether to overwrite previously generated files in the output directory path.  Defaults to `false` |
+| Config File Property    | Type          | Equivalent Parameter        | Purpose                                                                                                                                                 |
+|-------------------------|---------------|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `generate.resource`     | array / list  | `--resource` / `-r`         | Defines the list of resources to generate HCL for.  Defaults to all resources.  Options are `davinci_flow`, `davinci_variable` and `davinci_connection` |
+| `generate.outputPath`   | text          | `--output-path` / `-o`      | Defines the output directory to which generated files will be saved.  Defaults to `./generated`                                                         |
+| `generate.overwrite `   | boolean       | `--overwrite`               | Specifies whether to overwrite previously generated files in the output directory path.  Defaults to `false`                                            |
+
+#### Validate Properties
+
+The following are configuration file settings for the `dvtf-pingctl validate ...` command.
+
+| Config File Property    | Type | Equivalent Parameter | Purpose                                                                                                                                                      |
+|-------------------------|------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `validate.field`        | text | `--field` / `-f`     | Defines the field that the JSON should be validated for.  Defaults to `flow_json`.  Options are `flow_json`, `flow_export_json` or `flow_configuration_json` |
 
 ## TODO
 
