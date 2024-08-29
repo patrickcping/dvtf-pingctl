@@ -2,3 +2,4 @@ testoutput*
 vendor
 env*.sh
 output.log
+generated*
