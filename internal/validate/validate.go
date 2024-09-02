@@ -1,8 +1,11 @@
 package validate
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"strings"
 
 	"github.com/patrickcping/dvtf-pingctl/internal/output"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
@@ -146,6 +149,8 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 		return true, false, nil
 	}
 
+	var syntaxError *json.SyntaxError
+	var unmarshalTypeError *json.UnmarshalTypeError
 	var equatesEmptyError *davinci.EquatesEmptyTypeError
 	var missingRequiredFlowFieldsError *davinci.MissingRequiredFlowFieldsTypeError
 	var unknownAdditionalFieldsError *davinci.UnknownAdditionalFieldsTypeError
@@ -153,6 +158,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	var maxFlowDefsError *davinci.MaxFlowDefinitionsExceededTypeError
 	outputOpts := output.Opts{}
 	switch {
+	// Custom DV Errors
 	case errors.Is(vErr, ErrSubflowsPresent):
 
 		outputOpts = output.Opts{
@@ -228,6 +234,38 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	case errors.As(vErr, &maxFlowDefsError):
 		outputOpts = output.Opts{
 			Message: fmt.Sprintf("There are too many flows exported in the flow group.  Expecting a maximum of %d", maxFlowDefsError.Max),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	// Standard Go/JSON handling Errors
+	case errors.As(vErr, &syntaxError):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains badly formed JSON at position %d", syntaxError.Offset),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.Is(vErr, io.ErrUnexpectedEOF):
+		outputOpts = output.Opts{
+			Message: "The export contains badly formed JSON",
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.As(vErr, &unmarshalTypeError):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains an invalid value for the field %s at position %d", unmarshalTypeError.Field, unmarshalTypeError.Offset),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.Is(vErr, io.EOF):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contents cannot be empty"),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case strings.HasPrefix(vErr.Error(), "json: unknown field"):
+		fieldName := strings.TrimPrefix(vErr.Error(), "json: unknown field ")
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains an unknown field %s", fieldName),
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
