@@ -1,9 +1,13 @@
 package validate
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
+	"strings"
 
+	"github.com/patrickcping/dvtf-pingctl/internal/logger"
 	"github.com/patrickcping/dvtf-pingctl/internal/output"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/samir-gandhi/davinci-client-go/davinci"
@@ -65,6 +69,8 @@ type DaVinciValidator struct {
 }
 
 func New(exportBytes []byte, providerField terraform.ProviderField) *DaVinciValidator {
+	l := logger.Get()
+	l.Debug().Msgf("validate.New called")
 	return &DaVinciValidator{
 		exportBytes:   exportBytes,
 		providerField: providerField,
@@ -72,6 +78,8 @@ func New(exportBytes []byte, providerField terraform.ProviderField) *DaVinciVali
 }
 
 func (d *DaVinciValidator) Validate() error {
+	l := logger.Get()
+	l.Debug().Msgf("DaVinciValidator Validate called")
 
 	switch d.providerField {
 	case terraform.ProviderFieldTypeFlowJson:
@@ -89,18 +97,26 @@ var ErrSubflowsPresent = errors.New("Subflows are present in the export.  Subflo
 
 // Replicated from the Terraform provider https://github.com/pingidentity/terraform-provider-davinci/blob/007d4dd02f01438b0f28feee44ad03b6325e3263/internal/framework/customtypes/davinciexporttype/parsed_value.go#L96
 func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.ExportCmpOpts) error {
+	l := logger.Get()
+	l.Debug().Msgf("DaVinciValidator terraformCustomTypeValidator called")
 
 	var flows davinci.Flows
 
+	l.Debug().Msgf("Multi-flow validation check")
 	// should really use the actual validator
 	err := davinci.Unmarshal(d.exportBytes, &flows, davinci.ExportCmpOpts{})
 	if err != nil {
+		l.Error().Msgf("Cannot parse flow for multi-flow validation check: %v", err)
 		return err
 	}
 
 	if len(flows.Flow) > 0 {
+		l.Warn().Msgf("Multi-flow validation check found a multi-flow export")
 		return ErrSubflowsPresent
 	}
+
+	l.Debug().Msgf("Multi-flow validation check passed.")
+	l.Debug().Msgf("Validating the config of the export without unmapped properties..")
 
 	// Validate just the config of the export
 	err = davinci.ValidFlowExport(d.exportBytes, davinci.ExportCmpOpts{
@@ -115,8 +131,11 @@ func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.Export
 	})
 
 	if err != nil {
+		l.Error().Msgf("Config of the export validation check failed: %v", err)
 		return err
 	}
+	l.Debug().Msgf("Config of the export validation check passed")
+	l.Debug().Msgf("Checking if there are unmapped properties in the export..")
 
 	// Warn in case there are AdditionalProperties in the import file (since these aren't cleanly handled in the SDK, while they are preserved on import, there may be unpredictable results in diff calculation)
 	err = davinci.ValidFlowExport(d.exportBytes, davinci.ExportCmpOpts{
@@ -130,13 +149,17 @@ func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.Export
 	})
 
 	if !fieldOpts.IgnoreUnmappedProperties && err != nil {
+		l.Error().Msgf("Unmapped properties check failed: %v", err)
 		return err
 	}
+	l.Debug().Msgf("Unmapped properties check passed")
 
 	return nil
 }
 
 func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning bool, err error) {
+	l := logger.Get()
+	l.Debug().Msgf("DaVinciValidator OutputValidationResponse called")
 
 	if vErr == nil {
 		output.Print(output.Opts{
@@ -146,6 +169,8 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 		return true, false, nil
 	}
 
+	var syntaxError *json.SyntaxError
+	var unmarshalTypeError *json.UnmarshalTypeError
 	var equatesEmptyError *davinci.EquatesEmptyTypeError
 	var missingRequiredFlowFieldsError *davinci.MissingRequiredFlowFieldsTypeError
 	var unknownAdditionalFieldsError *davinci.UnknownAdditionalFieldsTypeError
@@ -153,6 +178,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	var maxFlowDefsError *davinci.MaxFlowDefinitionsExceededTypeError
 	outputOpts := output.Opts{}
 	switch {
+	// Custom DV Errors
 	case errors.Is(vErr, ErrSubflowsPresent):
 
 		outputOpts = output.Opts{
@@ -231,9 +257,44 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
+	// Standard Go/JSON handling Errors
+	case errors.As(vErr, &syntaxError):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains badly formed JSON at position %d", syntaxError.Offset),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.Is(vErr, io.ErrUnexpectedEOF):
+		outputOpts = output.Opts{
+			Message: "The export contains badly formed JSON",
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.As(vErr, &unmarshalTypeError):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains an invalid value for the field %s at position %d", unmarshalTypeError.Field, unmarshalTypeError.Offset),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case errors.Is(vErr, io.EOF):
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contents cannot be empty"),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
+	case strings.HasPrefix(vErr.Error(), "json: unknown field"):
+		fieldName := strings.TrimPrefix(vErr.Error(), "json: unknown field ")
+		outputOpts = output.Opts{
+			Message: fmt.Sprintf("The export contains an unknown field %s", fieldName),
+			Result:  output.ENUM_RESULT_FAILURE,
+		}
+
 	default:
+		l.Debug().Msgf("Returning unhandled error: #%v", vErr)
 		return false, false, vErr
 	}
+
+	l.Debug().Msgf("Printing output: #%v", outputOpts)
 
 	output.Print(outputOpts)
 
