@@ -7,6 +7,7 @@ import (
 
 	"github.com/patrickcping/dvtf-pingctl/internal/generate"
 	"github.com/patrickcping/dvtf-pingctl/internal/generate/export"
+	"github.com/patrickcping/dvtf-pingctl/internal/logger"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/patrickcping/dvtf-pingctl/internal/validate"
 )
@@ -50,8 +51,11 @@ func (d *DaVinciExport) Generate(resources []terraform.ProviderResource, version
 }
 
 func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok, warning bool, err error) {
+	l := logger.Get()
+	l.Debug().Msgf("DaVinciExport Validate called.")
 	validator := validate.New(d.ExportBytes, providerField)
 
+	l.Debug().Msgf("Validating output..")
 	return validator.OutputValidationResponse(validator.Validate())
 }
 
