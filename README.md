@@ -50,11 +50,27 @@ The `--export-file-path` / `-e` parameter can be used to specify the path locati
 Examples:
 
 ```shell
-dvtf-pingctl generate --export-file-path /path/to/my/export.json
-dvtf-pingctl generate -e /path/to/my/export.json
-dvtf-pingctl generate --export-file-path /path/to/my/main_flow_export.json --export-file-path /path/to/my/sub_flow_export.json
-dvtf-pingctl generate -e /path/to/my/main_flow_export.json -e /path/to/my/sub_flow_export.json
-dvtf-pingctl validate --export-file-path /path/to/my/export.json --export-file-path /path/to/my/sub_flow_export.json
+dvtf-pingctl generate \
+  --export-file-path /path/to/my/export.json
+```
+```shell
+dvtf-pingctl generate \
+    -e /path/to/my/export.json
+```
+```shell
+dvtf-pingctl generate \
+    --export-file-path /path/to/my/main_flow_export.json \
+    --export-file-path /path/to/my/sub_flow_export.json
+```
+```shell
+dvtf-pingctl generate \
+    -e /path/to/my/main_flow_export.json \
+    -e /path/to/my/sub_flow_export.json
+```
+```shell
+dvtf-pingctl validate \
+    --export-file-path /path/to/my/export.json \
+    --export-file-path /path/to/my/sub_flow_export.json
 ```
 
 ### Providing the Export JSON through Pipe
@@ -65,7 +81,11 @@ Examples:
 
 ```shell
 cat /path/to/my/export.json | dvtf-pingctl generate
+```
+```shell
 jq '.name = "abcde"' ./path/to/my/export.json | dvtf-pingctl generate
+```
+```shell
 jq '.name = "abcde"' ./path/to/my/export.json | dvtf-pingctl validate
 ```
 
@@ -82,16 +102,34 @@ If the output directory already exists and the `--overwrite` parameter is not se
 Examples:
 
 ```shell
-dvtf-pingctl generate --export-file-path /path/to/my/export.json -o ./my/output/dir
-dvtf-pingctl generate -e /path/to/my/export.json -o ./my/output/dir
-dvtf-pingctl generate --export-file-path /path/to/my/export.json -o ./my/output/dir --overwrite
-dvtf-pingctl generate -e /path/to/my/export.json -o ./my/output/dir --overwrite
+dvtf-pingctl generate \
+    --export-file-path /path/to/my/export.json \
+    -o ./my/output/dir
+```
+```shell
+dvtf-pingctl generate \
+    -e /path/to/my/export.json \
+    -o ./my/output/dir
+```
+```shell
+dvtf-pingctl generate \
+    --export-file-path /path/to/my/export.json \
+    -o ./my/output/dir \
+    --overwrite
+```
+```shell
+dvtf-pingctl generate \
+    -e /path/to/my/export.json \
+    -o ./my/output/dir \
+    --overwrite
 ```
 
 Examples where the JSON payload is provided via pipe:
 
 ```shell
 cat /path/to/my/export.json | dvtf-pingctl generate -o ./my/output/dir
+```
+```shell
 cat /path/to/my/export.json | dvtf-pingctl generate -o ./my/output/dir --overwrite
 ```
 
@@ -104,17 +142,31 @@ Individual resources can be selected for generation using the `--resource` flag 
 Examples where the JSON is provided as a parameter:
 
 ```shell
-dvtf-pingctl generate --export-file-path /path/to/my/export.json -o ./my/output/dir
-dvtf-pingctl generate -e /path/to/my/export.json -o ./my/output/dir
-dvtf-pingctl generate --export-file-path /path/to/my/export.json -o ./my/output/dir --resource davinci_flow --resource davinci_variable --resource davinci_connector
-dvtf-pingctl generate -e /path/to/my/export.json -o ./my/output/dir -r davinci_flow -r davinci_variable -r davinci_connector
+dvtf-pingctl generate \
+    --export-file-path /path/to/my/export.json \
+    -o ./my/output/dir \
+    --resource davinci_flow \
+    --resource davinci_variable \
+    --resource davinci_connector
+```
+```shell
+dvtf-pingctl generate \
+    -e /path/to/my/export.json \
+    -o ./my/output/dir \
+    -r davinci_flow \
+    -r davinci_variable \
+    -r davinci_connector
 ```
 
 Examples where the JSON payload is provided via pipe:
 
 ```shell
 cat /path/to/my/export.json | dvtf-pingctl generate -o ./my/output/dir
+```
+```shell
 cat /path/to/my/export.json | dvtf-pingctl generate -o ./my/output/dir --resource davinci_flow --resource davinci_variable --resource davinci_connector
+```
+```shell
 cat /path/to/my/export.json | dvtf-pingctl generate -o ./my/output/dir -r davinci_flow -r davinci_variable -r davinci_connector
 ```
 
@@ -127,8 +179,12 @@ The Terraform provider expects single flows only, and this command contains a va
 Examples where the JSON is provided as a parameter:
 
 ```shell
-dvtf-pingctl validate --export-file-path /path/to/my/export.json
-dvtf-pingctl validate -e /path/to/my/export.json
+dvtf-pingctl validate \
+    --export-file-path /path/to/my/export.json
+```
+```shell
+dvtf-pingctl validate \
+    -e /path/to/my/export.json
 ```
 
 Example where the JSON is provided via pipe:
@@ -144,14 +200,22 @@ To validate the JSON input for a specific `davinci_flow` field in the case of de
 Examples where the JSON is provided as a parameter:
 
 ```shell
-dvtf-pingctl validate --export-file-path /path/to/my/export.json --field flow_configuration_json
-dvtf-pingctl validate -e /path/to/my/export.json -f flow_configuration_json
+dvtf-pingctl validate \
+    --export-file-path /path/to/my/export.json \
+    --field flow_configuration_json
+```
+```shell
+dvtf-pingctl validate \
+    -e /path/to/my/export.json \
+    -f flow_configuration_json
 ```
 
 Example where the JSON is provided via pipe:
 
 ```shell
 cat /path/to/my/export.json | dvtf-pingctl validate --field flow_configuration_json
+```
+```shell
 cat /path/to/my/export.json | dvtf-pingctl validate -f flow_configuration_json
 ```
 
@@ -162,6 +226,19 @@ The `dvtf-pingctl validate ...` command will return the following return status 
 - `0` - Successful validation, no warnings
 - `1` - Unsuccessful validation
 - `2` - Successful validation, with warnings
+
+## Logging
+
+The logging level can be set using the `DVTF_LOG` environment variable.  The possible values that can be set are `DEBUG`, `INFO`, `WARN`, `ERROR` and `NOLEVEL`.  By default, extra log output is disabled.
+
+A log file can be created using the `DVTF_PATH` environment variable.  This redirects the log output to a file of choice.  If not set, the debug output will be printed alongside the command output (stdout).
+
+The following example logs debug output to the file called `dvtf.log`:
+```shell
+DVTF_LOG=DEBUG DVTF_PATH=`pwd`/dvtf.log dvtf-pingctl validate \
+    --export-file-path /path/to/my/export.json \
+    --field flow_configuration_json
+```
 
 ## Configuration File
 
