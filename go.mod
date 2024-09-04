@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.5
 
 require (
-	github.com/fatih/color v1.14.1
+	github.com/fatih/color v1.17.0
 	github.com/rs/zerolog v1.33.0
 	github.com/samir-gandhi/davinci-client-go v0.6.1
 	github.com/spf13/cobra v1.8.1
