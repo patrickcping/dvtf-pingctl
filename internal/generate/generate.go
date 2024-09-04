@@ -505,6 +505,10 @@ func (d *DaVinciGenerator) sanitiseStringField(value string) string {
 	if !strings.Contains(value, `\"`) {
 		value = strings.ReplaceAll(value, `"`, `\"`)
 	}
+
+	re := regexp.MustCompile(`\r?\n`)
+	value = re.ReplaceAllString(value, "\\n")
+
 	return strings.TrimSpace(value)
 }
 
