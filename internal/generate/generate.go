@@ -542,7 +542,12 @@ func (d *DaVinciGenerator) parseFieldValue(value interface{}) *variableDataValue
 		variableDataValue.JSON = &v
 	} else {
 		sanistisedV := d.sanitiseStringField(v)
-		variableDataValue.Text = &sanistisedV
+
+		if sanistisedV == "" {
+			return nil
+		} else {
+			variableDataValue.Text = &sanistisedV
+		}
 	}
 
 	return variableDataValue
