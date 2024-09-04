@@ -213,7 +213,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 				resourceName := d.sanitiseResourceName(fmt.Sprintf("%s__%s", *nodeData.ConnectorID, *nodeData.ConnectionID))
 
 				if !slices.ContainsFunc(d.connectionsData, func(v connectionData) bool {
-					return v.ID == *nodeData.ConnectorID
+					return v.ResourceName == resourceName
 				}) {
 					d.connectionsData = append(d.connectionsData, connectionData{
 						commonData: commonData{
