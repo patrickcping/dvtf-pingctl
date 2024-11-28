@@ -313,7 +313,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 		DependsOnVarRefs: dependsOnVarRefs,
 		Name:             d.sanitiseStringFieldPtr(&flow.Name),
 		Description:      d.sanitiseStringFieldPtr(flow.Description),
-		FlowJSONPath:     fmt.Sprintf("%s", pathVar),
+		FlowJSONPath:     pathVar,
 		ConnectionLinks:  flowConnectionLinks,
 		SubflowLinks:     subflowLinks,
 	})
@@ -391,7 +391,7 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 		return fmt.Errorf("failed to parse variable HCL template. err: %s", err.Error())
 	}
 
-	fileName := d.outputPath + fmt.Sprintf("/davinci_variables.tf")
+	fileName := fmt.Sprintf("%s/davinci_variables.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
@@ -403,10 +403,10 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 	}
 
 	outputFile, err := os.Create(fileName)
-	defer outputFile.Close()
 	if err != nil {
 		return err
 	}
+	defer outputFile.Close()
 
 	for _, variableData := range d.variablesData {
 		err = hclTemplate.Execute(outputFile, variableData)
@@ -433,7 +433,7 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 		return fmt.Errorf("failed to parse connection HCL template. err: %s", err.Error())
 	}
 
-	fileName := d.outputPath + fmt.Sprintf("/davinci_connectors.tf")
+	fileName := fmt.Sprintf("%s/davinci_connectors.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
@@ -445,10 +445,10 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 	}
 
 	outputFile, err := os.Create(fileName)
-	defer outputFile.Close()
 	if err != nil {
 		return err
 	}
+	defer outputFile.Close()
 
 	for _, connectionData := range d.connectionsData {
 		err = hclTemplate.Execute(outputFile, connectionData)
@@ -474,7 +474,7 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 		return fmt.Errorf("failed to parse flow HCL template. err: %s", err.Error())
 	}
 
-	fileName := d.outputPath + fmt.Sprintf("/davinci_flows.tf")
+	fileName := fmt.Sprintf("%s/davinci_flows.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
@@ -486,10 +486,10 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	}
 
 	outputFile, err := os.Create(fileName)
-	defer outputFile.Close()
 	if err != nil {
 		return err
 	}
+	defer outputFile.Close()
 
 	for _, flowData := range d.flowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
@@ -503,7 +503,7 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 
 func (d *DaVinciGenerator) writeAssets() error {
 
-	outputDir := d.outputPath + fmt.Sprintf("/assets/flows/")
+	outputDir := fmt.Sprintf("%s/assets/flows/", d.outputPath)
 
 	err := os.MkdirAll(outputDir, os.ModePerm)
 	if err != nil {
@@ -523,6 +523,9 @@ func (d *DaVinciGenerator) writeAssets() error {
 func (d *DaVinciGenerator) writeAsset(flowAsset flowAssetData) error {
 
 	fileData, err := json.MarshalIndent(flowAsset.flowMap, "", "  ")
+	if err != nil {
+		return fmt.Errorf("Cannot marshal asset data: %s", err)
+	}
 
 	err = os.WriteFile(fmt.Sprintf("%s/%s", d.outputPath, flowAsset.path), fileData, 0644)
 	if err != nil {

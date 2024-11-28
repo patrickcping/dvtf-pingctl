@@ -182,42 +182,42 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	case errors.Is(vErr, ErrSubflowsPresent):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("Subflows are present in the export file.  Subflows must be managed as their own independent davinci_flow resources.  Please re-export the DaVinci flow without subflows."),
+			Message: "Subflows are present in the export file.  Subflows must be managed as their own independent davinci_flow resources.  Please re-export the DaVinci flow without subflows.",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
 	case errors.Is(vErr, davinci.ErrInvalidJson):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The DaVinci Flow Export JSON is not valid JSON.  Please re-export the DaVinci flow."),
+			Message: "The DaVinci Flow Export JSON is not valid JSON.  Please re-export the DaVinci flow.",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
 	case errors.Is(vErr, davinci.ErrEmptyFlow):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The DaVinci Flow Export JSON is empty.  Please re-export the DaVinci flow."),
+			Message: "The DaVinci Flow Export JSON is empty.  Please re-export the DaVinci flow.",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
 	case errors.Is(vErr, davinci.ErrNoFlowDefinition):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("No flow definition found in the DaVinci Flow Export JSON.  Expecting exactly one flow definition.  Please re-export the DaVinci flow."),
+			Message: "No flow definition found in the DaVinci Flow Export JSON.  Expecting exactly one flow definition.  Please re-export the DaVinci flow.",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
 	case errors.Is(vErr, davinci.ErrMissingSaveVariableValues):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("Save flow variable nodes are present but are missing variable values in the DaVinci Flow Export JSON.  Please re-export the DaVinci flow ensuring that variable values are included."),
+			Message: "Save flow variable nodes are present but are missing variable values in the DaVinci Flow Export JSON.  Please re-export the DaVinci flow ensuring that variable values are included.",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
 	case errors.As(vErr, &equatesEmptyError):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The JSON does not appear to be a valid DaVinci export file.  Please re-export the DaVinci flow."),
+			Message: "The JSON does not appear to be a valid DaVinci export file.  Please re-export the DaVinci flow.",
 			Result:  output.ENUM_RESULT_FAILURE,
 			Fields: map[string]interface{}{
 				"Computed Difference (empty is failure)": equatesEmptyError.Diff,
@@ -227,7 +227,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	case errors.As(vErr, &missingRequiredFlowFieldsError):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The DaVinci Flow Export JSON has been evaluated to be missing required fields.  Please re-export the DaVinci flow."),
+			Message: "The DaVinci Flow Export JSON has been evaluated to be missing required fields.  Please re-export the DaVinci flow.",
 			Result:  output.ENUM_RESULT_FAILURE,
 			Fields: map[string]interface{}{
 				"Computed Difference": missingRequiredFlowFieldsError.Diff,
@@ -237,7 +237,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 	case errors.As(vErr, &unknownAdditionalFieldsError):
 
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The DaVinci flow will be accepted by the provider, but the DaVinci Flow Export contains unknown properties that cannot be validated.  These parameters will be preserved on import to the DaVinci service, but there may be unpredictable results in difference calculation."),
+			Message: "The DaVinci flow will be accepted by the provider, but the DaVinci Flow Export contains unknown properties that cannot be validated.  These parameters will be preserved on import to the DaVinci service, but there may be unpredictable results in difference calculation.",
 			Result:  output.ENUM_RESULT_NOACTION_WARN,
 			Fields: map[string]interface{}{
 				"Computed Difference": unknownAdditionalFieldsError.Diff,
@@ -278,7 +278,7 @@ func (d *DaVinciValidator) OutputValidationResponse(vErr error) (ok, warning boo
 
 	case errors.Is(vErr, io.EOF):
 		outputOpts = output.Opts{
-			Message: fmt.Sprintf("The export contents cannot be empty"),
+			Message: "The export contents cannot be empty",
 			Result:  output.ENUM_RESULT_FAILURE,
 		}
 
