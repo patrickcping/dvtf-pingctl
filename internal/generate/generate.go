@@ -12,6 +12,7 @@ import (
 
 	"github.com/patrickcping/dvtf-pingctl/internal/generate/export"
 	"github.com/patrickcping/dvtf-pingctl/internal/logger"
+	"github.com/patrickcping/dvtf-pingctl/internal/output"
 	"github.com/patrickcping/dvtf-pingctl/internal/terraform"
 	"github.com/samir-gandhi/davinci-client-go/davinci"
 )
@@ -24,6 +25,7 @@ type DaVinciGenerator struct {
 	connectionsData []connectionData
 	variablesData   []variableData
 	flowAssets      []flowAssetData
+	flowNames       map[string]string
 }
 
 func New(exportDefs []export.DaVinciGeneratorExport, resources []terraform.ProviderResource, outputPath string) *DaVinciGenerator {
@@ -31,6 +33,7 @@ func New(exportDefs []export.DaVinciGeneratorExport, resources []terraform.Provi
 		exportDefs: exportDefs,
 		resources:  resources,
 		outputPath: outputPath,
+		flowNames:  map[string]string{},
 	}
 }
 
@@ -54,6 +57,9 @@ func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 		}
 	}
 
+	// Re-write the subflow names to fix issue https://github.com/patrickcping/dvtf-pingctl/issues/11
+	d.rewriteSubflowNames()
+
 	// Write the HCL configuration
 	err = d.write(version, overwrite)
 	if err != nil {
@@ -61,6 +67,34 @@ func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 	}
 
 	return nil
+}
+
+func (d *DaVinciGenerator) rewriteSubflowNames() {
+	updatedFlowsData := make([]flowData, 0)
+	for _, flowData := range d.flowsData {
+		updatedSubflowLinks := make([]flowSubflowLink, 0)
+		for _, subflowLink := range flowData.SubflowLinks {
+			if subFlowName, ok := d.flowNames[subflowLink.ReplaceSubflowID]; ok {
+				// update the subflow link name
+				subflowLink.FlowRefID = d.sanitiseResourceName(subFlowName)
+				subflowLink.SubFlowName = subFlowName
+			} else {
+				// Issue warning that subflow hasn't been included in the `-e` param list
+				output.Print(output.Opts{
+					Message: "Warning: Subflow has not been found in any of the JSON files provided in the `-e` param list. Plan errors may occur.",
+					Fields: map[string]interface{}{
+						"Missing Subflow ID": subflowLink.ReplaceSubflowID,
+					},
+				})
+			}
+			updatedSubflowLinks = append(updatedSubflowLinks, subflowLink)
+		}
+		flowData.SubflowLinks = updatedSubflowLinks
+
+		updatedFlowsData = append(updatedFlowsData, flowData)
+	}
+
+	d.flowsData = updatedFlowsData
 }
 
 func (d *DaVinciGenerator) parseFlows() error {
@@ -128,6 +162,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 	l.Debug().Msgf("buildDataSingleFlow Command called.")
 
 	flowResourceName := d.sanitiseResourceName(flow.Name)
+	d.flowNames[flow.FlowID] = flow.Name
 
 	pathVar := fmt.Sprintf("assets/flows/%s.json", flowResourceName)
 	createFlow := true
