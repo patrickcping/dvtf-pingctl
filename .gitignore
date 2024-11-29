@@ -3,3 +3,4 @@ vendor
 env*.sh
 output.log
 generated*
+dvtf-pingctl

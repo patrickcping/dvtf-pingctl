@@ -132,6 +132,7 @@ func initConfig() error {
 }
 
 func bindParams(cmd *cobra.Command) error {
+	var err error
 	cmd.Flags().VisitAll(func(f *pflag.Flag) {
 		configName := strings.ReplaceAll(f.Name, "-", "")
 
@@ -151,12 +152,15 @@ func bindParams(cmd *cobra.Command) error {
 				for _, val := range v {
 					values = append(values, fmt.Sprintf("%v", val))
 				}
-				cmd.Flags().Set(f.Name, strings.Join(values, ","))
+				err = cmd.Flags().Set(f.Name, strings.Join(values, ","))
 			default:
-				cmd.Flags().Set(f.Name, fmt.Sprintf("%v", v))
+				err = cmd.Flags().Set(f.Name, fmt.Sprintf("%v", v))
+			}
+			if err != nil {
+				return
 			}
 		}
 	})
 
-	return nil
+	return err
 }

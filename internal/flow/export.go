@@ -25,7 +25,10 @@ func NewFromPath(pathToJson string) (*DaVinciExport, error) {
 	}
 
 	// Get the string from file
-	dvExport.readJSONFile()
+	err := dvExport.readJSONFile()
+	if err != nil {
+		return nil, err
+	}
 
 	return &dvExport, nil
 }
