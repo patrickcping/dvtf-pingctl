@@ -1,6 +1,6 @@
 {{.CommentInformation}}
 resource "davinci_variable" "{{.ResourceName}}" {
-  environment_id = local.pingone_environment_id
+  environment_id = var.pingone_environment_id
 
   context = "{{.Context}}"
 {{- if .FlowIDRef}}

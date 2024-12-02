@@ -1,0 +1,27 @@
+{{.CommentInformation}}
+resource "davinci_connection" "{{.ResourceName}}" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "{{.ID}}"
+  name         = "{{.Name}}"
+  {{if .Properties}}
+  dynamic "property" {
+    for_each = concat(
+      {{$resourcename := .ResourceName}}{{- range $property := .Properties }}
+      {{- if $property.DisplayName}}// {{$property.DisplayName}}{{end}}
+      var.davinci_connection_{{$resourcename}}_{{$property.Name}} != null ? [{
+        name  = "{{$property.Name}}"
+        type  = "{{$property.Type}}"
+        value = jsonencode(var.davinci_connection_{{$resourcename}}_{{$property.Name}})
+      }] : [],
+      {{end}}
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+  {{- end}}
+}
+

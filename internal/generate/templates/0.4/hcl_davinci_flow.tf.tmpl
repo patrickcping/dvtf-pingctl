@@ -8,7 +8,7 @@ resource "davinci_flow" "{{.ResourceName}}" {
   ]
 {{- end}}
 
-  environment_id = local.pingone_environment_id
+  environment_id = var.pingone_environment_id
 
 {{- if .Name}}
 
