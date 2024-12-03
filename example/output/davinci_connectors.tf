@@ -1,60 +1,400 @@
-// Flow Name: full-basic
-resource "davinci_connection" "errorconnector__fa497c1ceaea43c0886d8d360874a53d" {
-  environment_id = local.pingone_environment_id
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "annotationconnector__921bfae85c38ed45045e07be703d86b8" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "annotationConnector"
+  name         = "Annotation"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Magic-Link-Authentication-Subflow
+resource "davinci_connection" "challengeconnector__e8b2368e1c5848492047e9c303568605" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "challengeConnector"
+  name         = "Challenge"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "errorconnector__53ab83a4a4ab919d9f2cb02d9e111ac8" {
+  environment_id = var.pingone_environment_id
 
   connector_id = "errorConnector"
-  name         = "abcd123-error"
-
-  // properties based on the connector type
-  // Visit the DaVinci Connector Parameter Reference for details of the required properties:
-  // https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference
+  name         = "Error Message"
+  
 }
 
-// Flow Name: full-basic
-resource "davinci_connection" "flowconnector__84e29d2409ba66c0caf53f9cad0a2049" {
-  environment_id = local.pingone_environment_id
+// Flow Name: OOTB - Device Registration - Subflow - 1
+resource "davinci_connection" "errorconnector__6d8f6f706c45fd459a86b3f092602544" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "errorConnector"
+  name         = "Error Customize"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "flowconnector__2581eb287bb1d9bd29ae9886d675f89f" {
+  environment_id = var.pingone_environment_id
 
   connector_id = "flowConnector"
-  name         = "abcd123-flow"
-
-  // properties based on the connector type
-  // Visit the DaVinci Connector Parameter Reference for details of the required properties:
-  // https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference
+  name         = "Flow Connector"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Input Schema
+      var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_inputSchema != null ? [{
+        name  = "inputSchema"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_inputSchema)
+      }] : [],
+      // Public Key
+      var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_pemPublicKey != null ? [{
+        name  = "pemPublicKey"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_pemPublicKey)
+      }] : [],
+      // Enforce Signed Token
+      var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken != null ? [{
+        name  = "enforcedSignedToken"
+        type  = "boolean"
+        value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
 }
 
-// Flow Name: full-basic
-resource "davinci_connection" "functionsconnector__548ea933f35b9787ae12ad130f78045b" {
-  environment_id = local.pingone_environment_id
+// Flow Name: OOTB - Device Management - Main Flow
+resource "davinci_connection" "flowconnector__33329a264e268ab31fb19637debf1ea3" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "flowConnector"
+  name         = "Flow Conductor"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Public Key
+      var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey != null ? [{
+        name  = "pemPublicKey"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey)
+      }] : [],
+      // Enforce Signed Token
+      var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_enforcedSignedToken != null ? [{
+        name  = "enforcedSignedToken"
+        type  = "boolean"
+        value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_enforcedSignedToken)
+      }] : [],
+      // Input Schema
+      var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_inputSchema != null ? [{
+        name  = "inputSchema"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_inputSchema)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "functionsconnector__de650ca45593b82c49064ead10b9fe17" {
+  environment_id = var.pingone_environment_id
 
   connector_id = "functionsConnector"
-  name         = "abcd123-functions"
-
-  // properties based on the connector type
-  // Visit the DaVinci Connector Parameter Reference for details of the required properties:
-  // https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference
+  name         = "Functions"
+  
 }
 
-// Flow Name: full-basic
-resource "davinci_connection" "httpconnector__481e952e6b11db8360587b8711620786" {
-  environment_id = local.pingone_environment_id
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "httpconnector__867ed4363b2bc21c860085ad2baa817d" {
+  environment_id = var.pingone_environment_id
 
   connector_id = "httpConnector"
-  name         = "HTTP"
-
-  // properties based on the connector type
-  // Visit the DaVinci Connector Parameter Reference for details of the required properties:
-  // https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference
+  name         = "Http"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Select an OpenID token management connection for signed HTTP responses.
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_connectionId != null ? [{
+        name  = "connectionId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_connectionId)
+      }] : [],
+      // reCAPTCHA v2 Secret Key
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSecretKey != null ? [{
+        name  = "recaptchaSecretKey"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSecretKey)
+      }] : [],
+      // reCAPTCHA v2 Site Key
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSiteKey != null ? [{
+        name  = "recaptchaSiteKey"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSiteKey)
+      }] : [],
+      // Trusted Sites
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList != null ? [{
+        name  = "whiteList"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
 }
 
-// Flow Name: full-basic
-resource "davinci_connection" "variablesconnector__9f8f97e94ad87e184960633b424d80b6" {
-  environment_id = local.pingone_environment_id
+// Flow Name: OOTB - Device Management - Main Flow
+resource "davinci_connection" "nodeconnector__3566e86a35c26e575396dcfb89a3dcc0" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "nodeConnector"
+  name         = "Teleport"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "nodeconnector__e7eae662d2ca276e4c6f097fc36a3bb1" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "nodeConnector"
+  name         = "Node"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "notificationsconnector__cacf3d2861657174d93cbf445d55797a" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "notificationsConnector"
+  name         = "PingOne Notifications"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Notification Policy ID
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_notificationPolicyId != null ? [{
+        name  = "notificationPolicyId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_notificationPolicyId)
+      }] : [],
+      // Region
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_region != null ? [{
+        name  = "region"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_region)
+      }] : [],
+      // Client ID
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId)
+      }] : [],
+      // Client Secret
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret != null ? [{
+        name  = "clientSecret"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret)
+      }] : [],
+      // Environment ID
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId != null ? [{
+        name  = "envId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "pingoneauthenticationconnector__c3e6a164bde107954e93f5c09f0c8bce" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "pingOneAuthenticationConnector"
+  name         = "PingOne Authentication"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "pingOneMfaConnector"
+  name         = "PingOne MFA"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Region
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region != null ? [{
+        name  = "region"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region)
+      }] : [],
+      // Client ID
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId)
+      }] : [],
+      // Client Secret
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientSecret != null ? [{
+        name  = "clientSecret"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientSecret)
+      }] : [],
+      // Environment ID
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_envId != null ? [{
+        name  = "envId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_envId)
+      }] : [],
+      // Policy ID
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_policyId != null ? [{
+        name  = "policyId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_policyId)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "pingoneriskconnector__292873d5ceea806d81373ed0341b5c88" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "pingOneRiskConnector"
+  name         = "PingOne Protect"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Client Secret
+      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientSecret != null ? [{
+        name  = "clientSecret"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientSecret)
+      }] : [],
+      // Environment ID
+      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_envId != null ? [{
+        name  = "envId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_envId)
+      }] : [],
+      // Region
+      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_region != null ? [{
+        name  = "region"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_region)
+      }] : [],
+      // Client ID
+      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "pingOneSSOConnector"
+  name         = "PingOne"
+  
+  dynamic "property" {
+    for_each = concat(
+      // Client ID
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId)
+      }] : [],
+      // Client Secret
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret != null ? [{
+        name  = "clientSecret"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret)
+      }] : [],
+      // Environment ID
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envId != null ? [{
+        name  = "envId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envId)
+      }] : [],
+      // Region
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region != null ? [{
+        name  = "region"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region)
+      }] : [],
+      
+    )
+    content {
+      name  = property.value.name
+      type  = property.value.type
+      value = property.value.value
+    }
+  }
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Device-Registration-Subflow
+resource "davinci_connection" "stringsconnector__368d3c38f7b0ebe59c8d2aff222c14b0" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "stringsConnector"
+  name         = "String"
+  
+}
+
+// Flow Name: OOTB - Device Registration - Subflow - 1
+resource "davinci_connection" "stringsconnector__d49474a1b556eb233d3376c918eb3497" {
+  environment_id = var.pingone_environment_id
+
+  connector_id = "stringsConnector"
+  name         = "String Manipulation"
+  
+}
+
+// Flow Name: CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow
+resource "davinci_connection" "variablesconnector__06922a684039827499bdbdd97f49827b" {
+  environment_id = var.pingone_environment_id
 
   connector_id = "variablesConnector"
-  name         = "abcd123-variables"
-
-  // properties based on the connector type
-  // Visit the DaVinci Connector Parameter Reference for details of the required properties:
-  // https://registry.terraform.io/providers/pingidentity/davinci/latest/docs/guides/connector-reference
+  name         = "Variables"
+  
 }
 
