@@ -184,11 +184,10 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 		reg := regexp.MustCompile(`^([a-zA-Z0-9-_]*)[[#]{2}.+]*$`)
 
+		variableName := ""
+
 		// Find the first match and capture groups
 		matches := reg.FindStringSubmatch(variable.Name)
-
-		variableName := variable.Name
-
 		// Check if we have a match
 		if len(matches) == 2 {
 			// matches[0] is the full match
