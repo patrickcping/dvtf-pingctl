@@ -4,11 +4,13 @@
 package main
 
 //go:generate go install github.com/golangci/golangci-lint/cmd/golangci-lint
+//go:generate go install github.com/patrickcping/davinci-pingcli
 //go:generate go install github.com/pavius/impi/cmd/impi
 //go:generate go install github.com/securego/gosec/v2/cmd/gosec@latest
 
 import (
 	_ "github.com/golangci/golangci-lint/cmd/golangci-lint"
+	_ "github.com/patrickcping/davinci-pingcli"
 	_ "github.com/pavius/impi/cmd/impi"
 	_ "github.com/securego/gosec/v2/cmd/gosec"
 )
