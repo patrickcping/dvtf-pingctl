@@ -73,6 +73,7 @@ module "davinci_flows" {
   davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region       = ... // Define overriding connector property values in the module call
   # ... other connector property values
 }
+```
 
 ## Validate
 
