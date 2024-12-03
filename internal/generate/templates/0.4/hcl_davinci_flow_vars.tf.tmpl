@@ -1,0 +1,26 @@
+// Variables for the "{{.Name}}" flow.
+// Terraform Resource: davinci_flow.{{.ResourceName}}
+
+// The Name of the flow
+variable "davinci_flow_{{.ResourceName}}_name" {
+  type = string
+  
+  description = "The name of the flow with resource name '{{.ResourceName}}'."
+  {{- if .Name}}
+  default = "{{.Name}}"
+  {{else}}
+  default = null
+  {{- end}}
+}
+
+// The Description of the flow
+variable "davinci_flow_{{.ResourceName}}_description" {
+  type = string
+  
+  description = "The description of the flow with resource name '{{.ResourceName}}'."
+  {{- if .Description}}
+  default = "{{.Description}}"
+  {{else}}
+  default = null
+  {{- end}}
+}

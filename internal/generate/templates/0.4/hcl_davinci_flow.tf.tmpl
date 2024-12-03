@@ -8,15 +8,10 @@ resource "davinci_flow" "{{.ResourceName}}" {
   ]
 {{- end}}
 
-  environment_id = local.pingone_environment_id
+  environment_id = var.pingone_environment_id
 
-{{- if .Name}}
-
-  name        = "{{.Name}}"
-{{- end}}
-{{- if .Description}}
-  description = "{{.Description}}"
-{{- end}}
+  name        = var.davinci_flow_{{.ResourceName}}_name
+  description = var.davinci_flow_{{.ResourceName}}_description
 
   flow_json = file("{{.FlowJSONPath}}")
 

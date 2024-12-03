@@ -1,0 +1,184 @@
+{
+  "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad",
+  "authTokenExpireIds": [],
+  "connectorIds": [
+    "httpConnector"
+  ],
+  "createdDate": 1733228595097,
+  "currentVersion": 0,
+  "customerId": "fea744599cb44fbda4746a971c3096a0",
+  "deployedDate": 1733228598892,
+  "description": "Example flow to test variable types",
+  "flowStatus": "enabled",
+  "isOutputSchemaSaved": false,
+  "name": "variable-types",
+  "publishedVersion": 0,
+  "timeouts": "null",
+  "updatedDate": 1733228598905,
+  "flowId": "2b2e85c7cb68aad4de62d9b028f677bb",
+  "versionId": 0,
+  "graphData": {
+    "elements": {
+      "nodes": [
+        {
+          "data": {
+            "id": "hqfgsh8zg4",
+            "nodeType": "CONNECTION",
+            "connectionId": "481e952e6b11db8360587b8711620786",
+            "connectorId": "httpConnector",
+            "name": "HTTP",
+            "label": "HTTP",
+            "status": "configured",
+            "capabilityName": "makeRestApiCall",
+            "type": "trigger",
+            "properties": {
+              "url": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"https://pingidentity.com\"\n      }\n    ]\n  }\n]"
+              },
+              "httpMethod": {
+                "value": "POST"
+              },
+              "headers": {
+                "value": [
+                  {
+                    "key": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Bearer\"\n      }\n    ]\n  }\n]",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"variable.svg\",\n        \"url\": \"variableTypeSecret\",\n        \"data\": \"{{global.company.variables.variableTypeSecret}}\",\n        \"tooltip\": \"{{global.company.variables.variableTypeSecret}}\",\n        \"children\": [\n          {\n            \"text\": \"variableTypeSecret\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                  }
+                ]
+              },
+              "httpBody": {
+                "value": "raw"
+              },
+              "raw": {
+                "value": "{\n    \"string\": \"{{global.company.variables.variableTypeString}}\",\n    \"bool\": \"{{global.company.variables.variableTypeBool}}\",\n    \"number\": \"{{global.company.variables.variableTypeNumber}}\",\n    \"object\": \"{{global.company.variables.variableTypeObject}}\"\n}"
+              }
+            }
+          },
+          "position": {
+            "x": 400,
+            "y": 400
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        }
+      ]
+    },
+    "data": {},
+    "zoomingEnabled": true,
+    "userZoomingEnabled": true,
+    "zoom": 1,
+    "minZoom": 1e-50,
+    "maxZoom": 1e+50,
+    "panningEnabled": true,
+    "userPanningEnabled": true,
+    "pan": {
+      "x": 0,
+      "y": 0
+    },
+    "boxSelectionEnabled": true,
+    "renderer": {
+      "name": "null"
+    }
+  },
+  "flowColor": "#AFD5FF",
+  "savedDate": 1733228595078,
+  "variables": [
+    {
+      "context": "company",
+      "createdDate": 1733228353649,
+      "customerId": "fea744599cb44fbda4746a971c3096a0",
+      "fields": {
+        "type": "boolean",
+        "displayName": "",
+        "value": "true",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "2e590d66-d920-454d-87a3-40989a8d6066",
+      "type": "property",
+      "visibility": "private",
+      "name": "variableTypeBool##SK##company",
+      "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad"
+    },
+    {
+      "context": "company",
+      "createdDate": 1733228368800,
+      "customerId": "fea744599cb44fbda4746a971c3096a0",
+      "fields": {
+        "type": "number",
+        "displayName": "",
+        "value": "42",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "fedd936c-d97d-49b6-b2e2-260a78654454",
+      "type": "property",
+      "visibility": "private",
+      "name": "variableTypeNumber##SK##company",
+      "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad"
+    },
+    {
+      "context": "company",
+      "createdDate": 1733228396965,
+      "customerId": "fea744599cb44fbda4746a971c3096a0",
+      "fields": {
+        "type": "object",
+        "displayName": "",
+        "value": "{\"foo\": \"bar\"}",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "49f9562a-cd0f-4cb4-959c-4e3ae431a335",
+      "type": "property",
+      "visibility": "private",
+      "name": "variableTypeObject##SK##company",
+      "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad"
+    },
+    {
+      "context": "company",
+      "createdDate": 1733228416108,
+      "customerId": "fea744599cb44fbda4746a971c3096a0",
+      "fields": {
+        "type": "secret",
+        "displayName": "",
+        "value": "******",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "b6d99d3d-d967-47f8-9873-22fcf8b2d2cd",
+      "type": "property",
+      "visibility": "private",
+      "name": "variableTypeSecret##SK##company",
+      "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad"
+    },
+    {
+      "context": "company",
+      "createdDate": 1733228336258,
+      "customerId": "fea744599cb44fbda4746a971c3096a0",
+      "fields": {
+        "type": "string",
+        "displayName": "",
+        "value": "testvalue",
+        "mutable": true,
+        "min": 0,
+        "max": 2000
+      },
+      "id": "b4c296b7-1965-4356-8dad-b7099d64a385",
+      "type": "property",
+      "visibility": "private",
+      "name": "variableTypeString##SK##company",
+      "companyId": "36b9f139-94c3-4ad0-a114-fa0bcab654ad"
+    }
+  ],
+  "connections": []
+}

@@ -76,7 +76,7 @@ func (d *DaVinciGenerator) rewriteSubflowNames() {
 		for _, subflowLink := range flowData.SubflowLinks {
 			if subFlowName, ok := d.flowNames[subflowLink.ReplaceSubflowID]; ok {
 				// update the subflow link name
-				subflowLink.FlowRefID = d.sanitiseResourceName(subFlowName)
+				subflowLink.FlowRefID = sanitiseResourceName(subFlowName)
 				subflowLink.SubFlowName = subFlowName
 			} else {
 				// Issue warning that subflow hasn't been included in the `-e` param list
@@ -161,7 +161,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 	l := logger.Get()
 	l.Debug().Msgf("buildDataSingleFlow Command called.")
 
-	flowResourceName := d.sanitiseResourceName(flow.Name)
+	flowResourceName := sanitiseResourceName(flow.Name)
 	d.flowNames[flow.FlowID] = flow.Name
 
 	pathVar := fmt.Sprintf("assets/flows/%s.json", flowResourceName)
@@ -184,11 +184,10 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 		reg := regexp.MustCompile(`^([a-zA-Z0-9-_]*)[[#]{2}.+]*$`)
 
+		variableName := ""
+
 		// Find the first match and capture groups
 		matches := reg.FindStringSubmatch(variable.Name)
-
-		variableName := variable.Name
-
 		// Check if we have a match
 		if len(matches) == 2 {
 			// matches[0] is the full match
@@ -198,7 +197,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			return fmt.Errorf("No match found for variable name parsing: %s", variable.Name)
 		}
 
-		resourceName := d.sanitiseResourceName(variableName)
+		resourceName := sanitiseResourceName(variableName)
 
 		var flowIDRef *string
 		if variable.FlowID == nil && slices.Contains([]string{"flowInstance", "company", "user"}, *variable.Context) {
@@ -206,7 +205,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 				dependsOnVarRefs = append(dependsOnVarRefs, resourceName)
 			}
 		} else {
-			sanistisedFlowIDRef := d.sanitiseResourceName(flowResourceName)
+			sanistisedFlowIDRef := sanitiseResourceName(flowResourceName)
 			flowIDRef = &sanistisedFlowIDRef
 			resourceName += "__" + *flowIDRef
 		}
@@ -217,7 +216,14 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 			var variableValue *variableDataValue
 			if variable.Fields.Value != nil {
-				variableValue = d.parseFieldValue(variable.Fields.Value)
+				variableValue = parseFieldValue(variable.Fields.Value)
+			}
+
+			terraformType, providerType, sensitive := getVariableGeneratorTypes(*variable.Fields.Type)
+
+			if terraformType == "any" && variableValue != nil && variableValue.JSON != nil {
+				// Escape JSON string
+				*variableValue.JSON = strings.ReplaceAll(*variableValue.JSON, `"`, `\"`)
 			}
 
 			d.variablesData = append(d.variablesData, variableData{
@@ -225,15 +231,17 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 					CommentInformation: "// Flow Name: " + flow.Name,
 					ResourceName:       resourceName,
 				},
-				Context:     *variable.Context,
-				FlowIDRef:   flowIDRef,
-				Name:        variableName,
-				Type:        *variable.Fields.Type,
-				Description: d.sanitiseStringFieldPtr(variable.Fields.DisplayName),
-				Value:       variableValue,
-				Min:         variable.Fields.Min,
-				Max:         variable.Fields.Max,
-				Mutable:     variable.Fields.Mutable,
+				Context:       *variable.Context,
+				FlowIDRef:     flowIDRef,
+				Name:          variableName,
+				ProviderType:  providerType,
+				TerraformType: terraformType,
+				Sensitive:     sensitive,
+				Description:   sanitiseStringFieldPtr(variable.Fields.DisplayName),
+				Value:         variableValue,
+				Min:           variable.Fields.Min,
+				Max:           variable.Fields.Max,
+				Mutable:       variable.Fields.Mutable,
 			})
 		}
 	}
@@ -245,18 +253,24 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 			if nodeData := node.Data; nodeData != nil && nodeData.ConnectorID != nil && nodeData.ConnectionID != nil && nodeData.ID != nil {
 
-				resourceName := d.sanitiseResourceName(fmt.Sprintf("%s__%s", *nodeData.ConnectorID, *nodeData.ConnectionID))
+				resourceName := sanitiseResourceName(fmt.Sprintf("%s__%s", *nodeData.ConnectorID, *nodeData.ConnectionID))
 
 				if !slices.ContainsFunc(d.connectionsData, func(v connectionData) bool {
 					return v.ResourceName == resourceName
 				}) {
+					connectionProperties, err := getConnectionProperties(*nodeData.ConnectorID)
+					if err != nil {
+						return fmt.Errorf("Failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
+					}
+
 					d.connectionsData = append(d.connectionsData, connectionData{
 						commonData: commonData{
 							CommentInformation: "// Flow Name: " + flow.Name,
 							ResourceName:       resourceName,
 						},
-						ID:   *nodeData.ConnectorID,
-						Name: *nodeData.Name,
+						ID:         *nodeData.ConnectorID,
+						Name:       *nodeData.Name,
+						Properties: connectionProperties,
 					})
 				}
 
@@ -281,7 +295,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 						return v.ReplaceSubflowID == *subflowID.Value
 					}) {
 						subflowLinks = append(subflowLinks, flowSubflowLink{
-							FlowRefID:        d.sanitiseResourceName(*subflowID.Label),
+							FlowRefID:        sanitiseResourceName(*subflowID.Label),
 							SubFlowName:      *subflowID.Label,
 							ReplaceSubflowID: *subflowID.Value,
 						})
@@ -307,12 +321,12 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 	d.flowsData = append(d.flowsData, flowData{
 		commonData: commonData{
-			CommentInformation: "// Flow Name: " + d.sanitiseStringField(flow.Name),
+			CommentInformation: "// Flow Name: " + sanitiseStringField(flow.Name),
 			ResourceName:       flowResourceName,
 		},
 		DependsOnVarRefs: dependsOnVarRefs,
-		Name:             d.sanitiseStringFieldPtr(&flow.Name),
-		Description:      d.sanitiseStringFieldPtr(flow.Description),
+		Name:             sanitiseStringFieldPtr(&flow.Name),
+		Description:      sanitiseStringFieldPtr(flow.Description),
 		FlowJSONPath:     pathVar,
 		ConnectionLinks:  flowConnectionLinks,
 		SubflowLinks:     subflowLinks,
@@ -340,11 +354,25 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		return err
 	}
 
+	err = d.writeBaseVersions(version, overwrite)
+	if err != nil {
+		return err
+	}
+
+	err = d.writeBaseVars(version, overwrite)
+	if err != nil {
+		return err
+	}
+
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeVariable) {
 		slices.SortFunc(d.variablesData, func(i, j variableData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
 		err := d.writeVariables(version, overwrite)
+		if err != nil {
+			return err
+		}
+		err = d.writeVariableVars(version, overwrite)
 		if err != nil {
 			return err
 		}
@@ -357,6 +385,10 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		if err != nil {
 			return err
 		}
+		err = d.writeConnectionsPropertyVars(version, overwrite)
+		if err != nil {
+			return err
+		}
 	}
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeFlow) {
 		slices.SortFunc(d.flowsData, func(i, j flowData) int {
@@ -366,9 +398,93 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		if err != nil {
 			return err
 		}
+		err = d.writeFlowVars(version, overwrite)
+		if err != nil {
+			return err
+		}
 	}
 
 	err = d.writeAssets()
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeBaseVars(version string, overwrite bool) error {
+
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLVarsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLVars").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse vars HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/vars.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	err = hclTemplate.Execute(outputFile, nil)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeBaseVersions(version string, overwrite bool) error {
+
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLVersionsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLVersions").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse vars HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/versions.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	err = hclTemplate.Execute(outputFile, nil)
 	if err != nil {
 		return err
 	}
@@ -392,6 +508,48 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 	}
 
 	fileName := fmt.Sprintf("%s/davinci_variables.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	for _, variableData := range d.variablesData {
+		err = hclTemplate.Execute(outputFile, variableData)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeVariableVars(version string, overwrite bool) error {
+
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLVariableResourceVarsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLVariableResourceVars").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse variable HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/davinci_variable_vars.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
@@ -460,6 +618,48 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 	return nil
 }
 
+func (d *DaVinciGenerator) writeConnectionsPropertyVars(version string, overwrite bool) error {
+
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLConnectionPropertyVarsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLConnectionPropertyVars").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse connection properties HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/davinci_connection_property_vars.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	for _, connectionData := range d.connectionsData {
+		err = hclTemplate.Execute(outputFile, connectionData)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	var templateString string
 
@@ -475,6 +675,47 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	}
 
 	fileName := fmt.Sprintf("%s/davinci_flows.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	for _, flowData := range d.flowsData {
+		err = hclTemplate.Execute(outputFile, flowData)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeFlowVars(version string, overwrite bool) error {
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLFlowResourceVarsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLFlowResourceVars").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse flow HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/davinci_flow_vars.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
@@ -533,64 +774,4 @@ func (d *DaVinciGenerator) writeAsset(flowAsset flowAssetData) error {
 	}
 
 	return nil
-}
-
-func (d *DaVinciGenerator) sanitiseResourceName(name string) string {
-	return strings.ToLower(regexp.MustCompile(`[^\w]+`).ReplaceAllString(name, "_"))
-}
-
-func (d *DaVinciGenerator) sanitiseStringField(value string) string {
-	if !strings.Contains(value, `\"`) {
-		value = strings.ReplaceAll(value, `"`, `\"`)
-	}
-
-	re := regexp.MustCompile(`\r?\n`)
-	value = re.ReplaceAllString(value, "\\n")
-
-	return strings.TrimSpace(value)
-}
-
-func (d *DaVinciGenerator) sanitiseStringFieldPtr(value *string) *string {
-	if value == nil || *value == "" {
-		return nil
-	}
-
-	returnVar := d.sanitiseStringField(*value)
-	return &returnVar
-}
-
-func ensureDirExists(dirPath string) error {
-	// Check if the directory exists
-	_, err := os.Stat(dirPath)
-	if os.IsNotExist(err) {
-		// Directory does not exist, create it
-		err = os.MkdirAll(dirPath, os.ModePerm)
-		if err != nil {
-			return fmt.Errorf("failed to create directory %q: %v", dirPath, err)
-		}
-	} else if err != nil {
-		// An error other than "directory does not exist" occurred
-		return fmt.Errorf("failed to check directory %q: %v", dirPath, err)
-	}
-	return nil
-}
-
-func (d *DaVinciGenerator) parseFieldValue(value interface{}) *variableDataValue {
-	v := fmt.Sprintf("%v", value)
-
-	variableDataValue := &variableDataValue{} // Initialize the variableDataValue
-
-	if (strings.HasPrefix(v, "{") || strings.HasPrefix(v, "[")) && json.Valid([]byte(v)) {
-		variableDataValue.JSON = &v
-	} else {
-		sanistisedV := d.sanitiseStringField(v)
-
-		if sanistisedV == "" {
-			return nil
-		} else {
-			variableDataValue.Text = &sanistisedV
-		}
-	}
-
-	return variableDataValue
 }

@@ -45,10 +45,11 @@ set -e
 if [ -d "$DIR" ]; then
   echo "Directory $DIR exists.  Bootstrapping it."
 
-  cp $script_dir/../testing/bootstrap-hcl/* $DIR
+  # cp $script_dir/../testing/bootstrap-hcl/* $DIR
   cp $directory/*.tftest.hcl $DIR
   
   pushd $DIR
+    tflint
     terraform init
     terraform validate
     terraform test

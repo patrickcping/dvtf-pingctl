@@ -1,0 +1,26 @@
+// Variables for the "{{.Name}}" variable, with context {{.Context}}.
+// Terraform Resource: davinci_variable.{{.ResourceName}}
+
+// The value of the variable
+{{if not .Value}}// It is expected the value will be set by the DaVinci flows during runtime, and should not be managed by Terraform.
+// Uncomment this variable, and the `value` and `empty_value` fields in the davinci_variable.{{.ResourceName}} resource to be able to manage a value for this resource in Terraform.
+// If managing a variable value in Terraform that is also managed by DaVinci flows at runtime, Terraform will continually detect drift and may cause disruption to users at runtime.{{end}}
+{{if not .Value}}// {{end}}variable "davinci_variable_{{.ResourceName}}_value" {
+{{if not .Value}}// {{end}}  type = {{.TerraformType}}
+{{if not .Value}}// {{end}}  sensitive = {{.Sensitive}}
+  
+{{if not .Value}}// {{end}}  description = "The value of the variable with resource name '{{.ResourceName}}'.  Set to null to ensure the variable value doesn't get tracked in Terraform state (e.g., when using variables that flows manage the values for)."
+{{if not .Value}}// {{end}}  {{if not .Sensitive}}default = {{if .Value}}{{if .Value.JSON}}"{{.Value.JSON}}"{{end}}{{if .Value.Text}}"{{.Value.Text}}"{{end}}{{if .Value.Number}}{{.Value.Number}}{{end}}{{if .Value.Bool}}{{.Value.Bool}}{{end}}{{else}}null{{end}}{{end}}
+{{if not .Value}}// {{end}} }
+
+// The description of the variable
+variable "davinci_variable_{{.ResourceName}}_description" {
+  type = string
+  
+  description = "The description of the variable with resource name '{{.ResourceName}}'."
+  {{- if .Description}}
+  default = "{{.Description}}"
+  {{else}}
+  default = null
+  {{- end}}
+}
