@@ -12,10 +12,11 @@ type connectionData struct {
 }
 
 type connectionDataProperty struct {
-	DisplayName *string
-	Name        string
-	Type        string
-	Description *string
+	DisplayName   *string
+	Name          string
+	ProviderType  string
+	TerraformType string
+	Description   *string
 }
 
 func getConnectionProperties(connectorID string) ([]connectionDataProperty, error) {
@@ -31,27 +32,22 @@ func getConnectionProperties(connectorID string) ([]connectionDataProperty, erro
 
 	for _, connector := range connectorSchema {
 		if *connector.ConnectorID == connectorID {
-			if connector.AccountConfigView != nil && connector.AccountConfigView.Items != nil {
-				for _, accountConfigViewItem := range connector.AccountConfigView.Items {
-					if accountConfigViewItem.PropertyName != nil {
-
-						propertyType := "string"
-						if v := connector.Properties[*accountConfigViewItem.PropertyName].Type; v != nil {
-							propertyType = *v
-						}
-
-						switch propertyType {
-						case "boolean":
-							propertyType = "bool"
-						}
-
-						connectionProperties = append(connectionProperties, connectionDataProperty{
-							DisplayName: connector.Properties[*accountConfigViewItem.PropertyName].DisplayName,
-							Name:        *accountConfigViewItem.PropertyName,
-							Type:        propertyType,
-							Description: connector.Properties[*accountConfigViewItem.PropertyName].Info,
-						})
+			if connector.Properties != nil {
+				for propertyName, property := range connector.Properties {
+					propertyType := "string"
+					if v := property.Type; v != nil {
+						propertyType = *v
 					}
+
+					terraformType, providerType := getConnectorGeneratorTypes(propertyType)
+
+					connectionProperties = append(connectionProperties, connectionDataProperty{
+						DisplayName:   property.DisplayName,
+						Name:          propertyName,
+						ProviderType:  providerType,
+						TerraformType: terraformType,
+						Description:   property.Info,
+					})
 				}
 			}
 			break
@@ -59,4 +55,21 @@ func getConnectionProperties(connectorID string) ([]connectionDataProperty, erro
 	}
 
 	return connectionProperties, nil
+}
+
+func getConnectorGeneratorTypes(dvSchemaPropertyType string) (terraformType string, providerType string) {
+	switch dvSchemaPropertyType {
+	case "boolean":
+		return "bool", "boolean"
+	case "string":
+		return "string", "string"
+	case "number":
+		return "number", "number"
+	case "object":
+		return "object", "json"
+	case "array":
+		return "list", "json"
+	default:
+		return "string", "string"
+	}
 }

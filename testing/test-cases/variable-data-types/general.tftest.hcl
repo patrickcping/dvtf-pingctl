@@ -1,5 +1,5 @@
 variables {
-  test_name = "flow-with-no-variable-values"
+  test_name = "variable-data-types"
 }
 
 provider "davinci" {
@@ -30,20 +30,22 @@ run "plan_success" {
 
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
+    davinci_variable_variabletypesecret_value = "testvalue"
   }
 
   command = plan
 
-  # assert {
-  #   condition     = ..
-  #   error_message = ..
-  # }
+  assert {
+    condition     = davinci_variable.variabletypesecret.value == "testvalue"
+    error_message = "Variable value is not as expected"
+  }
 }
 
 run "apply_success" {
 
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
+    davinci_variable_variabletypesecret_value = "testvalue"
   }
 
   command = apply

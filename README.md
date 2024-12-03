@@ -89,9 +89,9 @@ jq '.name = "abcde"' ./path/to/my/export.json | dvtf-pingctl generate
 jq '.name = "abcde"' ./path/to/my/export.json | dvtf-pingctl validate
 ```
 
-## Config Generation
+## Terraform HCL Config Generation
 
-Generate HCL configuration from a DaVinci service JSON export file using the `dvtf-pingctl generate ...` command.
+Generate HCL configuration from a DaVinci service JSON export file using the `dvtf-pingctl generate ...` command.  The command will generate a Terraform module by default, with variables for connector properties and variable values.
 
 ### Specifying an Output Path
 

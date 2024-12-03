@@ -8,16 +8,16 @@ resource "davinci_variable" "{{.ResourceName}}" {
 {{- end}}
 
   name        = "{{.Name}}"
-  type        = "{{.Type}}"
-{{- if .Description}}
-  description = "{{.Description}}"
-{{- end}}
+  type        = "{{.ProviderType}}"
+  description = var.davinci_variable_{{.ResourceName}}_description
 
-  // Defines a static value.  Comment out or remove both `value` and `empty_value` if the variable value should not be tracked in Terraform state.
-  {{if .Value}}value = {{if .Value.JSON}}jsonencode({{.Value.JSON}}){{end}}{{if .Value.Text}}"{{.Value.Text}}"{{end}}{{else}}// value = ""{{end}}
+  // Defines a static value, but not an empty string.  Both `value` and `empty_value` should be null if the variable value should not be tracked in Terraform state.
+  {{if not .Value}}// It is expected the value will be set by the DaVinci flows during runtime, and should not be managed by Terraform.  Uncomment both `value` and `empty_value` to be able to manage a value for this resource.{{end}}
+  {{if not .Value}}// {{end}}value = var.davinci_variable_{{.ResourceName}}_value == "" ? null : var.davinci_variable_{{.ResourceName}}_value
   
-  // Defines a static blank string value ("").  Comment out or remove both `value` and `empty_value` if the variable value should not be tracked in Terraform state.
-  // empty_value = true
+  // Defines a static blank string value ("").  Both `value` and `empty_value` should be null if the variable value should not be tracked in Terraform state.
+  {{if not .Value}}// It is expected the value will be set by the DaVinci flows during runtime, and should not be managed by Terraform.  Uncomment both `value` and `empty_value` to be able to manage a value for this resource.{{end}}
+  {{if not .Value}}// {{end}}empty_value = var.davinci_variable_{{.ResourceName}}_value == "" ? true : null
 
 {{- if .Min}}
 

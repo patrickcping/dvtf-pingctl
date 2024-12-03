@@ -49,6 +49,7 @@ if [ -d "$DIR" ]; then
   cp $directory/*.tftest.hcl $DIR
   
   pushd $DIR
+    tflint
     terraform init
     terraform validate
     terraform test

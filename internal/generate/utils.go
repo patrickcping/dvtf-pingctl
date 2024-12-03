@@ -1,7 +1,6 @@
 package generate
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 	"regexp"
@@ -30,26 +29,6 @@ func sanitiseStringFieldPtr(value *string) *string {
 
 	returnVar := sanitiseStringField(*value)
 	return &returnVar
-}
-
-func parseFieldValue(value interface{}) *variableDataValue {
-	v := fmt.Sprintf("%v", value)
-
-	variableDataValue := &variableDataValue{} // Initialize the variableDataValue
-
-	if (strings.HasPrefix(v, "{") || strings.HasPrefix(v, "[")) && json.Valid([]byte(v)) {
-		variableDataValue.JSON = &v
-	} else {
-		sanistisedV := sanitiseStringField(v)
-
-		if sanistisedV == "" {
-			return nil
-		} else {
-			variableDataValue.Text = &sanistisedV
-		}
-	}
-
-	return variableDataValue
 }
 
 func ensureDirExists(dirPath string) error {

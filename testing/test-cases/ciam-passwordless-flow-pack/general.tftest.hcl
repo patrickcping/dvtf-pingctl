@@ -4,11 +4,25 @@ variables {
 
 provider "davinci" {
   environment_id = run.pingone_setup.dv_admin_environment_id
+
+    # Ensure the following environment variables are set to prepare the PingOne provider
+    # Ref: https://registry.terraform.io/providers/pingidentity/davinci/latest/docs#schema
+    # Ensure the following environment variables are set:
+    # - PINGONE_USERNAME
+    # - PINGONE_PASSWORD
+    # - PINGONE_REGION
 }
 
 run "pingone_setup" {
   module {
     source = "./../../../bootstrap-hcl"
+
+    # Ensure the following environment variables are set to prepare the PingOne provider
+    # Ref: https://registry.terraform.io/providers/pingidentity/pingone/latest/docs#provider-schema-reference
+    # - PINGONE_CLIENT_ID
+    # - PINGONE_CLIENT_SECRET
+    # - PINGONE_ENVIRONMENT_ID
+    # - PINGONE_REGION_CODE
   }
 }
 
@@ -65,25 +79,25 @@ run "properties_generated" {
 
   // Test bool data type
   assert {
-    condition     = davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].type == "boolean"
-    error_message = format("Expecting enforcedSignedToken to be of type boolean, got %s", nonsensitive(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].type))
+    condition     = tolist(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property)[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].type == "boolean"
+    error_message = format("Expecting enforcedSignedToken to be of type boolean, got %s", nonsensitive(tolist(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property)[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].type))
   }
   assert {
-    condition     = davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].value == "true"
-    error_message = format("Expecting enforcedSignedToken to have string bool value, got %s", nonsensitive(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].value))
+    condition     = tolist(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property)[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].value == "true"
+    error_message = format("Expecting enforcedSignedToken to have string bool value, got %s", nonsensitive(tolist(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property)[index(davinci_connection.flowconnector__2581eb287bb1d9bd29ae9886d675f89f.property.*.name, "enforcedSignedToken")].value))
   }
 }
 
-# run "apply_success" {
+run "apply_success" {
 
-#   variables {
-#     pingone_environment_id = run.pingone_setup.pingone_environment_id
-#   }
+  variables {
+    pingone_environment_id = run.pingone_setup.pingone_environment_id
+  }
 
-#   command = apply
+  command = apply
 
-#   # assert {
-#   #   condition     = ..
-#   #   error_message = ..
-#   # }
-# }
+  # assert {
+  #   condition     = ..
+  #   error_message = ..
+  # }
+}

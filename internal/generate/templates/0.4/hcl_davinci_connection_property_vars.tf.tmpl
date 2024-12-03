@@ -8,7 +8,7 @@
 {{range $property := .Properties }}
 // The '{{if $property.DisplayName}}{{$property.DisplayName}}{{else}}{{$property.Name}}{{end}}' property for the connector named '{{$connectorName}}' with connector ID '{{$connectorID}}'.{{if $property.Description}} {{$property.Description}}{{end}}
 variable "davinci_connection_{{$resourceName}}_{{$property.Name}}" {
-  type = {{$property.Type}}
+  type = {{$property.TerraformType}}
   
   description = "The '{{if $property.DisplayName}}{{$property.DisplayName}}{{else}}{{$property.Name}}{{end}}' property for the connector named '{{$connectorName}}' with connector ID '{{$connectorID}}'.{{if $property.Description}} {{$property.Description}}{{end}}"
   default = null

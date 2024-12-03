@@ -11,8 +11,14 @@ var HCLConnectionResourceTemplate_0_4 string
 //go:embed templates/0.4/hcl_davinci_flow.tf.tmpl
 var HCLFlowResourceTemplate_0_4 string
 
+//go:embed templates/0.4/hcl_davinci_flow_vars.tf.tmpl
+var HCLFlowResourceVarsTemplate_0_4 string
+
 //go:embed templates/0.4/hcl_davinci_variable.tf.tmpl
 var HCLVariableResourceTemplate_0_4 string
+
+//go:embed templates/0.4/hcl_davinci_variable_vars.tf.tmpl
+var HCLVariableResourceVarsTemplate_0_4 string
 
 //go:embed templates/0.4/hcl_vars.tf.tmpl
 var HCLVarsTemplate_0_4 string
