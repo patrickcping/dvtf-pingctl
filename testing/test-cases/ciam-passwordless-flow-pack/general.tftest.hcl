@@ -88,6 +88,50 @@ run "properties_generated" {
   }
 }
 
+run "flow_vars_conflicting" {
+
+  variables {
+    pingone_environment_id = run.pingone_setup.pingone_environment_id
+
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_account_recovery_subflow.json"
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = jsonencode({})
+  }
+
+  command = plan
+
+  expect_failures = [ 
+    var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path
+  ]
+}
+
+run "flow_vars_missing" {
+
+  variables {
+    pingone_environment_id = run.pingone_setup.pingone_environment_id
+
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path = null
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = null
+  }
+
+  command = plan
+
+  expect_failures = [ 
+    var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path
+  ]
+}
+
+run "flow_json_override" {
+
+  variables {
+    pingone_environment_id = run.pingone_setup.pingone_environment_id
+
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path = null
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = file("assets/flows/ciam_passwordless_protect_account_recovery_subflow.json")
+  }
+
+  command = plan
+}
+
 run "apply_success" {
 
   variables {

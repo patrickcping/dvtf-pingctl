@@ -24,3 +24,24 @@ variable "davinci_flow_{{.ResourceName}}_description" {
   default = null
   {{- end}}
 }
+
+// The location of the flow file path
+variable "davinci_flow_{{.ResourceName}}_json_file_path" {
+  type = string
+  
+  description = "The filesystem location of the flow JSON with resource name '{{.ResourceName}}'. Cannot be set with the `davinci_flow_{{.ResourceName}}_json` variable."
+  default = "{{.FlowJSONPath}}"
+
+  validation {
+    condition = (var.davinci_flow_{{.ResourceName}}_json_file_path != null || var.davinci_flow_{{.ResourceName}}_json != null) && (var.davinci_flow_{{.ResourceName}}_json_file_path == null || var.davinci_flow_{{.ResourceName}}_json == null)
+    error_message = "Must set either 'davinci_flow_{{.ResourceName}}_json_file_path' or 'davinci_flow_{{.ResourceName}}_json', but not both together."
+  }
+}
+
+// The raw JSON of the flow
+variable "davinci_flow_{{.ResourceName}}_json" {
+  type = string
+  
+  description = "The filesystem location of the flow JSON with resource name '{{.ResourceName}}'. Cannot be set with the `davinci_flow_{{.ResourceName}}_json_file_path` variable."
+  default = null
+}
