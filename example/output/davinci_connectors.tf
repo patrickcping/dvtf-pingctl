@@ -43,6 +43,12 @@ resource "davinci_connection" "flowconnector__2581eb287bb1d9bd29ae9886d675f89f" 
   
   dynamic "property" {
     for_each = concat(
+      // Enforce Signed Token
+      var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken != null ? [{
+        name  = "enforcedSignedToken"
+        type  = "boolean"
+        value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken)
+      }] : [],
       // Input Schema
       var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_inputSchema != null ? [{
         name  = "inputSchema"
@@ -54,12 +60,6 @@ resource "davinci_connection" "flowconnector__2581eb287bb1d9bd29ae9886d675f89f" 
         name  = "pemPublicKey"
         type  = "string"
         value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_pemPublicKey)
-      }] : [],
-      // Enforce Signed Token
-      var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken != null ? [{
-        name  = "enforcedSignedToken"
-        type  = "boolean"
-        value = jsonencode(var.davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken)
       }] : [],
       
     )
@@ -126,6 +126,12 @@ resource "davinci_connection" "httpconnector__867ed4363b2bc21c860085ad2baa817d" 
   
   dynamic "property" {
     for_each = concat(
+      // Trusted Sites
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList != null ? [{
+        name  = "whiteList"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList)
+      }] : [],
       // Select an OpenID token management connection for signed HTTP responses.
       var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_connectionId != null ? [{
         name  = "connectionId"
@@ -143,12 +149,6 @@ resource "davinci_connection" "httpconnector__867ed4363b2bc21c860085ad2baa817d" 
         name  = "recaptchaSiteKey"
         type  = "string"
         value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSiteKey)
-      }] : [],
-      // Trusted Sites
-      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList != null ? [{
-        name  = "whiteList"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList)
       }] : [],
       
     )
@@ -187,6 +187,12 @@ resource "davinci_connection" "notificationsconnector__cacf3d2861657174d93cbf445
   
   dynamic "property" {
     for_each = concat(
+      // Environment ID
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId != null ? [{
+        name  = "envId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId)
+      }] : [],
       // Notification Policy ID
       var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_notificationPolicyId != null ? [{
         name  = "notificationPolicyId"
@@ -210,12 +216,6 @@ resource "davinci_connection" "notificationsconnector__cacf3d2861657174d93cbf445
         name  = "clientSecret"
         type  = "string"
         value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret)
-      }] : [],
-      // Environment ID
-      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId != null ? [{
-        name  = "envId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId)
       }] : [],
       
     )
@@ -245,18 +245,6 @@ resource "davinci_connection" "pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9
   
   dynamic "property" {
     for_each = concat(
-      // Region
-      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region != null ? [{
-        name  = "region"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region)
-      }] : [],
-      // Client ID
-      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId)
-      }] : [],
       // Client Secret
       var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientSecret != null ? [{
         name  = "clientSecret"
@@ -274,6 +262,18 @@ resource "davinci_connection" "pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9
         name  = "policyId"
         type  = "string"
         value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_policyId)
+      }] : [],
+      // Region
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region != null ? [{
+        name  = "region"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region)
+      }] : [],
+      // Client ID
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId)
       }] : [],
       
     )
@@ -294,6 +294,12 @@ resource "davinci_connection" "pingoneriskconnector__292873d5ceea806d81373ed0341
   
   dynamic "property" {
     for_each = concat(
+      // Client ID
+      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId)
+      }] : [],
       // Client Secret
       var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientSecret != null ? [{
         name  = "clientSecret"
@@ -311,12 +317,6 @@ resource "davinci_connection" "pingoneriskconnector__292873d5ceea806d81373ed0341
         name  = "region"
         type  = "string"
         value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_region)
-      }] : [],
-      // Client ID
-      var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5c88_clientId)
       }] : [],
       
     )
@@ -337,12 +337,6 @@ resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e
   
   dynamic "property" {
     for_each = concat(
-      // Client ID
-      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId)
-      }] : [],
       // Client Secret
       var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret != null ? [{
         name  = "clientSecret"
@@ -360,6 +354,12 @@ resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e
         name  = "region"
         type  = "string"
         value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region)
+      }] : [],
+      // Client ID
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId)
       }] : [],
       
     )
