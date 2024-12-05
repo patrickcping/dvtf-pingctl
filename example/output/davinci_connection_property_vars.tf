@@ -29,14 +29,6 @@ variable "davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_pem
 // Properties for the "Flow Conductor" connector, with connector ID flowConnector.
 // Terraform Resource: davinci_connection.flowconnector__33329a264e268ab31fb19637debf1ea3
 
-// The 'Public Key' property for the connector named 'Flow Conductor' with connector ID 'flowConnector'. pem public key
-variable "davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey" {
-  type = string
-  
-  description = "The 'Public Key' property for the connector named 'Flow Conductor' with connector ID 'flowConnector'. pem public key"
-  default = null
-}
-
 // The 'Enforce Signed Token' property for the connector named 'Flow Conductor' with connector ID 'flowConnector'. 
 variable "davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_enforcedSignedToken" {
   type = bool
@@ -53,16 +45,16 @@ variable "davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_inp
   default = null
 }
 
-// Properties for the "Http" connector, with connector ID httpConnector.
-// Terraform Resource: davinci_connection.httpconnector__867ed4363b2bc21c860085ad2baa817d
-
-// The 'Trusted Sites' property for the connector named 'Http' with connector ID 'httpConnector'. Enter the hostname for the trusted sites that host your HTML. Note: Ensure that the content hosted on these sites can be trusted and that publishing safeguards are in place to prevent unexpected issues.
-variable "davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList" {
+// The 'Public Key' property for the connector named 'Flow Conductor' with connector ID 'flowConnector'. pem public key
+variable "davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey" {
   type = string
   
-  description = "The 'Trusted Sites' property for the connector named 'Http' with connector ID 'httpConnector'. Enter the hostname for the trusted sites that host your HTML. Note: Ensure that the content hosted on these sites can be trusted and that publishing safeguards are in place to prevent unexpected issues."
+  description = "The 'Public Key' property for the connector named 'Flow Conductor' with connector ID 'flowConnector'. pem public key"
   default = null
 }
+
+// Properties for the "Http" connector, with connector ID httpConnector.
+// Terraform Resource: davinci_connection.httpconnector__867ed4363b2bc21c860085ad2baa817d
 
 // The 'Select an OpenID token management connection for signed HTTP responses.' property for the connector named 'Http' with connector ID 'httpConnector'. 
 variable "davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_connectionId" {
@@ -88,8 +80,32 @@ variable "davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_rec
   default = null
 }
 
+// The 'Trusted Sites' property for the connector named 'Http' with connector ID 'httpConnector'. Enter the hostname for the trusted sites that host your HTML. Note: Ensure that the content hosted on these sites can be trusted and that publishing safeguards are in place to prevent unexpected issues.
+variable "davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList" {
+  type = string
+  
+  description = "The 'Trusted Sites' property for the connector named 'Http' with connector ID 'httpConnector'. Enter the hostname for the trusted sites that host your HTML. Note: Ensure that the content hosted on these sites can be trusted and that publishing safeguards are in place to prevent unexpected issues."
+  default = null
+}
+
 // Properties for the "PingOne Notifications" connector, with connector ID notificationsConnector.
 // Terraform Resource: davinci_connection.notificationsconnector__cacf3d2861657174d93cbf445d55797a
+
+// The 'Client ID' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client ID of your PingOne Worker application.
+variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId" {
+  type = string
+  
+  description = "The 'Client ID' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client ID of your PingOne Worker application."
+  default = null
+}
+
+// The 'Client Secret' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client Secret of your PingOne Worker application.
+variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret" {
+  type = string
+  
+  description = "The 'Client Secret' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client Secret of your PingOne Worker application."
+  default = null
+}
 
 // The 'Environment ID' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. Your PingOne Environment ID.
 variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId" {
@@ -115,24 +131,16 @@ variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d5
   default = null
 }
 
-// The 'Client ID' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client ID of your PingOne Worker application.
-variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId" {
-  type = string
-  
-  description = "The 'Client ID' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client ID of your PingOne Worker application."
-  default = null
-}
-
-// The 'Client Secret' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client Secret of your PingOne Worker application.
-variable "davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret" {
-  type = string
-  
-  description = "The 'Client Secret' property for the connector named 'PingOne Notifications' with connector ID 'notificationsConnector'. The Client Secret of your PingOne Worker application."
-  default = null
-}
-
 // Properties for the "PingOne MFA" connector, with connector ID pingOneMfaConnector.
 // Terraform Resource: davinci_connection.pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949
+
+// The 'Client ID' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The Client ID of your PingOne Worker application.
+variable "davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId" {
+  type = string
+  
+  description = "The 'Client ID' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The Client ID of your PingOne Worker application."
+  default = null
+}
 
 // The 'Client Secret' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The Client Secret of your PingOne Worker application.
 variable "davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientSecret" {
@@ -163,14 +171,6 @@ variable "davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c9
   type = string
   
   description = "The 'Region' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The region in which your PingOne environment exists."
-  default = null
-}
-
-// The 'Client ID' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The Client ID of your PingOne Worker application.
-variable "davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId" {
-  type = string
-  
-  description = "The 'Client ID' property for the connector named 'PingOne MFA' with connector ID 'pingOneMfaConnector'. The Client ID of your PingOne Worker application."
   default = null
 }
 
@@ -212,6 +212,14 @@ variable "davinci_connection_pingoneriskconnector__292873d5ceea806d81373ed0341b5
 // Properties for the "PingOne" connector, with connector ID pingOneSSOConnector.
 // Terraform Resource: davinci_connection.pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb
 
+// The 'Client ID' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The Client ID of your PingOne Worker application.
+variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId" {
+  type = string
+  
+  description = "The 'Client ID' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The Client ID of your PingOne Worker application."
+  default = null
+}
+
 // The 'Client Secret' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The Client Secret of your PingOne Worker application.
 variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret" {
   type = string
@@ -233,13 +241,5 @@ variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02
   type = string
   
   description = "The 'Region' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The region in which your PingOne environment exists."
-  default = null
-}
-
-// The 'Client ID' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The Client ID of your PingOne Worker application.
-variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId" {
-  type = string
-  
-  description = "The 'Client ID' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The Client ID of your PingOne Worker application."
   default = null
 }

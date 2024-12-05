@@ -80,12 +80,6 @@ resource "davinci_connection" "flowconnector__33329a264e268ab31fb19637debf1ea3" 
   
   dynamic "property" {
     for_each = concat(
-      // Public Key
-      var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey != null ? [{
-        name  = "pemPublicKey"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey)
-      }] : [],
       // Enforce Signed Token
       var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_enforcedSignedToken != null ? [{
         name  = "enforcedSignedToken"
@@ -97,6 +91,12 @@ resource "davinci_connection" "flowconnector__33329a264e268ab31fb19637debf1ea3" 
         name  = "inputSchema"
         type  = "string"
         value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_inputSchema)
+      }] : [],
+      // Public Key
+      var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey != null ? [{
+        name  = "pemPublicKey"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_flowconnector__33329a264e268ab31fb19637debf1ea3_pemPublicKey)
       }] : [],
       
     )
@@ -126,12 +126,6 @@ resource "davinci_connection" "httpconnector__867ed4363b2bc21c860085ad2baa817d" 
   
   dynamic "property" {
     for_each = concat(
-      // Trusted Sites
-      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList != null ? [{
-        name  = "whiteList"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList)
-      }] : [],
       // Select an OpenID token management connection for signed HTTP responses.
       var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_connectionId != null ? [{
         name  = "connectionId"
@@ -149,6 +143,12 @@ resource "davinci_connection" "httpconnector__867ed4363b2bc21c860085ad2baa817d" 
         name  = "recaptchaSiteKey"
         type  = "string"
         value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_recaptchaSiteKey)
+      }] : [],
+      // Trusted Sites
+      var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList != null ? [{
+        name  = "whiteList"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_httpconnector__867ed4363b2bc21c860085ad2baa817d_whiteList)
       }] : [],
       
     )
@@ -187,6 +187,18 @@ resource "davinci_connection" "notificationsconnector__cacf3d2861657174d93cbf445
   
   dynamic "property" {
     for_each = concat(
+      // Client ID
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId)
+      }] : [],
+      // Client Secret
+      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret != null ? [{
+        name  = "clientSecret"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret)
+      }] : [],
       // Environment ID
       var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId != null ? [{
         name  = "envId"
@@ -204,18 +216,6 @@ resource "davinci_connection" "notificationsconnector__cacf3d2861657174d93cbf445
         name  = "region"
         type  = "string"
         value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_region)
-      }] : [],
-      // Client ID
-      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId)
-      }] : [],
-      // Client Secret
-      var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret != null ? [{
-        name  = "clientSecret"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret)
       }] : [],
       
     )
@@ -245,6 +245,12 @@ resource "davinci_connection" "pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9
   
   dynamic "property" {
     for_each = concat(
+      // Client ID
+      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId)
+      }] : [],
       // Client Secret
       var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientSecret != null ? [{
         name  = "clientSecret"
@@ -268,12 +274,6 @@ resource "davinci_connection" "pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9
         name  = "region"
         type  = "string"
         value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_region)
-      }] : [],
-      // Client ID
-      var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingonemfaconnector__b72bd44e6be8180bd5988ac74cd9c949_clientId)
       }] : [],
       
     )
@@ -337,6 +337,12 @@ resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e
   
   dynamic "property" {
     for_each = concat(
+      // Client ID
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId != null ? [{
+        name  = "clientId"
+        type  = "string"
+        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId)
+      }] : [],
       // Client Secret
       var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret != null ? [{
         name  = "clientSecret"
@@ -354,12 +360,6 @@ resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e
         name  = "region"
         type  = "string"
         value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region)
-      }] : [],
-      // Client ID
-      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId != null ? [{
-        name  = "clientId"
-        type  = "string"
-        value = jsonencode(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId)
       }] : [],
       
     )
