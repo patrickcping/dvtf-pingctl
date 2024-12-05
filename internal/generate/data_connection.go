@@ -1,6 +1,9 @@
 package generate
 
 import (
+	"slices"
+	"strings"
+
 	"github.com/samir-gandhi/davinci-client-go/davinci"
 )
 
@@ -53,6 +56,10 @@ func getConnectionProperties(connectorID string) ([]connectionDataProperty, erro
 			break
 		}
 	}
+
+	slices.SortFunc(connectionProperties, func(i, j connectionDataProperty) int {
+		return strings.Compare(i.Name, j.Name)
+	})
 
 	return connectionProperties, nil
 }
