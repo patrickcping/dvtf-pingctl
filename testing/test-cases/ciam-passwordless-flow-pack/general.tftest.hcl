@@ -32,6 +32,10 @@ run "plan_success" {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
   }
 
+  module {
+    source = "./module"
+  }
+
   command = plan
 
   # assert {
@@ -51,6 +55,10 @@ run "properties_generated" {
     davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_region = run.pingone_setup.pingone_region_code
 
     davinci_connection_flowconnector__2581eb287bb1d9bd29ae9886d675f89f_enforcedSignedToken = true
+  }
+
+  module {
+    source = "./module"
   }
 
   command = plan
@@ -97,6 +105,10 @@ run "flow_vars_conflicting" {
     davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = jsonencode({})
   }
 
+  module {
+    source = "./module"
+  }
+
   command = plan
 
   expect_failures = [ 
@@ -113,6 +125,10 @@ run "flow_vars_missing" {
     davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = null
   }
 
+  module {
+    source = "./module"
+  }
+
   command = plan
 
   expect_failures = [ 
@@ -126,7 +142,11 @@ run "flow_json_override" {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
 
     davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path = null
-    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = file("assets/flows/ciam_passwordless_protect_account_recovery_subflow.json")
+    davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json = file("module/assets/flows/ciam_passwordless_protect_account_recovery_subflow.json")
+  }
+
+  module {
+    source = "./module"
   }
 
   command = plan
@@ -136,6 +156,10 @@ run "apply_success" {
 
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
+  }
+
+  module {
+    source = "./module"
   }
 
   command = apply

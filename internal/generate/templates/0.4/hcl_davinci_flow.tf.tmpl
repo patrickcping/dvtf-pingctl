@@ -13,7 +13,7 @@ resource "davinci_flow" "{{.ResourceName}}" {
   name        = var.davinci_flow_{{.ResourceName}}_name
   description = var.davinci_flow_{{.ResourceName}}_description
 
-  flow_json = var.davinci_flow_{{.ResourceName}}_json_file_path != null ? file(var.davinci_flow_{{.ResourceName}}_json_file_path) : var.davinci_flow_{{.ResourceName}}_json
+  flow_json = var.davinci_flow_{{.ResourceName}}_json_file_path != null ? (fileexists(var.davinci_flow_{{.ResourceName}}_json_file_path) ? file(var.davinci_flow_{{.ResourceName}}_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_{{.ResourceName}}_json_file_path))) : var.davinci_flow_{{.ResourceName}}_json
 
 {{if .ConnectionLinks}}
 

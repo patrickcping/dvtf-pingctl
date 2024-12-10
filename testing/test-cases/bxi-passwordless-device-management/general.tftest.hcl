@@ -32,6 +32,10 @@ run "plan_success" {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
   }
 
+  module {
+    source = "./module"
+  }
+
   command = plan
 
   # assert {
@@ -44,6 +48,10 @@ run "apply_success" {
   
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
+  }
+
+  module {
+    source = "./module"
   }
 
   command = apply
