@@ -9,11 +9,12 @@ directory=$1
 script_dir=$(dirname "$(realpath "$0")")
 
 # Directory to generate HCL in
-DIR="$directory/testoutput"
+MAIN_DIR="$directory/testoutput"
+MODULE_DIR="$MAIN_DIR/module"
 
-if [ -d "$DIR" ]; then
-  echo "Directory $DIR exists.  Removing it."
-  rm -r $DIR
+if [ -d "$MAIN_DIR" ]; then
+  echo "Directory $MAIN_DIR exists.  Removing it."
+  rm -r $MAIN_DIR
 fi
 
 # Initialize the command variable
@@ -40,21 +41,24 @@ done
 set -e
 
 # Execute the command
-./dvtf-pingctl generate -o $DIR $command
+./dvtf-pingctl generate -o $MODULE_DIR $command
 
-if [ -d "$DIR" ]; then
-  echo "Directory $DIR exists.  Bootstrapping it."
+if [ -d "$MAIN_DIR" ]; then
+  echo "Directory $MAIN_DIR exists.  Bootstrapping it."
 
   # cp $script_dir/../testing/bootstrap-hcl/* $DIR
-  cp $directory/*.tftest.hcl $DIR
+  cp $directory/*.tftest.hcl $MAIN_DIR
+  cp $directory/versions.tf $MAIN_DIR
   
-  pushd $DIR
-    tflint
+  pushd $MAIN_DIR
     terraform init
-    terraform validate
+    pushd $MODULE_DIR
+      tflint
+      terraform validate
+    popd
     terraform test
   popd
 else
-  echo "Directory $DIR does not exist."
+  echo "Directory $MAIN_DIR does not exist."
   exit 1
 fi

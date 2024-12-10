@@ -34,6 +34,10 @@ run "plan_success" {
 
   command = plan
 
+  module {
+    source = "./module"
+  }
+
   # assert {
   #   condition     = ..
   #   error_message = ..
@@ -47,6 +51,10 @@ run "apply_success" {
   }
 
   command = apply
+
+  module {
+    source = "./module"
+  }
 
   # assert {
   #   condition     = ..

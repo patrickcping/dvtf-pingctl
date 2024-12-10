@@ -33,6 +33,10 @@ run "plan_success" {
     davinci_variable_variabletypesecret_value = "testvalue"
   }
 
+  module {
+    source = "./module"
+  }
+
   command = plan
 
   assert {
@@ -46,6 +50,10 @@ run "apply_success" {
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
     davinci_variable_variabletypesecret_value = "testvalue"
+  }
+
+  module {
+    source = "./module"
   }
 
   command = apply
