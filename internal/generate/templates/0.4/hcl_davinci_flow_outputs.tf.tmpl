@@ -1,0 +1,13 @@
+// Outputs for the "{{.Name}}" flow.
+// Terraform Resource: davinci_flow.{{.ResourceName}}
+
+output "davinci_flow_{{.ResourceName}}" {
+    value = {
+        connection_link = davinci_flow.{{.ResourceName}}.connection_link
+        description     = davinci_flow.{{.ResourceName}}.description
+        environment_id  = davinci_flow.{{.ResourceName}}.environment_id
+        id              = davinci_flow.{{.ResourceName}}.id
+        name            = davinci_flow.{{.ResourceName}}.name
+        subflow_link    = davinci_flow.{{.ResourceName}}.subflow_link
+    }
+}

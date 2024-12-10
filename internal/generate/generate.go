@@ -402,6 +402,10 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		if err != nil {
 			return err
 		}
+		err = d.writeFlowOutputs(version, overwrite)
+		if err != nil {
+			return err
+		}
 	}
 
 	err = d.writeAssets()
@@ -716,6 +720,47 @@ func (d *DaVinciGenerator) writeFlowVars(version string, overwrite bool) error {
 	}
 
 	fileName := fmt.Sprintf("%s/davinci_flow_vars.tf", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	for _, flowData := range d.flowsData {
+		err = hclTemplate.Execute(outputFile, flowData)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeFlowOutputs(version string, overwrite bool) error {
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = HCLFlowResourceOutputsTemplate_0_4
+	}
+
+	// Parse the HCL import block template
+	hclTemplate, err := template.New("HCLFlowResourceOutputs").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse flow HCL template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/davinci_flow_outputs.tf", d.outputPath)
 
 	// Check if the file exists
 	if _, err := os.Stat(fileName); err == nil {
