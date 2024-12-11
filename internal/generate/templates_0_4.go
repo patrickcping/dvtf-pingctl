@@ -28,3 +28,6 @@ var HCLVarsTemplate_0_4 string
 
 //go:embed templates/0.4/hcl_versions.tf.tmpl
 var HCLVersionsTemplate_0_4 string
+
+//go:embed templates/0.4/README.md.tmpl
+var ReadMeTemplate_0_4 string

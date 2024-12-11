@@ -21,9 +21,9 @@ type DaVinciGenerator struct {
 	exportDefs      []export.DaVinciGeneratorExport
 	outputPath      string
 	resources       []terraform.ProviderResource
-	flowsData       []flowData
-	connectionsData []connectionData
-	variablesData   []variableData
+	FlowsData       []flowData
+	ConnectionsData []connectionData
+	VariablesData   []variableData
 	flowAssets      []flowAssetData
 	flowNames       map[string]string
 }
@@ -71,7 +71,7 @@ func (d *DaVinciGenerator) Generate(version string, overwrite bool) error {
 
 func (d *DaVinciGenerator) rewriteSubflowNames() {
 	updatedFlowsData := make([]flowData, 0)
-	for _, flowData := range d.flowsData {
+	for _, flowData := range d.FlowsData {
 		updatedSubflowLinks := make([]flowSubflowLink, 0)
 		for _, subflowLink := range flowData.SubflowLinks {
 			if subFlowName, ok := d.flowNames[subflowLink.ReplaceSubflowID]; ok {
@@ -94,7 +94,7 @@ func (d *DaVinciGenerator) rewriteSubflowNames() {
 		updatedFlowsData = append(updatedFlowsData, flowData)
 	}
 
-	d.flowsData = updatedFlowsData
+	d.FlowsData = updatedFlowsData
 }
 
 func (d *DaVinciGenerator) parseFlows() error {
@@ -210,7 +210,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			resourceName += "__" + *flowIDRef
 		}
 
-		if !slices.ContainsFunc(d.variablesData, func(v variableData) bool {
+		if !slices.ContainsFunc(d.VariablesData, func(v variableData) bool {
 			return v.ResourceName == resourceName
 		}) {
 
@@ -226,7 +226,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 				*variableValue.JSON = strings.ReplaceAll(*variableValue.JSON, `"`, `\"`)
 			}
 
-			d.variablesData = append(d.variablesData, variableData{
+			d.VariablesData = append(d.VariablesData, variableData{
 				commonData: commonData{
 					CommentInformation: "// Flow Name: " + flow.Name,
 					ResourceName:       resourceName,
@@ -255,7 +255,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 				resourceName := sanitiseResourceName(fmt.Sprintf("%s__%s", *nodeData.ConnectorID, *nodeData.ConnectionID))
 
-				if !slices.ContainsFunc(d.connectionsData, func(v connectionData) bool {
+				if !slices.ContainsFunc(d.ConnectionsData, func(v connectionData) bool {
 					return v.ResourceName == resourceName
 				}) {
 					connectionProperties, err := getConnectionProperties(*nodeData.ConnectorID)
@@ -263,7 +263,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 						return fmt.Errorf("Failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
 					}
 
-					d.connectionsData = append(d.connectionsData, connectionData{
+					d.ConnectionsData = append(d.ConnectionsData, connectionData{
 						commonData: commonData{
 							CommentInformation: "// Flow Name: " + flow.Name,
 							ResourceName:       resourceName,
@@ -319,7 +319,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 
 	slices.Sort(dependsOnVarRefs)
 
-	d.flowsData = append(d.flowsData, flowData{
+	d.FlowsData = append(d.FlowsData, flowData{
 		commonData: commonData{
 			CommentInformation: "// Flow Name: " + sanitiseStringField(flow.Name),
 			ResourceName:       flowResourceName,
@@ -365,7 +365,7 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 	}
 
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeVariable) {
-		slices.SortFunc(d.variablesData, func(i, j variableData) int {
+		slices.SortFunc(d.VariablesData, func(i, j variableData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
 		err := d.writeVariables(version, overwrite)
@@ -378,7 +378,7 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		}
 	}
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeConnection) {
-		slices.SortFunc(d.connectionsData, func(i, j connectionData) int {
+		slices.SortFunc(d.ConnectionsData, func(i, j connectionData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
 		err := d.writeConnections(version, overwrite)
@@ -391,7 +391,7 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 		}
 	}
 	if slices.Contains(d.resources, terraform.ProviderResourceTypeFlow) {
-		slices.SortFunc(d.flowsData, func(i, j flowData) int {
+		slices.SortFunc(d.FlowsData, func(i, j flowData) int {
 			return strings.Compare(i.ResourceName, j.ResourceName)
 		})
 		err := d.writeFlows(version, overwrite)
@@ -409,6 +409,11 @@ func (d *DaVinciGenerator) write(version string, overwrite bool) error {
 	}
 
 	err = d.writeAssets()
+	if err != nil {
+		return err
+	}
+
+	err = d.writeReadme(version, overwrite)
 	if err != nil {
 		return err
 	}
@@ -528,7 +533,7 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 	}
 	defer outputFile.Close()
 
-	for _, variableData := range d.variablesData {
+	for _, variableData := range d.VariablesData {
 		err = hclTemplate.Execute(outputFile, variableData)
 		if err != nil {
 			return err
@@ -570,7 +575,7 @@ func (d *DaVinciGenerator) writeVariableVars(version string, overwrite bool) err
 	}
 	defer outputFile.Close()
 
-	for _, variableData := range d.variablesData {
+	for _, variableData := range d.VariablesData {
 		err = hclTemplate.Execute(outputFile, variableData)
 		if err != nil {
 			return err
@@ -612,7 +617,7 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 	}
 	defer outputFile.Close()
 
-	for _, connectionData := range d.connectionsData {
+	for _, connectionData := range d.ConnectionsData {
 		err = hclTemplate.Execute(outputFile, connectionData)
 		if err != nil {
 			return err
@@ -654,7 +659,7 @@ func (d *DaVinciGenerator) writeConnectionsPropertyVars(version string, overwrit
 	}
 	defer outputFile.Close()
 
-	for _, connectionData := range d.connectionsData {
+	for _, connectionData := range d.ConnectionsData {
 		err = hclTemplate.Execute(outputFile, connectionData)
 		if err != nil {
 			return err
@@ -695,7 +700,7 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	}
 	defer outputFile.Close()
 
-	for _, flowData := range d.flowsData {
+	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
 		if err != nil {
 			return err
@@ -736,7 +741,7 @@ func (d *DaVinciGenerator) writeFlowVars(version string, overwrite bool) error {
 	}
 	defer outputFile.Close()
 
-	for _, flowData := range d.flowsData {
+	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
 		if err != nil {
 			return err
@@ -777,11 +782,50 @@ func (d *DaVinciGenerator) writeFlowOutputs(version string, overwrite bool) erro
 	}
 	defer outputFile.Close()
 
-	for _, flowData := range d.flowsData {
+	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
 		if err != nil {
 			return err
 		}
+	}
+
+	return nil
+}
+
+func (d *DaVinciGenerator) writeReadme(version string, overwrite bool) error {
+	var templateString string
+
+	switch version {
+	case "0.4":
+		templateString = ReadMeTemplate_0_4
+	}
+
+	// Parse the template
+	readmeTemplate, err := template.New("ReadMe").Parse(templateString)
+	if err != nil {
+		return fmt.Errorf("failed to parse readme template. err: %s", err.Error())
+	}
+
+	fileName := fmt.Sprintf("%s/README.md", d.outputPath)
+
+	// Check if the file exists
+	if _, err := os.Stat(fileName); err == nil {
+		if !overwrite {
+			return fmt.Errorf("file %s already exists and overwrite is set to false", fileName)
+		}
+	} else if !os.IsNotExist(err) {
+		return fmt.Errorf("failed to check if file exists: %v", err)
+	}
+
+	outputFile, err := os.Create(fileName)
+	if err != nil {
+		return err
+	}
+	defer outputFile.Close()
+
+	err = readmeTemplate.Execute(outputFile, d)
+	if err != nil {
+		return err
 	}
 
 	return nil
