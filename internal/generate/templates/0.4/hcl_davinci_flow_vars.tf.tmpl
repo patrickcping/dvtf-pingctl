@@ -42,6 +42,6 @@ variable "davinci_flow_{{.ResourceName}}_json_file_path" {
 variable "davinci_flow_{{.ResourceName}}_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name '{{.ResourceName}}'. Cannot be set with the `davinci_flow_{{.ResourceName}}_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name '{{.ResourceName}}'. Cannot be set with the `davinci_flow_{{.ResourceName}}_json_file_path` variable."
   default = null
 }

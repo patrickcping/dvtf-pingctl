@@ -36,7 +36,7 @@ variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_f
 variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_account_recovery_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_account_recovery_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Account-Registration-Subflow" flow.
@@ -77,7 +77,7 @@ variable "davinci_flow_ciam_passwordless_protect_account_registration_subflow_js
 variable "davinci_flow_ciam_passwordless_protect_account_registration_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_account_registration_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_account_registration_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Agreement(ToS)-Subflow" flow.
@@ -118,7 +118,7 @@ variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file
 variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_agreement_tos_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_agreement_tos_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Change-Password-Subflow" flow.
@@ -159,7 +159,7 @@ variable "davinci_flow_ciam_passwordless_protect_change_password_subflow_json_fi
 variable "davinci_flow_ciam_passwordless_protect_change_password_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_change_password_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_change_password_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Device-Authentication-Subflow" flow.
@@ -200,7 +200,7 @@ variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_j
 variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_device_authentication_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_device_authentication_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Device-Registration-Subflow" flow.
@@ -241,7 +241,7 @@ variable "davinci_flow_ciam_passwordless_protect_device_registration_subflow_jso
 variable "davinci_flow_ciam_passwordless_protect_device_registration_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_device_registration_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_device_registration_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Magic-Link-Authentication-Subflow" flow.
@@ -282,7 +282,7 @@ variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subfl
 variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_magic_link_authentication_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_magic_link_authentication_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow" flow.
@@ -323,7 +323,7 @@ variable "davinci_flow_ciam_passwordless_protect_registration_authentication_acc
 variable "davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_registration_authentication_account_recovery_main_flow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_registration_authentication_account_recovery_main_flow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Threat-Detection-Subflow" flow.
@@ -364,7 +364,7 @@ variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_f
 variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_threat_detection_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_threat_detection_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "CIAM-Passwordless-Protect-Verify-Email-Subflow" flow.
@@ -405,7 +405,7 @@ variable "davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_
 variable "davinci_flow_ciam_passwordless_protect_verify_email_subflow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ciam_passwordless_protect_verify_email_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ciam_passwordless_protect_verify_email_subflow'. Cannot be set with the `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path` variable."
   default = null
 }
 // Variables for the "OOTB - Basic Profile Management" flow.
@@ -446,7 +446,7 @@ variable "davinci_flow_ootb_basic_profile_management_json_file_path" {
 variable "davinci_flow_ootb_basic_profile_management_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ootb_basic_profile_management'. Cannot be set with the `davinci_flow_ootb_basic_profile_management_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ootb_basic_profile_management'. Cannot be set with the `davinci_flow_ootb_basic_profile_management_json_file_path` variable."
   default = null
 }
 // Variables for the "OOTB - Change Password - Subflow - 1" flow.
@@ -487,7 +487,7 @@ variable "davinci_flow_ootb_change_password_subflow_1_json_file_path" {
 variable "davinci_flow_ootb_change_password_subflow_1_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ootb_change_password_subflow_1'. Cannot be set with the `davinci_flow_ootb_change_password_subflow_1_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ootb_change_password_subflow_1'. Cannot be set with the `davinci_flow_ootb_change_password_subflow_1_json_file_path` variable."
   default = null
 }
 // Variables for the "OOTB - Device Management - Main Flow" flow.
@@ -528,7 +528,7 @@ variable "davinci_flow_ootb_device_management_main_flow_json_file_path" {
 variable "davinci_flow_ootb_device_management_main_flow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ootb_device_management_main_flow'. Cannot be set with the `davinci_flow_ootb_device_management_main_flow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ootb_device_management_main_flow'. Cannot be set with the `davinci_flow_ootb_device_management_main_flow_json_file_path` variable."
   default = null
 }
 // Variables for the "OOTB - Device Registration - Subflow - 1" flow.
@@ -569,7 +569,7 @@ variable "davinci_flow_ootb_device_registration_subflow_1_json_file_path" {
 variable "davinci_flow_ootb_device_registration_subflow_1_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ootb_device_registration_subflow_1'. Cannot be set with the `davinci_flow_ootb_device_registration_subflow_1_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ootb_device_registration_subflow_1'. Cannot be set with the `davinci_flow_ootb_device_registration_subflow_1_json_file_path` variable."
   default = null
 }
 // Variables for the "OOTB - Password Reset - Main Flow" flow.
@@ -610,6 +610,6 @@ variable "davinci_flow_ootb_password_reset_main_flow_json_file_path" {
 variable "davinci_flow_ootb_password_reset_main_flow_json" {
   type = string
   
-  description = "The filesystem location of the flow JSON with resource name 'ootb_password_reset_main_flow'. Cannot be set with the `davinci_flow_ootb_password_reset_main_flow_json_file_path` variable."
+  description = "A string representing the raw DaVinci import JSON for resource name 'ootb_password_reset_main_flow'. Cannot be set with the `davinci_flow_ootb_password_reset_main_flow_json_file_path` variable."
   default = null
 }
