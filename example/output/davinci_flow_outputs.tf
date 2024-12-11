@@ -2,6 +2,8 @@
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_account_recovery_subflow
 
 output "davinci_flow_ciam_passwordless_protect_account_recovery_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Account-Recovery-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_account_recovery_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.description
@@ -15,6 +17,8 @@ output "davinci_flow_ciam_passwordless_protect_account_recovery_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_account_registration_subflow
 
 output "davinci_flow_ciam_passwordless_protect_account_registration_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Account-Registration-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_account_registration_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_account_registration_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_account_registration_subflow.description
@@ -28,6 +32,8 @@ output "davinci_flow_ciam_passwordless_protect_account_registration_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_agreement_tos_subflow
 
 output "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Agreement(ToS)-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_agreement_tos_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.description
@@ -41,6 +47,8 @@ output "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_change_password_subflow
 
 output "davinci_flow_ciam_passwordless_protect_change_password_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Change-Password-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_change_password_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_change_password_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_change_password_subflow.description
@@ -54,6 +62,8 @@ output "davinci_flow_ciam_passwordless_protect_change_password_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_device_authentication_subflow
 
 output "davinci_flow_ciam_passwordless_protect_device_authentication_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Device-Authentication-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_device_authentication_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.description
@@ -67,6 +77,8 @@ output "davinci_flow_ciam_passwordless_protect_device_authentication_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_device_registration_subflow
 
 output "davinci_flow_ciam_passwordless_protect_device_registration_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Device-Registration-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_device_registration_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_device_registration_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_device_registration_subflow.description
@@ -80,6 +92,8 @@ output "davinci_flow_ciam_passwordless_protect_device_registration_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow
 
 output "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Magic-Link-Authentication-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.description
@@ -93,6 +107,8 @@ output "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow
 
 output "davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow flow, the 'davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.description
@@ -106,6 +122,8 @@ output "davinci_flow_ciam_passwordless_protect_registration_authentication_accou
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_threat_detection_subflow
 
 output "davinci_flow_ciam_passwordless_protect_threat_detection_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Threat-Detection-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_threat_detection_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.description
@@ -119,6 +137,8 @@ output "davinci_flow_ciam_passwordless_protect_threat_detection_subflow" {
 // Terraform Resource: davinci_flow.ciam_passwordless_protect_verify_email_subflow
 
 output "davinci_flow_ciam_passwordless_protect_verify_email_subflow" {
+    description = "An object that represents the CIAM-Passwordless-Protect-Verify-Email-Subflow flow, the 'davinci_flow.ciam_passwordless_protect_verify_email_subflow' resource."
+    
     value = {
         connection_link = davinci_flow.ciam_passwordless_protect_verify_email_subflow.connection_link
         description     = davinci_flow.ciam_passwordless_protect_verify_email_subflow.description
@@ -132,6 +152,8 @@ output "davinci_flow_ciam_passwordless_protect_verify_email_subflow" {
 // Terraform Resource: davinci_flow.ootb_basic_profile_management
 
 output "davinci_flow_ootb_basic_profile_management" {
+    description = "An object that represents the OOTB - Basic Profile Management flow, the 'davinci_flow.ootb_basic_profile_management' resource."
+    
     value = {
         connection_link = davinci_flow.ootb_basic_profile_management.connection_link
         description     = davinci_flow.ootb_basic_profile_management.description
@@ -145,6 +167,8 @@ output "davinci_flow_ootb_basic_profile_management" {
 // Terraform Resource: davinci_flow.ootb_change_password_subflow_1
 
 output "davinci_flow_ootb_change_password_subflow_1" {
+    description = "An object that represents the OOTB - Change Password - Subflow - 1 flow, the 'davinci_flow.ootb_change_password_subflow_1' resource."
+    
     value = {
         connection_link = davinci_flow.ootb_change_password_subflow_1.connection_link
         description     = davinci_flow.ootb_change_password_subflow_1.description
@@ -158,6 +182,8 @@ output "davinci_flow_ootb_change_password_subflow_1" {
 // Terraform Resource: davinci_flow.ootb_device_management_main_flow
 
 output "davinci_flow_ootb_device_management_main_flow" {
+    description = "An object that represents the OOTB - Device Management - Main Flow flow, the 'davinci_flow.ootb_device_management_main_flow' resource."
+    
     value = {
         connection_link = davinci_flow.ootb_device_management_main_flow.connection_link
         description     = davinci_flow.ootb_device_management_main_flow.description
@@ -171,6 +197,8 @@ output "davinci_flow_ootb_device_management_main_flow" {
 // Terraform Resource: davinci_flow.ootb_device_registration_subflow_1
 
 output "davinci_flow_ootb_device_registration_subflow_1" {
+    description = "An object that represents the OOTB - Device Registration - Subflow - 1 flow, the 'davinci_flow.ootb_device_registration_subflow_1' resource."
+    
     value = {
         connection_link = davinci_flow.ootb_device_registration_subflow_1.connection_link
         description     = davinci_flow.ootb_device_registration_subflow_1.description
@@ -184,6 +212,8 @@ output "davinci_flow_ootb_device_registration_subflow_1" {
 // Terraform Resource: davinci_flow.ootb_password_reset_main_flow
 
 output "davinci_flow_ootb_password_reset_main_flow" {
+    description = "An object that represents the OOTB - Password Reset - Main Flow flow, the 'davinci_flow.ootb_password_reset_main_flow' resource."
+    
     value = {
         connection_link = davinci_flow.ootb_password_reset_main_flow.connection_link
         description     = davinci_flow.ootb_password_reset_main_flow.description

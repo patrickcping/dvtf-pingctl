@@ -2,6 +2,8 @@
 // Terraform Resource: davinci_flow.{{.ResourceName}}
 
 output "davinci_flow_{{.ResourceName}}" {
+    description = "An object that represents the {{.Name}} flow, the 'davinci_flow.{{.ResourceName}}' resource."
+    
     value = {
         connection_link = davinci_flow.{{.ResourceName}}.connection_link
         description     = davinci_flow.{{.ResourceName}}.description
