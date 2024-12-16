@@ -156,6 +156,11 @@ run "apply_success" {
 
   variables {
     pingone_environment_id = run.pingone_setup.pingone_environment_id
+
+    davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_envId = run.pingone_setup.pingone_environment_id
+    davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientId = run.pingone_setup.pingone_application_client_id
+    davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_clientSecret = run.pingone_setup.pingone_application_client_secret
+    davinci_connection_notificationsconnector__cacf3d2861657174d93cbf445d55797a_region = run.pingone_setup.pingone_region_code
   }
 
   module {
