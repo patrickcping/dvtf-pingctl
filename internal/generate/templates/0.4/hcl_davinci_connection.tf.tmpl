@@ -12,7 +12,7 @@ resource "davinci_connection" "{{.ResourceName}}" {
       var.davinci_connection_{{$resourcename}}_{{$property.Name}} != null ? [{
         name  = "{{$property.Name}}"
         type  = "{{$property.ProviderType}}"
-        value = jsonencode(var.davinci_connection_{{$resourcename}}_{{$property.Name}})
+        value = tostring(var.davinci_connection_{{$resourcename}}_{{$property.Name}})
       }] : [],
       {{end}}
     )
