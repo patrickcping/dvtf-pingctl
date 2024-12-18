@@ -52,10 +52,8 @@ if [ -d "$MAIN_DIR" ]; then
   
   pushd $MAIN_DIR
     terraform init
-    pushd $MODULE_DIR
-      tflint
-      terraform validate
-    popd
+    tflint
+    terraform validate
     terraform test
   popd
 else
