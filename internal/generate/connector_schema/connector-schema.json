@@ -1,1600 +1,5 @@
 [
   {
-    "name": "BioCatch",
-    "connectorId": "biocatchConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Server URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "customerId": {
-        "type": "string",
-        "displayName": "Customer ID",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "sdkToken": {
-        "type": "string",
-        "displayName": "SDK Token",
-        "createdDate": 1694542169676,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "truthApiKey": {
-        "type": "string",
-        "displayName": "Truth-mapping API Key",
-        "createdDate": 1694542169553,
-        "preferredControlType": "textField",
-        "info": "Fraudulent/Genuine Session Reporting API Key"
-      },
-      "truthApiUrl": {
-        "type": "string",
-        "displayName": "Truth-mapping API URL",
-        "createdDate": 1694542169720,
-        "preferredControlType": "textField",
-        "info": "Fraudulent/Genuine Session Reporting"
-      }
-    }
-  },
-  {
-    "name": "BambooHR",
-    "connectorId": "bambooConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": " BambooHR Base URL"
-      },
-      "companySubDomain": {
-        "type": "string",
-        "displayName": "Company Sub Domain",
-        "createdDate": 1694542169664,
-        "preferredControlType": "textField",
-        "info": " Your BambooHR subdomain"
-      },
-      "flowId": {
-        "type": "string",
-        "displayName": "Flow ID",
-        "createdDate": 1694542169712,
-        "preferredControlType": "dropDown",
-        "info": "Select ID of the flow to execute when BambooHR sends a webhook"
-      },
-      "skWebhookUri": {
-        "type": "string",
-        "displayName": "DaVinci Webhook URL",
-        "createdDate": 1694542169615,
-        "preferredControlType": "textField",
-        "info": "Use this url as the Webhook URL in the Third Party Integration's configuration"
-      },
-      "webhookToken": {
-        "type": "string",
-        "displayName": "Webhook Token",
-        "createdDate": 1694542169609,
-        "preferredControlType": "textField",
-        "info": "Create a webhook token and configure it in the bambooHR webhook url."
-      }
-    }
-  },
-  {
-    "name": "AuthenticID",
-    "connectorId": "authenticIdConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "accountAccessKey": {
-        "type": "string",
-        "displayName": "Account Access Key",
-        "createdDate": 1694542169619,
-        "preferredControlType": "textField",
-        "info": "Your Account Access Key provided by AuthenticID "
-      },
-      "androidSDKLicenseKey": {
-        "type": "string",
-        "displayName": "Android SDK Licence Key",
-        "createdDate": 1694542169617,
-        "preferredControlType": "textField",
-        "info": "License key is whitelisted for specific package name"
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "REST API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "AuthenticID REST API URL for sandbox/production environments"
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "AuthenticID API URL for sandbox/production environments"
-      },
-      "clientCertificate": {
-        "displayName": "Client Certificate",
-        "preferredControlType": "secureTextArea",
-        "info": "Your Client Certificate provided by AuthenticID"
-      },
-      "clientKey": {
-        "displayName": "Client Key",
-        "preferredControlType": "secureTextArea",
-        "info": "Your Client Key provided by AuthenticID"
-      },
-      "iOSSDKLicenseKey": {
-        "type": "string",
-        "displayName": "iOS SDK Licence Key",
-        "createdDate": 1694542169597,
-        "preferredControlType": "textField",
-        "info": "License key is whitelisted for specific bundle id"
-      },
-      "passphrase": {
-        "displayName": "Certificate Passphrase",
-        "preferredControlType": "textField",
-        "info": "Your Certificate Passphrase provided by AuthenticID"
-      },
-      "secretToken": {
-        "type": "string",
-        "displayName": "Secret Token",
-        "createdDate": 1694542169616,
-        "preferredControlType": "textField",
-        "info": "Your Secret Token provided by AuthenticID"
-      }
-    }
-  },
-  {
-    "name": "Jira Service Desk",
-    "connectorId": "connectorJiraServiceDesk",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "Operate"
-      }
-    ],
-    "properties": {
-      "JIRAServiceDeskAuth": {
-        "displayName": "Bearer Authorization Token for JIRA Service Desk",
-        "preferredControlType": "textField",
-        "info": "Bearer Authorization Token for JIRA Service Desk"
-      },
-      "JIRAServiceDeskCreateData": {
-        "displayName": "Raw JSON for creating new JIRA service desk request",
-        "preferredControlType": "codeEditor",
-        "info": "Raw JSON body to create new JIRA service desk request. Example: {   \"requestParticipants\": [\"qm:a713c8ea-1075-4e30-9d96-891a7d181739:5ad6d69abfa3980ce712caae\"   ],   \"serviceDeskId\": \"10\",   \"requestTypeId\": \"25\",   \"requestFieldValues\": {     \"summary\": \"Request JSD help via REST\",     \"description\": \"I need a new *mouse* for my Mac\"   } }"
-      },
-      "JIRAServiceDeskURL": {
-        "displayName": "JIRA Service Desk URL",
-        "preferredControlType": "textField",
-        "info": "URL for JIRA Service Desk. Example: your-domain.atlassian.net"
-      },
-      "JIRAServiceDeskUpdateData": {
-        "displayName": "Raw JSON for updating JIRA service desk",
-        "preferredControlType": "codeEditor",
-        "info": "Raw JSON body to update JIRA service desk request. Example: {\"id\": \"1\",\"additionalComment\": {\"body\": \"I have fixed the problem.\"}}"
-      },
-      "method": {
-        "displayName": "Method",
-        "preferredControlType": "dropDown",
-        "info": "The HTTP Method."
-      }
-    }
-  },
-  {
-    "name": "Argyle",
-    "connectorId": "argyleConnector",
-    "connectorCategories": [
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Server URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptWebUrl": {
-        "displayName": "Argyle Loader Javascript Web URL",
-        "preferredControlType": "textField",
-        "info": "Argyle loader javascript web URL"
-      },
-      "pluginKey": {
-        "displayName": "Plugin Key",
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Bitbucket Login",
-    "connectorId": "bitbucketIdpConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Adobe Marketo",
-    "connectorId": "adobemarketoConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": "Your Adobe Marketo client ID."
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": "Your Adobe Marketo client secret."
-      },
-      "endpoint": {
-        "displayName": "API URL",
-        "preferredControlType": "textField",
-        "info": "The API endpoint for your Adobe Marketo instance, such as \"abc123.mktorest.com/rest\"."
-      }
-    }
-  },
-  {
-    "name": "CASTLE",
-    "connectorId": "castleConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      }
-    ],
-    "properties": {
-      "apiSecret": {
-        "displayName": "API Secret",
-        "preferredControlType": "textField",
-        "info": "Your 32-character Castle API secret, such as “Olc…QBF”."
-      }
-    }
-  },
-  {
-    "name": "Comply Advantage",
-    "connectorId": "complyAdvatangeConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "API Key is the API key that you can retrieve from Comply Advantage Admin Portal"
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Comply Advantage API URL for sandbox/production environments"
-      }
-    }
-  },
-  {
-    "name": "Credova",
-    "connectorId": "credovaConnector",
-    "connectorCategories": [
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Base URL for Credova API"
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Credova Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "Password for the Credova Developer Portal"
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Credova Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": "Username for the Credova Developer Portal"
-      }
-    }
-  },
-  {
-    "name": "Onfido",
-    "connectorId": "onfidoConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "androidPackageName": {
-        "type": "string",
-        "displayName": "Android Application Package Name",
-        "createdDate": 1694542169732,
-        "preferredControlType": "textField",
-        "info": "Your Android Application's Package Name"
-      },
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "customizeSteps": {
-        "type": "boolean",
-        "displayName": "Customize Steps",
-        "createdDate": 1694542169687,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iOSBundleId": {
-        "type": "string",
-        "displayName": "iOS Application Bundle ID",
-        "createdDate": 1694542169590,
-        "preferredControlType": "textField",
-        "info": "Your iOS Application's Bundle ID"
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCSSUrl": {
-        "type": "string",
-        "displayName": "CSS URL",
-        "createdDate": 1694542169686,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "language": {
-        "type": "string",
-        "displayName": "Language",
-        "createdDate": 1694542169727,
-        "preferredControlType": "dropDown",
-        "info": ""
-      },
-      "referenceStepsList": {
-        "type": "array",
-        "createdDate": 1694542169722,
-        "preferredControlType": "",
-        "info": ""
-      },
-      "referrerUrl": {
-        "type": "string",
-        "displayName": "Referrer URL",
-        "createdDate": 1694542169722,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "retrieveReports": {
-        "type": "boolean",
-        "displayName": "Retrieve Reports",
-        "createdDate": 1694542169595,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "shouldCloseOnOverlayClick": {
-        "type": "boolean",
-        "displayName": "Close on Overlay Click",
-        "createdDate": 1694542169602,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "stepsList": {
-        "type": "boolean",
-        "displayName": "ID Verification Steps",
-        "createdDate": 1694542169655,
-        "preferredControlType": "dropDownMultiSelect",
-        "info": "The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow."
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "useLanguage": {
-        "type": "boolean",
-        "displayName": "Customize Language",
-        "createdDate": 1694542169598,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "useModal": {
-        "type": "boolean",
-        "displayName": "Modal",
-        "createdDate": 1694542169538,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "viewDescriptions": {
-        "type": "string",
-        "displayName": "OnFido Description",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textFieldArrayView",
-        "info": ""
-      },
-      "viewTitle": {
-        "type": "string",
-        "displayName": "OnFido Title",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "iProov",
-    "connectorId": "iproovConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "allowLandscape": {
-        "type": "boolean",
-        "displayName": "Allow Landscape",
-        "createdDate": 1694542169605,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "color1": {
-        "type": "string",
-        "displayName": "Loading Tint Color",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": "Ex. #000000"
-      },
-      "color2": {
-        "type": "string",
-        "displayName": "Not Ready Tint Color",
-        "createdDate": 1694542169569,
-        "preferredControlType": "textField",
-        "info": "Ex. #000000"
-      },
-      "color3": {
-        "type": "string",
-        "displayName": "Ready Tint Color",
-        "createdDate": 1694542169651,
-        "preferredControlType": "textField",
-        "info": "Ex. #000000"
-      },
-      "color4": {
-        "type": "string",
-        "displayName": "Liveness Tint Color",
-        "createdDate": 1694542169608,
-        "preferredControlType": "textField",
-        "info": "Ex. #000000"
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "customTitle": {
-        "type": "string",
-        "displayName": "Custom Title",
-        "createdDate": 1694542169719,
-        "preferredControlType": "textField",
-        "info": "Specify a custom title to be shown. Defaults to show an iProov-generated message. Set to empty string \"\" to hide the message entirely. "
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "enableCameraSelector": {
-        "type": "boolean",
-        "displayName": "Enable Camera Selector",
-        "createdDate": 1694542169687,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCSSUrl": {
-        "type": "string",
-        "displayName": "CSS URL",
-        "createdDate": 1694542169686,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "kioskMode": {
-        "type": "boolean",
-        "displayName": "Kiosk Mode",
-        "createdDate": 1694542169721,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "logo": {
-        "type": "string",
-        "displayName": "Logo",
-        "createdDate": 1694542169724,
-        "preferredControlType": "textField",
-        "info": "You can use a custom logo by simply passing a relative link, absolute path or data URI to your logo. If you do not want a logo to show pass the logo attribute as null"
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "secret": {
-        "displayName": "Secret",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCountdown": {
-        "type": "boolean",
-        "displayName": "Show Countdown",
-        "createdDate": 1694542169735,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "startScreenTitle": {
-        "type": "string",
-        "displayName": "Start Screen Title",
-        "createdDate": 1694542169599,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Data Zoo",
-    "connectorId": "dataZooConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "password": {
-        "type": "string",
-        "displayName": "Data Zoo Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Data Zoo Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Prove International",
-    "connectorId": "proveConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Prove Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Prove Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "grantType": {
-        "type": "string",
-        "displayName": "Prove Grant Type",
-        "createdDate": 1694542169642,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Prove Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Prove Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Finicity",
-    "connectorId": "finicityConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "appKey": {
-        "displayName": "Finicity App Key",
-        "preferredControlType": "textField",
-        "info": "Finicity App Key from Finicity Developer Portal"
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Base URL for Finicity API"
-      },
-      "partnerId": {
-        "displayName": "Partner ID",
-        "preferredControlType": "textField",
-        "info": "The partner id you can obtain from your Finicity developer dashboard"
-      },
-      "partnerSecret": {
-        "displayName": "Partner Secret",
-        "preferredControlType": "textField",
-        "info": "Partner Secret from Finicity Developer Portal"
-      }
-    }
-  },
-  {
-    "name": "IDmission",
-    "connectorId": "idmissionConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "loginId": {
-        "type": "string",
-        "displayName": "Sign On ID",
-        "createdDate": 1694542169722,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "merchantId": {
-        "type": "string",
-        "displayName": "Merchant ID",
-        "createdDate": 1694542169593,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "productId": {
-        "type": "string",
-        "displayName": "Product ID",
-        "createdDate": 1694542169725,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "productName": {
-        "type": "string",
-        "displayName": "Product Name",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "url": {
-        "type": "string",
-        "displayName": "IDmission Server URL",
-        "createdDate": 1694542169680,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "HYPR",
-    "connectorId": "hyprConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "customAuth": {
-        "type": "array",
-        "displayName": "Custom Parameters",
-        "createdDate": 1694542169719,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Kaizen Secure Voiz",
-    "connectorId": "kaizenVoizConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      },
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Server URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "example: http://<server_root>/ksvvoiceservice/rest/service"
-      },
-      "applicationName": {
-        "type": "string",
-        "displayName": "Application Name",
-        "createdDate": 1694542169726,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "ID.me",
-    "connectorId": "idMeConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Duo",
-    "connectorId": "duoConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "customAuth": {
-        "type": "array",
-        "displayName": "Custom Parameters",
-        "createdDate": 1694542169719,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "ID DataWeb",
-    "connectorId": "idDatawebConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "customAuth": {
-        "type": "array",
-        "displayName": "Custom Parameters",
-        "createdDate": 1694542169719,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Prove",
-    "connectorId": "payfoneConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "appClientId": {
-        "type": "string",
-        "displayName": "App Client ID",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Prove Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "simulatorMode": {
-        "type": "boolean",
-        "displayName": "Simulator Mode?",
-        "createdDate": 1694542169716,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "simulatorPhoneNumber": {
-        "type": "string",
-        "displayName": "Simulator Phone Number",
-        "createdDate": 1694542169715,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "skCallbackBaseUrl": {
-        "type": "string",
-        "displayName": "Callback Base URL",
-        "createdDate": 1694542169719,
-        "preferredControlType": "textField",
-        "info": "Use this url as the callback base URL"
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "SentiLink",
-    "connectorId": "sentilinkConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "account": {
-        "displayName": "Account ID",
-        "preferredControlType": "textField",
-        "info": "Account ID of SentiLink"
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "token": {
-        "type": "string",
-        "displayName": "Token ID",
-        "createdDate": 1694542169722,
-        "preferredControlType": "textField",
-        "info": "Token ID for SentiLink account."
-      }
-    }
-  },
-  {
-    "name": "neoEYED",
-    "connectorId": "neoeyedConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      }
-    ],
-    "properties": {
-      "appKey": {
-        "displayName": "Application Key",
-        "preferredControlType": "textField",
-        "info": "Unique key for the application"
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": "URL of javascript CDN of neoEYED"
-      }
-    }
-  },
-  {
-    "name": "ID R&D",
-    "connectorId": "idranddConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Server URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Telesign",
-    "connectorId": "telesignConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "providerName": {
-        "type": "string",
-        "displayName": "Provider Name",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "iovation",
-    "connectorId": "iovationConnector",
-    "connectorCategories": [
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Server URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "iovation loader Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": "iovation loader javascript CDN"
-      },
-      "subKey": {
-        "type": "string",
-        "displayName": "Sub Key",
-        "createdDate": 1694542169718,
-        "preferredControlType": "textField",
-        "info": "This will be an iovation assigned value that tracks requests from your site. This is primarily used for debugging and troubleshooting purposes."
-      },
-      "subscriberAccount": {
-        "type": "string",
-        "displayName": "Subscriber Account",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "subscriberId": {
-        "type": "string",
-        "displayName": "Subscriber ID",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "subscriberPasscode": {
-        "type": "string",
-        "displayName": "Subscriber Passcode",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "version": {
-        "type": "string",
-        "displayName": "Version",
-        "createdDate": 1694542169602,
-        "preferredControlType": "textField",
-        "info": "This is the version of the script to load. The value should either correspond to a specific version you wish to use, or one of the following aliases to get the latest version of the code: general5 - the latest stable version of the javascript, early5 - the latest available version of the javascript"
-      }
-    }
-  },
-  {
-    "name": "TMT Analysis",
-    "connectorId": "tmtConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "API Key for TMT Analysis."
-      },
-      "apiSecret": {
-        "displayName": "API Secret",
-        "preferredControlType": "textField",
-        "info": "API Secret for TMT Analysis."
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The Base API URL for TMT Analysis."
-      }
-    }
-  },
-  {
-    "name": "X Login",
-    "connectorId": "twitterIdpConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "customAuth": {
-        "type": "array",
-        "displayName": "Custom Parameters",
-        "createdDate": 1694542169719,
-        "info": ""
-      }
-    }
-  },
-  {
     "name": "Have I Been Pwned",
     "connectorId": "haveIBeenPwnedConnector",
     "connectorCategories": [
@@ -1620,778 +25,6 @@
       },
       "userAgent": {
         "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "UnifyID",
-    "connectorId": "unifyIdConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      },
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "accountId": {
-        "displayName": "Account ID",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "sdkToken": {
-        "type": "string",
-        "displayName": "SDK Token",
-        "createdDate": 1694542169676,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "TransUnion TLOxp",
-    "connectorId": "tutloxpConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The URL for your TransUnion API. Unnecessary to change unless you're testing against a demo tenant."
-      },
-      "dppaCode": {
-        "displayName": "DPPA Purpose Code",
-        "preferredControlType": "textField",
-        "info": "The DPPA code that determines the level of data access in the API."
-      },
-      "glbCode": {
-        "displayName": "GLB Purpose Code",
-        "preferredControlType": "textField",
-        "info": "The GLB code that determines the level of data access in the API."
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "The password for your API User"
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": "The username for your API user."
-      }
-    }
-  },
-  {
-    "name": "Daon IdentityX",
-    "connectorId": "daonConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API Base URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The protocol, host and base path to the IdX API. E.g. https://api.identityx-cloud.com/tenant1/IdentityXServices/rest/v1"
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Admin Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "The password of the user to authenticate API calls."
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Admin Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": "The userId to authenticate API calls."
-      }
-    }
-  },
-  {
-    "name": "OneTrust",
-    "connectorId": "oneTrustConnector",
-    "connectorCategories": [
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": "Your OneTrust application client ID."
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": "Your OneTrust application client secret."
-      }
-    }
-  },
-  {
-    "name": "RSA",
-    "connectorId": "rsaConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "accessId": {
-        "displayName": "Access ID",
-        "preferredControlType": "textField",
-        "info": "RSA Access ID from Administration API key file"
-      },
-      "accessKey": {
-        "displayName": "Access Key",
-        "preferredControlType": "textField",
-        "info": "RSA Access Key from Administration API key file"
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Base URL for RSA API that is provided in Administration API key file"
-      }
-    }
-  },
-  {
-    "name": "Socure",
-    "connectorId": "socureConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "ID+ Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "ID+ Key is the API key that you can retrieve from Socure Admin Portal"
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "API URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "dropDown",
-        "info": "The Socure API URL to target. For a custom value, select Use Custom API URL and enter a value in the Custom API URL field."
-      },
-      "customApiUrl": {
-        "displayName": "Custom API URL",
-        "preferredControlType": "textField",
-        "info": "The URL for the Socure API, such as \"https://example.socure.com\"."
-      },
-      "sdkKey": {
-        "displayName": "SDK Key",
-        "preferredControlType": "textField",
-        "info": "SDK Key that you can retrieve from Socure Admin Portal"
-      },
-      "skWebhookUri": {
-        "type": "string",
-        "displayName": "Webhook URL",
-        "createdDate": 1694542169615,
-        "preferredControlType": "textField",
-        "info": "Use this url as the Webhook URL in the Third Party Integration's configuration"
-      }
-    }
-  },
-  {
-    "name": "ServiceNow",
-    "connectorId": "servicenowConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "adminUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "Your ServiceNow administrator username."
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The API URL to target, such as \"https://mycompany.service-now.com\"."
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "Your ServiceNow administrator password."
-      }
-    }
-  },
-  {
-    "name": "LinkedIn Login",
-    "connectorId": "linkedInConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Digidentity",
-    "connectorId": "digidentityConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Yoti",
-    "connectorId": "yotiConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "customAuth": {
-        "type": "array",
-        "displayName": "Custom Parameters",
-        "createdDate": 1694542169719,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "GitHub Login",
-    "connectorId": "githubIdpConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "GBG",
-    "connectorId": "gbgConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "password": {
-        "type": "string",
-        "displayName": "GBG Password",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "requestUrl": {
-        "type": "string",
-        "displayName": "Request URL",
-        "createdDate": 1694542169714,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "soapAction": {
-        "type": "string",
-        "displayName": "Soap Action URL",
-        "createdDate": 1694542169670,
-        "preferredControlType": "textField",
-        "info": "SOAP Action is a header required for the soap request"
-      },
-      "username": {
-        "type": "string",
-        "displayName": "GBG Username",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Twilio",
-    "connectorId": "twilioConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "accountSid": {
-        "displayName": "Account Sid",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authMessageTemplate": {
-        "type": "string",
-        "displayName": "Text Message Template (Authentication)",
-        "createdDate": 1694542169660,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authToken": {
-        "displayName": "Auth Token",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "registerMessageTemplate": {
-        "type": "string",
-        "displayName": "Text Message Template (Registration)",
-        "createdDate": 1694542169715,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "senderPhoneNumber": {
-        "displayName": "Sender Phone Number",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Jira",
-    "connectorId": "jiraConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "Jira API token",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "You may need to create a token from Jira with your credentials, if you haven't created one."
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "Base Url",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "Base URL of the Jira instance."
-      },
-      "email": {
-        "type": "string",
-        "displayName": "Email Address",
-        "createdDate": 1694542169633,
-        "preferredControlType": "textField",
-        "info": "Email used for your Jira account."
-      }
-    }
-  },
-  {
-    "name": "Fingerprint JS",
-    "connectorId": "fingerprintjsConnector",
-    "connectorCategories": [
-      {
-        "name": "Core",
-        "value": "core"
-      }
-    ],
-    "properties": {
-      "apiToken": {
-        "displayName": "Fingerprint Subscription API Token",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "javascriptCdnUrl": {
-        "type": "string",
-        "displayName": "Javascript CDN URL",
-        "createdDate": 1694542169643,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "token": {
-        "type": "string",
-        "displayName": "Fingerprint Subscription Browser Token",
-        "createdDate": 1694542169722,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "SEON",
-    "connectorId": "seonConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      }
-    ],
-    "properties": {
-      "baseURL": {
-        "displayName": "API Base URL",
-        "preferredControlType": "textField",
-        "info": "The API URL to target."
-      },
-      "licenseKey": {
-        "displayName": "License Key",
-        "preferredControlType": "textField",
-        "info": "Your SEON license key. For help, see the SEON REST API documentation."
-      }
-    }
-  },
-  {
-    "name": "Facebook Login",
-    "connectorId": "facebookIdpConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Salesforce",
-    "connectorId": "salesforceConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "adminUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "The username of your Salesforce administrator account."
-      },
-      "consumerKey": {
-        "displayName": "Consumer Key",
-        "preferredControlType": "textField",
-        "info": "The consumer key shown on your Salesforce connected app."
-      },
-      "domainName": {
-        "displayName": "Domain Name",
-        "preferredControlType": "textField",
-        "info": "Your Salesforce domain name, such as \"mycompany-dev-ed\"."
-      },
-      "environment": {
-        "type": "string",
-        "displayName": "Environment",
-        "createdDate": 1694542169651,
-        "preferredControlType": "dropDown",
-        "info": "If the environment you specify in the Domain Name field is part of a sandbox organization, select Sandbox. Otherwise, select Production."
-      },
-      "privateKey": {
-        "displayName": "Private Key",
-        "preferredControlType": "textArea",
-        "info": "The private key that corresponds to the X.509 certificate you added to your Salesforce connected app."
-      }
-    }
-  },
-  {
-    "name": "IDI Data",
-    "connectorId": "skPeopleIntelligenceConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "authUrl": {
-        "type": "string",
-        "displayName": "Authorization URL",
-        "createdDate": 1694542169553,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "dppa": {
-        "type": "string",
-        "displayName": "DPPA",
-        "createdDate": 1694542169690,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "glba": {
-        "type": "string",
-        "displayName": "GLBA",
-        "createdDate": 1694542169738,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "searchUrl": {
-        "type": "string",
-        "displayName": "Search URL",
-        "createdDate": 1694542169611,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Veriff",
-    "connectorId": "veriffConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "access_token": {
-        "displayName": "API Key",
-        "preferredControlType": "textField",
-        "info": "The API Key provided by Veriff, such as \"323aa031-b4af-4e12-b354-de0da91a2ab0\"."
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "The API URL to target, such as “https://stationapi.veriff.com/”."
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Shared Secret Key",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "The Share Secret Key from Veriff to create HMAC signature, such as \"20bf4sf0-fbg7-488c-b4f1-d9594lf707bk\"."
-      }
-    }
-  },
-  {
-    "name": "Slack Login",
-    "connectorId": "slackConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
         "info": ""
       }
     }
@@ -2444,460 +77,6 @@
         "displayName": "Custom Parameters",
         "createdDate": 1694542169719,
         "info": ""
-      }
-    }
-  },
-  {
-    "name": "SecurID",
-    "connectorId": "securIdConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "SecurID Authentication API REST URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The URL of your SecurID authentication API, such as \"https://company.auth.securid.com\""
-      },
-      "clientKey": {
-        "displayName": "Client Key",
-        "preferredControlType": "textField",
-        "info": "Your SecurID authentication client key, such as \"vowc450ahs6nry66vok0pvaizwnfr43ewsqcm7tz\"."
-      }
-    }
-  },
-  {
-    "name": "Jumio",
-    "connectorId": "jumioConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      },
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authUrl": {
-        "type": "string",
-        "displayName": "Base URL for Authentication",
-        "createdDate": 1694542169553,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "authorizationTokenLifetime": {
-        "type": "number",
-        "displayName": "Time Transaction URL Valid (seconds)",
-        "createdDate": 1694542169678,
-        "preferredControlType": "textField",
-        "info": "default: 1800 (30 minutes). maximum: 5184000 (60 days)"
-      },
-      "baseColor": {
-        "type": "string",
-        "displayName": "HEX Main Color",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": "Must be passed with bgColor."
-      },
-      "bgColor": {
-        "type": "string",
-        "displayName": "HEX Background Color.",
-        "createdDate": 1694542169714,
-        "preferredControlType": "textField",
-        "info": "Must be passed with baseColor."
-      },
-      "callbackUrl": {
-        "displayName": "Callback URL",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "API Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "doNotShowInIframe": {
-        "type": "boolean",
-        "displayName": "Do not show in iFrame",
-        "createdDate": 1694542169616,
-        "preferredControlType": "toggleSwitch",
-        "info": "If this is true, user will be redirected to the verification url and then redirected back when complete"
-      },
-      "docVerificationUrl": {
-        "type": "string",
-        "displayName": "Document Verification Url",
-        "createdDate": 1694542169725,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "headerImageUrl": {
-        "type": "string",
-        "displayName": "Custom Header Logo URL",
-        "createdDate": 1694542169601,
-        "preferredControlType": "textField",
-        "info": "Logo must be: landscape (16:9 or 4:3), min. height of 192 pixels, size 8-64 KB."
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "locale": {
-        "type": "string",
-        "displayName": "Locale",
-        "createdDate": 1694542169687,
-        "preferredControlType": "textField",
-        "info": "Renders content in the specified language."
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Nuance",
-    "connectorId": "nuanceConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "authDescription": {
-        "type": "string",
-        "displayName": "Authentication Description",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "configSetName": {
-        "displayName": "Config Set Name",
-        "preferredControlType": "textField",
-        "info": "The Config Set Name for accessing Nuance API."
-      },
-      "connectorName": {
-        "type": "string",
-        "displayName": "Connector Name",
-        "createdDate": 1694542169723,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "description": {
-        "type": "string",
-        "displayName": "Description",
-        "createdDate": 1694542169636,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details1": {
-        "type": "string",
-        "displayName": "Credentials Details 1",
-        "createdDate": 1694542169712,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "details2": {
-        "type": "string",
-        "displayName": "Credentials Details 2",
-        "createdDate": 1694542169591,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrl": {
-        "type": "string",
-        "displayName": "Icon URL",
-        "createdDate": 1694542169721,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "iconUrlPng": {
-        "type": "string",
-        "displayName": "Icon URL in PNG",
-        "createdDate": 1694542169592,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "passphrase1": {
-        "displayName": "Passphrase One",
-        "preferredControlType": "textField",
-        "info": "Passphrase that the user will need to speak for voice sample."
-      },
-      "passphrase2": {
-        "displayName": "Passphrase Two",
-        "preferredControlType": "textField",
-        "info": "Passphrase that the user will need to speak for voice sample."
-      },
-      "passphrase3": {
-        "displayName": "Passphrase Three",
-        "preferredControlType": "textField",
-        "info": "Passphrase that the user will need to speak for voice sample."
-      },
-      "passphrase4": {
-        "displayName": "Passphrase Four",
-        "preferredControlType": "textField",
-        "info": "Passphrase that the user will need to speak for voice sample."
-      },
-      "passphrase5": {
-        "displayName": "Passphrase Five",
-        "preferredControlType": "textField",
-        "info": "Passphrase that the user will need to speak for voice sample."
-      },
-      "showCredAddedOn": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added On?",
-        "createdDate": 1694542169614,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "showCredAddedVia": {
-        "type": "boolean",
-        "displayName": "Show Credentials Added through ?",
-        "createdDate": 1694542169610,
-        "preferredControlType": "toggleSwitch",
-        "info": ""
-      },
-      "title": {
-        "type": "string",
-        "displayName": "Title",
-        "createdDate": 1694542169716,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "toolTip": {
-        "type": "string",
-        "displayName": "Tooltip",
-        "createdDate": 1694542169555,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "TransUnion TruValidate",
-    "connectorId": "transunionConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apiUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": "The Base API URL for TransUnion."
-      },
-      "docVerificationPassword": {
-        "displayName": "Password",
-        "preferredControlType": "textField",
-        "info": "Password for Document Verification, provided by TransUnion"
-      },
-      "docVerificationPublicKey": {
-        "displayName": "Public Key",
-        "preferredControlType": "textField",
-        "info": "Public Key for Document Verification, provided by TransUnion"
-      },
-      "docVerificationSecret": {
-        "displayName": "Secret",
-        "preferredControlType": "textField",
-        "info": "Secret for Document Verification, provided by TransUnion"
-      },
-      "docVerificationSiteId": {
-        "displayName": "Site ID",
-        "preferredControlType": "textField",
-        "info": "Site ID for Document Verification, provided by TransUnion"
-      },
-      "docVerificationUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "Username for Document Verification, provided by TransUnion"
-      },
-      "idVerificationPassword": {
-        "displayName": "Password",
-        "preferredControlType": "textField",
-        "info": "Password for ID Verification, provided by TransUnion"
-      },
-      "idVerificationPublicKey": {
-        "displayName": "Public Key",
-        "preferredControlType": "textField",
-        "info": "Public Key for ID Verification, provided by TransUnion"
-      },
-      "idVerificationSecret": {
-        "displayName": "Secret",
-        "preferredControlType": "textField",
-        "info": "Secret for ID Verification, provided by TransUnion"
-      },
-      "idVerificationSiteId": {
-        "displayName": "Site ID",
-        "preferredControlType": "textField",
-        "info": "Site ID for ID Verification, provided by TransUnion"
-      },
-      "idVerificationUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "Username for ID Verification, provided by TransUnion"
-      },
-      "kbaPassword": {
-        "displayName": "Password",
-        "preferredControlType": "textField",
-        "info": "Password for KBA, provided by TransUnion"
-      },
-      "kbaPublicKey": {
-        "displayName": "Public Key",
-        "preferredControlType": "textField",
-        "info": "Public Key for KBA, provided by TransUnion"
-      },
-      "kbaSecret": {
-        "displayName": "Secret",
-        "preferredControlType": "textField",
-        "info": "Secret for KBA, provided by TransUnion"
-      },
-      "kbaSiteId": {
-        "displayName": "Site ID",
-        "preferredControlType": "textField",
-        "info": "Site ID for KBA, provided by TransUnion"
-      },
-      "kbaUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "Username for KBA, provided by TransUnion"
-      },
-      "otpPassword": {
-        "displayName": "Password",
-        "preferredControlType": "textField",
-        "info": "Password for otp Verification, provided by TransUnion"
-      },
-      "otpPublicKey": {
-        "displayName": "Public Key",
-        "preferredControlType": "textField",
-        "info": "Public Key for otp Verification, provided by TransUnion"
-      },
-      "otpSecret": {
-        "displayName": "Secret",
-        "preferredControlType": "textField",
-        "info": "Secret for otp Verification, provided by TransUnion"
-      },
-      "otpSiteId": {
-        "displayName": "Site ID",
-        "preferredControlType": "textField",
-        "info": "Site ID for otp Verification, provided by TransUnion"
-      },
-      "otpUsername": {
-        "displayName": "Username",
-        "preferredControlType": "textField",
-        "info": "Username for otp Verification, provided by TransUnion"
-      }
-    }
-  },
-  {
-    "name": "Entrust",
-    "connectorId": "entrustConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "applicationId": {
-        "type": "string",
-        "displayName": "Application ID",
-        "createdDate": 1694542169724,
-        "preferredControlType": "textField",
-        "info": "The application ID for the Identity as a Service application."
-      },
-      "serviceDomain": {
-        "displayName": "Service Domain",
-        "preferredControlType": "textField",
-        "info": "The domain of the Entrust service. Format is '<customer>.<region>.trustedauth.com'. For example, 'mycompany.us.trustedauth.com'."
       }
     }
   },
@@ -3168,163 +347,6 @@
       }
     ],
     "properties": {}
-  },
-  {
-    "name": "Melissa Global Address",
-    "connectorId": "melissaConnector",
-    "connectorCategories": [
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "License Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "License Key is the API key that you can retrieve from Melissa Admin Portal"
-      }
-    }
-  },
-  {
-    "name": "DigiLocker",
-    "connectorId": "digilockerConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      }
-    ],
-    "properties": {
-      "oauth2": {
-        "type": "array",
-        "displayName": "Oauth2 Parameters",
-        "createdDate": 1694542169672,
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "Zoop.one",
-    "connectorId": "zoopConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "agencyId": {
-        "type": "string",
-        "displayName": "Zoop Agency ID",
-        "createdDate": 1694542169670,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "apiKey": {
-        "type": "string",
-        "displayName": "Zoop API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "Zoop API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "textField",
-        "info": ""
-      }
-    }
-  },
-  {
-    "name": "IDEMIA",
-    "connectorId": "idemiaConnector",
-    "connectorCategories": [
-      {
-        "name": "Verify",
-        "value": "verify"
-      }
-    ],
-    "properties": {
-      "apikey": {
-        "displayName": "API Key",
-        "preferredControlType": "textField",
-        "info": ""
-      },
-      "baseUrl": {
-        "type": "string",
-        "displayName": "IDEMIA API base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Base Url for IDEMIA API. Can be found in the dashboard documents."
-      }
-    }
-  },
-  {
-    "name": "Equifax",
-    "connectorId": "equifaxConnector",
-    "connectorCategories": [
-      {
-        "name": "Fraud",
-        "value": "fraud"
-      },
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "baseUrl": {
-        "type": "string",
-        "displayName": "Base URL",
-        "createdDate": 1694542169717,
-        "preferredControlType": "textField",
-        "info": "Base URL for Equifax API"
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": "When you Create a New App, Equifax will assign a Client ID per environment for the API Product"
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": "When you Create a New App, Equifax will assign a Client Secret per environment for the API Product"
-      },
-      "equifaxSoapApiEnvironment": {
-        "type": "string",
-        "displayName": "SOAP API Environment",
-        "createdDate": 1694542169609,
-        "preferredControlType": "dropDown",
-        "info": "SOAP API WSDL Environment."
-      },
-      "memberNumber": {
-        "displayName": "Member Number",
-        "preferredControlType": "textField",
-        "info": "Unique Identifier of Customer. Please contact Equifax Sales Representative during client onboarding for this value."
-      },
-      "password": {
-        "type": "string",
-        "displayName": "Password for SOAP API",
-        "createdDate": 1694542169711,
-        "preferredControlType": "textField",
-        "info": "Password provided by Equifax for SOAP API"
-      },
-      "username": {
-        "type": "string",
-        "displayName": "Username for SOAP API",
-        "createdDate": 1694542169587,
-        "preferredControlType": "textField",
-        "info": "Username provided by Equifax for SOAP API"
-      }
-    }
   },
   {
     "name": "PingOne Advanced Identity Cloud Access Request",
@@ -3792,17 +814,6 @@
         "info": "The base URL for contacting the API."
       }
     }
-  },
-  {
-    "name": "Location Policy",
-    "connectorId": "locationPolicyConnector",
-    "connectorCategories": [
-      {
-        "name": "Core",
-        "value": "core"
-      }
-    ],
-    "properties": {}
   },
   {
     "name": "Salesforce Marketing Cloud (BETA)",
@@ -5750,42 +2761,6 @@
     }
   },
   {
-    "name": "LexisNexis",
-    "connectorId": "lexisnexisV2Connector",
-    "connectorCategories": [
-      {
-        "name": "Authorize",
-        "value": "authorize"
-      }
-    ],
-    "properties": {
-      "apiKey": {
-        "type": "string",
-        "displayName": "API Key",
-        "createdDate": 1694542169671,
-        "preferredControlType": "textField",
-        "info": "Your LexisNexis API key, such as “o3x9ywfs26rm1zvl”."
-      },
-      "apiUrl": {
-        "type": "string",
-        "displayName": "API URL",
-        "createdDate": 1694542169613,
-        "preferredControlType": "dropDown",
-        "info": "The API URL to target. For a custom value, select Use Custom API URL and enter a value in the Custom API URL field."
-      },
-      "orgId": {
-        "displayName": "Organization ID",
-        "preferredControlType": "textField",
-        "info": "Your LexisNexis organization ID, such as “4en6ll2s”."
-      },
-      "useCustomApiURL": {
-        "displayName": "Custom API URL",
-        "preferredControlType": "textField",
-        "info": "The API URL to target, such as “https://h.online-metrix.net”."
-      }
-    }
-  },
-  {
     "name": "Webhook",
     "connectorId": "webhookConnector",
     "connectorCategories": [
@@ -6152,37 +3127,6 @@
         "displayName": "OpenId Parameters",
         "createdDate": 1694542169606,
         "info": ""
-      }
-    }
-  },
-  {
-    "name": "CrowdStrike",
-    "connectorId": "crowdStrikeConnector",
-    "connectorCategories": [
-      {
-        "name": "Operate",
-        "value": "operate"
-      }
-    ],
-    "properties": {
-      "baseURL": {
-        "displayName": "CrowdStrike Base URL",
-        "preferredControlType": "dropdownWithCreate",
-        "info": "The base URL of the CrowdStrike environment."
-      },
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": "The Client ID of the application in CrowdStrike."
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": "The Client Secret provided by CrowdStrike."
       }
     }
   },
@@ -6781,17 +3725,6 @@
     }
   },
   {
-    "name": "PingOne Forms",
-    "connectorId": "pingOneFormsConnector",
-    "connectorCategories": [
-      {
-        "name": "Core",
-        "value": "core"
-      }
-    ],
-    "properties": {}
-  },
-  {
     "name": "PingID",
     "connectorId": "pingIdConnector",
     "connectorCategories": [
@@ -6806,50 +3739,6 @@
         "displayName": "Custom Parameters",
         "createdDate": 1694542169719,
         "info": ""
-      }
-    }
-  },
-  {
-    "name": "PingOne",
-    "connectorId": "pingOneSSOConnector",
-    "connectorCategories": [
-      {
-        "name": "Authenticate",
-        "value": "authenticate"
-      },
-      {
-        "name": "Profile",
-        "value": "profile"
-      }
-    ],
-    "properties": {
-      "clientId": {
-        "type": "string",
-        "displayName": "Client ID",
-        "createdDate": 1694542169628,
-        "preferredControlType": "textField",
-        "info": "The Client ID of your PingOne Worker application."
-      },
-      "clientSecret": {
-        "type": "string",
-        "displayName": "Client Secret",
-        "createdDate": 1694542169713,
-        "preferredControlType": "textField",
-        "info": "The Client Secret of your PingOne Worker application."
-      },
-      "envId": {
-        "type": "string",
-        "displayName": "Environment ID",
-        "createdDate": 1694542169598,
-        "preferredControlType": "textField",
-        "info": "Your PingOne environment ID."
-      },
-      "region": {
-        "type": "string",
-        "displayName": "Region",
-        "createdDate": 1694542169605,
-        "preferredControlType": "dropDown",
-        "info": "The region in which your PingOne environment exists."
       }
     }
   },
@@ -6972,6 +3861,3135 @@
         "info": "The Write Key is used to send data to a specific workplace"
       }
     }
+  },
+  {
+    "name": "Jira Service Desk",
+    "connectorId": "connectorJiraServiceDesk",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "Operate"
+      }
+    ],
+    "properties": {
+      "JIRAServiceDeskAuth": {
+        "displayName": "Bearer Authorization Token for JIRA Service Desk",
+        "preferredControlType": "textField",
+        "info": "Bearer Authorization Token for JIRA Service Desk"
+      },
+      "JIRAServiceDeskCreateData": {
+        "displayName": "Raw JSON for creating new JIRA service desk request",
+        "preferredControlType": "codeEditor",
+        "info": "Raw JSON body to create new JIRA service desk request. Example: {   \"requestParticipants\": [\"qm:a713c8ea-1075-4e30-9d96-891a7d181739:5ad6d69abfa3980ce712caae\"   ],   \"serviceDeskId\": \"10\",   \"requestTypeId\": \"25\",   \"requestFieldValues\": {     \"summary\": \"Request JSD help via REST\",     \"description\": \"I need a new *mouse* for my Mac\"   } }"
+      },
+      "JIRAServiceDeskURL": {
+        "displayName": "JIRA Service Desk URL",
+        "preferredControlType": "textField",
+        "info": "URL for JIRA Service Desk. Example: your-domain.atlassian.net"
+      },
+      "JIRAServiceDeskUpdateData": {
+        "displayName": "Raw JSON for updating JIRA service desk",
+        "preferredControlType": "codeEditor",
+        "info": "Raw JSON body to update JIRA service desk request. Example: {\"id\": \"1\",\"additionalComment\": {\"body\": \"I have fixed the problem.\"}}"
+      },
+      "method": {
+        "displayName": "Method",
+        "preferredControlType": "dropDown",
+        "info": "The HTTP Method."
+      }
+    }
+  },
+  {
+    "name": "Adobe Marketo",
+    "connectorId": "adobemarketoConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": "Your Adobe Marketo client ID."
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": "Your Adobe Marketo client secret."
+      },
+      "endpoint": {
+        "displayName": "API URL",
+        "preferredControlType": "textField",
+        "info": "The API endpoint for your Adobe Marketo instance, such as \"abc123.mktorest.com/rest\"."
+      }
+    }
+  },
+  {
+    "name": "BambooHR",
+    "connectorId": "bambooConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": " BambooHR Base URL"
+      },
+      "companySubDomain": {
+        "type": "string",
+        "displayName": "Company Sub Domain",
+        "createdDate": 1694542169664,
+        "preferredControlType": "textField",
+        "info": " Your BambooHR subdomain"
+      },
+      "flowId": {
+        "type": "string",
+        "displayName": "Flow ID",
+        "createdDate": 1694542169712,
+        "preferredControlType": "dropDown",
+        "info": "Select ID of the flow to execute when BambooHR sends a webhook"
+      },
+      "skWebhookUri": {
+        "type": "string",
+        "displayName": "DaVinci Webhook URL",
+        "createdDate": 1694542169615,
+        "preferredControlType": "textField",
+        "info": "Use this url as the Webhook URL in the Third Party Integration's configuration"
+      },
+      "webhookToken": {
+        "type": "string",
+        "displayName": "Webhook Token",
+        "createdDate": 1694542169609,
+        "preferredControlType": "textField",
+        "info": "Create a webhook token and configure it in the bambooHR webhook url."
+      }
+    }
+  },
+  {
+    "name": "Argyle",
+    "connectorId": "argyleConnector",
+    "connectorCategories": [
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Server URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptWebUrl": {
+        "displayName": "Argyle Loader Javascript Web URL",
+        "preferredControlType": "textField",
+        "info": "Argyle loader javascript web URL"
+      },
+      "pluginKey": {
+        "displayName": "Plugin Key",
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "BioCatch",
+    "connectorId": "biocatchConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Server URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "customerId": {
+        "type": "string",
+        "displayName": "Customer ID",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "sdkToken": {
+        "type": "string",
+        "displayName": "SDK Token",
+        "createdDate": 1694542169676,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "truthApiKey": {
+        "type": "string",
+        "displayName": "Truth-mapping API Key",
+        "createdDate": 1694542169553,
+        "preferredControlType": "textField",
+        "info": "Fraudulent/Genuine Session Reporting API Key"
+      },
+      "truthApiUrl": {
+        "type": "string",
+        "displayName": "Truth-mapping API URL",
+        "createdDate": 1694542169720,
+        "preferredControlType": "textField",
+        "info": "Fraudulent/Genuine Session Reporting"
+      }
+    }
+  },
+  {
+    "name": "Daon IdentityX",
+    "connectorId": "daonConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Base URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The protocol, host and base path to the IdX API. E.g. https://api.identityx-cloud.com/tenant1/IdentityXServices/rest/v1"
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Admin Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "The password of the user to authenticate API calls."
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Admin Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": "The userId to authenticate API calls."
+      }
+    }
+  },
+  {
+    "name": "Credova",
+    "connectorId": "credovaConnector",
+    "connectorCategories": [
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Base URL for Credova API"
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Credova Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "Password for the Credova Developer Portal"
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Credova Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": "Username for the Credova Developer Portal"
+      }
+    }
+  },
+  {
+    "name": "Bitbucket Login",
+    "connectorId": "bitbucketIdpConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "CrowdStrike",
+    "connectorId": "crowdStrikeConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "baseURL": {
+        "displayName": "CrowdStrike Base URL",
+        "preferredControlType": "dropdownWithCreate",
+        "info": "The base URL of the CrowdStrike environment."
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": "The Client ID of the application in CrowdStrike."
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": "The Client Secret provided by CrowdStrike."
+      }
+    }
+  },
+  {
+    "name": "CASTLE",
+    "connectorId": "castleConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      }
+    ],
+    "properties": {
+      "apiSecret": {
+        "displayName": "API Secret",
+        "preferredControlType": "textField",
+        "info": "Your 32-character Castle API secret, such as “Olc…QBF”."
+      }
+    }
+  },
+  {
+    "name": "Comply Advantage",
+    "connectorId": "complyAdvatangeConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "API Key is the API key that you can retrieve from Comply Advantage Admin Portal"
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Comply Advantage API URL for sandbox/production environments"
+      }
+    }
+  },
+  {
+    "name": "Data Zoo",
+    "connectorId": "dataZooConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "password": {
+        "type": "string",
+        "displayName": "Data Zoo Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Data Zoo Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Duo",
+    "connectorId": "duoConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Digidentity",
+    "connectorId": "digidentityConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "DigiLocker",
+    "connectorId": "digilockerConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Entrust",
+    "connectorId": "entrustConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "applicationId": {
+        "type": "string",
+        "displayName": "Application ID",
+        "createdDate": 1694542169724,
+        "preferredControlType": "textField",
+        "info": "The application ID for the Identity as a Service application."
+      },
+      "serviceDomain": {
+        "displayName": "Service Domain",
+        "preferredControlType": "textField",
+        "info": "The domain of the Entrust service. Format is '<customer>.<region>.trustedauth.com'. For example, 'mycompany.us.trustedauth.com'."
+      }
+    }
+  },
+  {
+    "name": "Equifax",
+    "connectorId": "equifaxConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      },
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Base URL for Equifax API"
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": "When you Create a New App, Equifax will assign a Client ID per environment for the API Product"
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": "When you Create a New App, Equifax will assign a Client Secret per environment for the API Product"
+      },
+      "equifaxSoapApiEnvironment": {
+        "type": "string",
+        "displayName": "SOAP API Environment",
+        "createdDate": 1694542169609,
+        "preferredControlType": "dropDown",
+        "info": "SOAP API WSDL Environment."
+      },
+      "memberNumber": {
+        "displayName": "Member Number",
+        "preferredControlType": "textField",
+        "info": "Unique Identifier of Customer. Please contact Equifax Sales Representative during client onboarding for this value."
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password for SOAP API",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "Password provided by Equifax for SOAP API"
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Username for SOAP API",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": "Username provided by Equifax for SOAP API"
+      }
+    }
+  },
+  {
+    "name": "Facebook Login",
+    "connectorId": "facebookIdpConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Fingerprint JS",
+    "connectorId": "fingerprintjsConnector",
+    "connectorCategories": [
+      {
+        "name": "Core",
+        "value": "core"
+      }
+    ],
+    "properties": {
+      "apiToken": {
+        "displayName": "Fingerprint Subscription API Token",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "token": {
+        "type": "string",
+        "displayName": "Fingerprint Subscription Browser Token",
+        "createdDate": 1694542169722,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "GBG",
+    "connectorId": "gbgConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "password": {
+        "type": "string",
+        "displayName": "GBG Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "requestUrl": {
+        "type": "string",
+        "displayName": "Request URL",
+        "createdDate": 1694542169714,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "soapAction": {
+        "type": "string",
+        "displayName": "Soap Action URL",
+        "createdDate": 1694542169670,
+        "preferredControlType": "textField",
+        "info": "SOAP Action is a header required for the soap request"
+      },
+      "username": {
+        "type": "string",
+        "displayName": "GBG Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Finicity",
+    "connectorId": "finicityConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "appKey": {
+        "displayName": "Finicity App Key",
+        "preferredControlType": "textField",
+        "info": "Finicity App Key from Finicity Developer Portal"
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Base URL for Finicity API"
+      },
+      "partnerId": {
+        "displayName": "Partner ID",
+        "preferredControlType": "textField",
+        "info": "The partner id you can obtain from your Finicity developer dashboard"
+      },
+      "partnerSecret": {
+        "displayName": "Partner Secret",
+        "preferredControlType": "textField",
+        "info": "Partner Secret from Finicity Developer Portal"
+      }
+    }
+  },
+  {
+    "name": "GitHub Login",
+    "connectorId": "githubIdpConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "HYPR",
+    "connectorId": "hyprConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "ID DataWeb",
+    "connectorId": "idDatawebConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "ID.me",
+    "connectorId": "idMeConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "IDEMIA",
+    "connectorId": "idemiaConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apikey": {
+        "displayName": "API Key",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "IDEMIA API base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Base Url for IDEMIA API. Can be found in the dashboard documents."
+      }
+    }
+  },
+  {
+    "name": "IDmission",
+    "connectorId": "idmissionConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "loginId": {
+        "type": "string",
+        "displayName": "Sign On ID",
+        "createdDate": 1694542169722,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "merchantId": {
+        "type": "string",
+        "displayName": "Merchant ID",
+        "createdDate": 1694542169593,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "productId": {
+        "type": "string",
+        "displayName": "Product ID",
+        "createdDate": 1694542169725,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "productName": {
+        "type": "string",
+        "displayName": "Product Name",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "url": {
+        "type": "string",
+        "displayName": "IDmission Server URL",
+        "createdDate": 1694542169680,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "PingOne Forms",
+    "connectorId": "pingOneFormsConnector",
+    "connectorCategories": [
+      {
+        "name": "Core",
+        "value": "core"
+      }
+    ],
+    "properties": {}
+  },
+  {
+    "name": "PingOne",
+    "connectorId": "pingOneSSOConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      },
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": "The Client ID of your PingOne Worker application."
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": "The Client Secret of your PingOne Worker application."
+      },
+      "envId": {
+        "type": "string",
+        "displayName": "Environment ID",
+        "createdDate": 1694542169598,
+        "preferredControlType": "textField",
+        "info": "Your PingOne environment ID."
+      },
+      "region": {
+        "type": "string",
+        "displayName": "Region",
+        "createdDate": 1694542169605,
+        "preferredControlType": "dropDown",
+        "info": "The region in which your PingOne environment exists."
+      }
+    }
+  },
+  {
+    "name": "iovation",
+    "connectorId": "iovationConnector",
+    "connectorCategories": [
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Server URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "iovation loader Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": "iovation loader javascript CDN"
+      },
+      "subKey": {
+        "type": "string",
+        "displayName": "Sub Key",
+        "createdDate": 1694542169718,
+        "preferredControlType": "textField",
+        "info": "This will be an iovation assigned value that tracks requests from your site. This is primarily used for debugging and troubleshooting purposes."
+      },
+      "subscriberAccount": {
+        "type": "string",
+        "displayName": "Subscriber Account",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "subscriberId": {
+        "type": "string",
+        "displayName": "Subscriber ID",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "subscriberPasscode": {
+        "type": "string",
+        "displayName": "Subscriber Passcode",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "version": {
+        "type": "string",
+        "displayName": "Version",
+        "createdDate": 1694542169602,
+        "preferredControlType": "textField",
+        "info": "This is the version of the script to load. The value should either correspond to a specific version you wish to use, or one of the following aliases to get the latest version of the code: general5 - the latest stable version of the javascript, early5 - the latest available version of the javascript"
+      }
+    }
+  },
+  {
+    "name": "iProov",
+    "connectorId": "iproovConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "allowLandscape": {
+        "type": "boolean",
+        "displayName": "Allow Landscape",
+        "createdDate": 1694542169605,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "color1": {
+        "type": "string",
+        "displayName": "Loading Tint Color",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": "Ex. #000000"
+      },
+      "color2": {
+        "type": "string",
+        "displayName": "Not Ready Tint Color",
+        "createdDate": 1694542169569,
+        "preferredControlType": "textField",
+        "info": "Ex. #000000"
+      },
+      "color3": {
+        "type": "string",
+        "displayName": "Ready Tint Color",
+        "createdDate": 1694542169651,
+        "preferredControlType": "textField",
+        "info": "Ex. #000000"
+      },
+      "color4": {
+        "type": "string",
+        "displayName": "Liveness Tint Color",
+        "createdDate": 1694542169608,
+        "preferredControlType": "textField",
+        "info": "Ex. #000000"
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "customTitle": {
+        "type": "string",
+        "displayName": "Custom Title",
+        "createdDate": 1694542169719,
+        "preferredControlType": "textField",
+        "info": "Specify a custom title to be shown. Defaults to show an iProov-generated message. Set to empty string \"\" to hide the message entirely. "
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "enableCameraSelector": {
+        "type": "boolean",
+        "displayName": "Enable Camera Selector",
+        "createdDate": 1694542169687,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCSSUrl": {
+        "type": "string",
+        "displayName": "CSS URL",
+        "createdDate": 1694542169686,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "kioskMode": {
+        "type": "boolean",
+        "displayName": "Kiosk Mode",
+        "createdDate": 1694542169721,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "logo": {
+        "type": "string",
+        "displayName": "Logo",
+        "createdDate": 1694542169724,
+        "preferredControlType": "textField",
+        "info": "You can use a custom logo by simply passing a relative link, absolute path or data URI to your logo. If you do not want a logo to show pass the logo attribute as null"
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "secret": {
+        "displayName": "Secret",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCountdown": {
+        "type": "boolean",
+        "displayName": "Show Countdown",
+        "createdDate": 1694542169735,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "startScreenTitle": {
+        "type": "string",
+        "displayName": "Start Screen Title",
+        "createdDate": 1694542169599,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Jira",
+    "connectorId": "jiraConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "Jira API token",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "You may need to create a token from Jira with your credentials, if you haven't created one."
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "Base Url",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "Base URL of the Jira instance."
+      },
+      "email": {
+        "type": "string",
+        "displayName": "Email Address",
+        "createdDate": 1694542169633,
+        "preferredControlType": "textField",
+        "info": "Email used for your Jira account."
+      }
+    }
+  },
+  {
+    "name": "Jumio",
+    "connectorId": "jumioConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      },
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authUrl": {
+        "type": "string",
+        "displayName": "Base URL for Authentication",
+        "createdDate": 1694542169553,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authorizationTokenLifetime": {
+        "type": "number",
+        "displayName": "Time Transaction URL Valid (seconds)",
+        "createdDate": 1694542169678,
+        "preferredControlType": "textField",
+        "info": "default: 1800 (30 minutes). maximum: 5184000 (60 days)"
+      },
+      "baseColor": {
+        "type": "string",
+        "displayName": "HEX Main Color",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": "Must be passed with bgColor."
+      },
+      "bgColor": {
+        "type": "string",
+        "displayName": "HEX Background Color.",
+        "createdDate": 1694542169714,
+        "preferredControlType": "textField",
+        "info": "Must be passed with baseColor."
+      },
+      "callbackUrl": {
+        "displayName": "Callback URL",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "API Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "doNotShowInIframe": {
+        "type": "boolean",
+        "displayName": "Do not show in iFrame",
+        "createdDate": 1694542169616,
+        "preferredControlType": "toggleSwitch",
+        "info": "If this is true, user will be redirected to the verification url and then redirected back when complete"
+      },
+      "docVerificationUrl": {
+        "type": "string",
+        "displayName": "Document Verification Url",
+        "createdDate": 1694542169725,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "headerImageUrl": {
+        "type": "string",
+        "displayName": "Custom Header Logo URL",
+        "createdDate": 1694542169601,
+        "preferredControlType": "textField",
+        "info": "Logo must be: landscape (16:9 or 4:3), min. height of 192 pixels, size 8-64 KB."
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "locale": {
+        "type": "string",
+        "displayName": "Locale",
+        "createdDate": 1694542169687,
+        "preferredControlType": "textField",
+        "info": "Renders content in the specified language."
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Kaizen Secure Voiz",
+    "connectorId": "kaizenVoizConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      },
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Server URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "example: http://<server_root>/ksvvoiceservice/rest/service"
+      },
+      "applicationName": {
+        "type": "string",
+        "displayName": "Application Name",
+        "createdDate": 1694542169726,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "LinkedIn Login",
+    "connectorId": "linkedInConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "neoEYED",
+    "connectorId": "neoeyedConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      }
+    ],
+    "properties": {
+      "appKey": {
+        "displayName": "Application Key",
+        "preferredControlType": "textField",
+        "info": "Unique key for the application"
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": "URL of javascript CDN of neoEYED"
+      }
+    }
+  },
+  {
+    "name": "Melissa Global Address",
+    "connectorId": "melissaConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "License Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "License Key is the API key that you can retrieve from Melissa Admin Portal"
+      }
+    }
+  },
+  {
+    "name": "Nuance",
+    "connectorId": "nuanceConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "configSetName": {
+        "displayName": "Config Set Name",
+        "preferredControlType": "textField",
+        "info": "The Config Set Name for accessing Nuance API."
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "passphrase1": {
+        "displayName": "Passphrase One",
+        "preferredControlType": "textField",
+        "info": "Passphrase that the user will need to speak for voice sample."
+      },
+      "passphrase2": {
+        "displayName": "Passphrase Two",
+        "preferredControlType": "textField",
+        "info": "Passphrase that the user will need to speak for voice sample."
+      },
+      "passphrase3": {
+        "displayName": "Passphrase Three",
+        "preferredControlType": "textField",
+        "info": "Passphrase that the user will need to speak for voice sample."
+      },
+      "passphrase4": {
+        "displayName": "Passphrase Four",
+        "preferredControlType": "textField",
+        "info": "Passphrase that the user will need to speak for voice sample."
+      },
+      "passphrase5": {
+        "displayName": "Passphrase Five",
+        "preferredControlType": "textField",
+        "info": "Passphrase that the user will need to speak for voice sample."
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "OneTrust",
+    "connectorId": "oneTrustConnector",
+    "connectorCategories": [
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": "Your OneTrust application client ID."
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": "Your OneTrust application client secret."
+      }
+    }
+  },
+  {
+    "name": "Onfido",
+    "connectorId": "onfidoConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "androidPackageName": {
+        "type": "string",
+        "displayName": "Android Application Package Name",
+        "createdDate": 1694542169732,
+        "preferredControlType": "textField",
+        "info": "Your Android Application's Package Name"
+      },
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "customizeSteps": {
+        "type": "boolean",
+        "displayName": "Customize Steps",
+        "createdDate": 1694542169687,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iOSBundleId": {
+        "type": "string",
+        "displayName": "iOS Application Bundle ID",
+        "createdDate": 1694542169590,
+        "preferredControlType": "textField",
+        "info": "Your iOS Application's Bundle ID"
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCSSUrl": {
+        "type": "string",
+        "displayName": "CSS URL",
+        "createdDate": 1694542169686,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "language": {
+        "type": "string",
+        "displayName": "Language",
+        "createdDate": 1694542169727,
+        "preferredControlType": "dropDown",
+        "info": ""
+      },
+      "referenceStepsList": {
+        "type": "array",
+        "createdDate": 1694542169722,
+        "preferredControlType": "",
+        "info": ""
+      },
+      "referrerUrl": {
+        "type": "string",
+        "displayName": "Referrer URL",
+        "createdDate": 1694542169722,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "retrieveReports": {
+        "type": "boolean",
+        "displayName": "Retrieve Reports",
+        "createdDate": 1694542169595,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "shouldCloseOnOverlayClick": {
+        "type": "boolean",
+        "displayName": "Close on Overlay Click",
+        "createdDate": 1694542169602,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "stepsList": {
+        "type": "boolean",
+        "displayName": "ID Verification Steps",
+        "createdDate": 1694542169655,
+        "preferredControlType": "dropDownMultiSelect",
+        "info": "The Proof of Address document capture is currently a BETA feature, and it cannot be used in conjunction with the document and face steps as part of a single SDK flow."
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "useLanguage": {
+        "type": "boolean",
+        "displayName": "Customize Language",
+        "createdDate": 1694542169598,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "useModal": {
+        "type": "boolean",
+        "displayName": "Modal",
+        "createdDate": 1694542169538,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "viewDescriptions": {
+        "type": "string",
+        "displayName": "OnFido Description",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textFieldArrayView",
+        "info": ""
+      },
+      "viewTitle": {
+        "type": "string",
+        "displayName": "OnFido Title",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Prove",
+    "connectorId": "payfoneConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "appClientId": {
+        "type": "string",
+        "displayName": "App Client ID",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Prove Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "simulatorMode": {
+        "type": "boolean",
+        "displayName": "Simulator Mode?",
+        "createdDate": 1694542169716,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "simulatorPhoneNumber": {
+        "type": "string",
+        "displayName": "Simulator Phone Number",
+        "createdDate": 1694542169715,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "skCallbackBaseUrl": {
+        "type": "string",
+        "displayName": "Callback Base URL",
+        "createdDate": 1694542169719,
+        "preferredControlType": "textField",
+        "info": "Use this url as the callback base URL"
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Prove International",
+    "connectorId": "proveConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Prove Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Prove Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "grantType": {
+        "type": "string",
+        "displayName": "Prove Grant Type",
+        "createdDate": 1694542169642,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Prove Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Prove Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "AuthenticID",
+    "connectorId": "authenticIdConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "accountAccessKey": {
+        "type": "string",
+        "displayName": "Account Access Key",
+        "createdDate": 1694542169619,
+        "preferredControlType": "textField",
+        "info": "Your Account Access Key provided by AuthenticID "
+      },
+      "androidSDKLicenseKey": {
+        "type": "string",
+        "displayName": "Android SDK Licence Key",
+        "createdDate": 1694542169617,
+        "preferredControlType": "textField",
+        "info": "License key is whitelisted for specific package name"
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "REST API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "AuthenticID REST API URL for sandbox/production environments"
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "AuthenticID API URL for sandbox/production environments"
+      },
+      "clientCertificate": {
+        "displayName": "Client Certificate",
+        "preferredControlType": "secureTextArea",
+        "info": "Your Client Certificate provided by AuthenticID"
+      },
+      "clientKey": {
+        "displayName": "Client Key",
+        "preferredControlType": "secureTextArea",
+        "info": "Your Client Key provided by AuthenticID"
+      },
+      "iOSSDKLicenseKey": {
+        "type": "string",
+        "displayName": "iOS SDK Licence Key",
+        "createdDate": 1694542169597,
+        "preferredControlType": "textField",
+        "info": "License key is whitelisted for specific bundle id"
+      },
+      "passphrase": {
+        "displayName": "Certificate Passphrase",
+        "preferredControlType": "textField",
+        "info": "Your Certificate Passphrase provided by AuthenticID"
+      },
+      "secretToken": {
+        "type": "string",
+        "displayName": "Secret Token",
+        "createdDate": 1694542169616,
+        "preferredControlType": "textField",
+        "info": "Your Secret Token provided by AuthenticID"
+      }
+    }
+  },
+  {
+    "name": "RSA",
+    "connectorId": "rsaConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "accessId": {
+        "displayName": "Access ID",
+        "preferredControlType": "textField",
+        "info": "RSA Access ID from Administration API key file"
+      },
+      "accessKey": {
+        "displayName": "Access Key",
+        "preferredControlType": "textField",
+        "info": "RSA Access Key from Administration API key file"
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "Base URL for RSA API that is provided in Administration API key file"
+      }
+    }
+  },
+  {
+    "name": "Salesforce",
+    "connectorId": "salesforceConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "adminUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "The username of your Salesforce administrator account."
+      },
+      "consumerKey": {
+        "displayName": "Consumer Key",
+        "preferredControlType": "textField",
+        "info": "The consumer key shown on your Salesforce connected app."
+      },
+      "domainName": {
+        "displayName": "Domain Name",
+        "preferredControlType": "textField",
+        "info": "Your Salesforce domain name, such as \"mycompany-dev-ed\"."
+      },
+      "environment": {
+        "type": "string",
+        "displayName": "Environment",
+        "createdDate": 1694542169651,
+        "preferredControlType": "dropDown",
+        "info": "If the environment you specify in the Domain Name field is part of a sandbox organization, select Sandbox. Otherwise, select Production."
+      },
+      "privateKey": {
+        "displayName": "Private Key",
+        "preferredControlType": "textArea",
+        "info": "The private key that corresponds to the X.509 certificate you added to your Salesforce connected app."
+      }
+    }
+  },
+  {
+    "name": "SentiLink",
+    "connectorId": "sentilinkConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "account": {
+        "displayName": "Account ID",
+        "preferredControlType": "textField",
+        "info": "Account ID of SentiLink"
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "javascriptCdnUrl": {
+        "type": "string",
+        "displayName": "Javascript CDN URL",
+        "createdDate": 1694542169643,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "token": {
+        "type": "string",
+        "displayName": "Token ID",
+        "createdDate": 1694542169722,
+        "preferredControlType": "textField",
+        "info": "Token ID for SentiLink account."
+      }
+    }
+  },
+  {
+    "name": "SecurID",
+    "connectorId": "securIdConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "SecurID Authentication API REST URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The URL of your SecurID authentication API, such as \"https://company.auth.securid.com\""
+      },
+      "clientKey": {
+        "displayName": "Client Key",
+        "preferredControlType": "textField",
+        "info": "Your SecurID authentication client key, such as \"vowc450ahs6nry66vok0pvaizwnfr43ewsqcm7tz\"."
+      }
+    }
+  },
+  {
+    "name": "SEON",
+    "connectorId": "seonConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      }
+    ],
+    "properties": {
+      "baseURL": {
+        "displayName": "API Base URL",
+        "preferredControlType": "textField",
+        "info": "The API URL to target."
+      },
+      "licenseKey": {
+        "displayName": "License Key",
+        "preferredControlType": "textField",
+        "info": "Your SEON license key. For help, see the SEON REST API documentation."
+      }
+    }
+  },
+  {
+    "name": "IDI Data",
+    "connectorId": "skPeopleIntelligenceConnector",
+    "connectorCategories": [
+      {
+        "name": "Profile",
+        "value": "profile"
+      }
+    ],
+    "properties": {
+      "authUrl": {
+        "type": "string",
+        "displayName": "Authorization URL",
+        "createdDate": 1694542169553,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientId": {
+        "type": "string",
+        "displayName": "Client ID",
+        "createdDate": 1694542169628,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "clientSecret": {
+        "type": "string",
+        "displayName": "Client Secret",
+        "createdDate": 1694542169713,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "dppa": {
+        "type": "string",
+        "displayName": "DPPA",
+        "createdDate": 1694542169690,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "glba": {
+        "type": "string",
+        "displayName": "GLBA",
+        "createdDate": 1694542169738,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "searchUrl": {
+        "type": "string",
+        "displayName": "Search URL",
+        "createdDate": 1694542169611,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Socure",
+    "connectorId": "socureConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "ID+ Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "ID+ Key is the API key that you can retrieve from Socure Admin Portal"
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "API URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "dropDown",
+        "info": "The Socure API URL to target. For a custom value, select Use Custom API URL and enter a value in the Custom API URL field."
+      },
+      "customApiUrl": {
+        "displayName": "Custom API URL",
+        "preferredControlType": "textField",
+        "info": "The URL for the Socure API, such as \"https://example.socure.com\"."
+      },
+      "sdkKey": {
+        "displayName": "SDK Key",
+        "preferredControlType": "textField",
+        "info": "SDK Key that you can retrieve from Socure Admin Portal"
+      },
+      "skWebhookUri": {
+        "type": "string",
+        "displayName": "Webhook URL",
+        "createdDate": 1694542169615,
+        "preferredControlType": "textField",
+        "info": "Use this url as the Webhook URL in the Third Party Integration's configuration"
+      }
+    }
+  },
+  {
+    "name": "Slack Login",
+    "connectorId": "slackConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "oauth2": {
+        "type": "array",
+        "displayName": "Oauth2 Parameters",
+        "createdDate": 1694542169672,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "ServiceNow",
+    "connectorId": "servicenowConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "adminUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "Your ServiceNow administrator username."
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The API URL to target, such as \"https://mycompany.service-now.com\"."
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "Your ServiceNow administrator password."
+      }
+    }
+  },
+  {
+    "name": "CLEAR",
+    "connectorId": "connectorClear",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "TMT Analysis",
+    "connectorId": "tmtConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "API Key for TMT Analysis."
+      },
+      "apiSecret": {
+        "displayName": "API Secret",
+        "preferredControlType": "textField",
+        "info": "API Secret for TMT Analysis."
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The Base API URL for TMT Analysis."
+      }
+    }
+  },
+  {
+    "name": "TransUnion TruValidate",
+    "connectorId": "transunionConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The Base API URL for TransUnion."
+      },
+      "docVerificationPassword": {
+        "displayName": "Password",
+        "preferredControlType": "textField",
+        "info": "Password for Document Verification, provided by TransUnion"
+      },
+      "docVerificationPublicKey": {
+        "displayName": "Public Key",
+        "preferredControlType": "textField",
+        "info": "Public Key for Document Verification, provided by TransUnion"
+      },
+      "docVerificationSecret": {
+        "displayName": "Secret",
+        "preferredControlType": "textField",
+        "info": "Secret for Document Verification, provided by TransUnion"
+      },
+      "docVerificationSiteId": {
+        "displayName": "Site ID",
+        "preferredControlType": "textField",
+        "info": "Site ID for Document Verification, provided by TransUnion"
+      },
+      "docVerificationUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "Username for Document Verification, provided by TransUnion"
+      },
+      "idVerificationPassword": {
+        "displayName": "Password",
+        "preferredControlType": "textField",
+        "info": "Password for ID Verification, provided by TransUnion"
+      },
+      "idVerificationPublicKey": {
+        "displayName": "Public Key",
+        "preferredControlType": "textField",
+        "info": "Public Key for ID Verification, provided by TransUnion"
+      },
+      "idVerificationSecret": {
+        "displayName": "Secret",
+        "preferredControlType": "textField",
+        "info": "Secret for ID Verification, provided by TransUnion"
+      },
+      "idVerificationSiteId": {
+        "displayName": "Site ID",
+        "preferredControlType": "textField",
+        "info": "Site ID for ID Verification, provided by TransUnion"
+      },
+      "idVerificationUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "Username for ID Verification, provided by TransUnion"
+      },
+      "kbaPassword": {
+        "displayName": "Password",
+        "preferredControlType": "textField",
+        "info": "Password for KBA, provided by TransUnion"
+      },
+      "kbaPublicKey": {
+        "displayName": "Public Key",
+        "preferredControlType": "textField",
+        "info": "Public Key for KBA, provided by TransUnion"
+      },
+      "kbaSecret": {
+        "displayName": "Secret",
+        "preferredControlType": "textField",
+        "info": "Secret for KBA, provided by TransUnion"
+      },
+      "kbaSiteId": {
+        "displayName": "Site ID",
+        "preferredControlType": "textField",
+        "info": "Site ID for KBA, provided by TransUnion"
+      },
+      "kbaUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "Username for KBA, provided by TransUnion"
+      },
+      "otpPassword": {
+        "displayName": "Password",
+        "preferredControlType": "textField",
+        "info": "Password for otp Verification, provided by TransUnion"
+      },
+      "otpPublicKey": {
+        "displayName": "Public Key",
+        "preferredControlType": "textField",
+        "info": "Public Key for otp Verification, provided by TransUnion"
+      },
+      "otpSecret": {
+        "displayName": "Secret",
+        "preferredControlType": "textField",
+        "info": "Secret for otp Verification, provided by TransUnion"
+      },
+      "otpSiteId": {
+        "displayName": "Site ID",
+        "preferredControlType": "textField",
+        "info": "Site ID for otp Verification, provided by TransUnion"
+      },
+      "otpUsername": {
+        "displayName": "Username",
+        "preferredControlType": "textField",
+        "info": "Username for otp Verification, provided by TransUnion"
+      }
+    }
+  },
+  {
+    "name": "TransUnion TLOxp",
+    "connectorId": "tutloxpConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": "The URL for your TransUnion API. Unnecessary to change unless you're testing against a demo tenant."
+      },
+      "dppaCode": {
+        "displayName": "DPPA Purpose Code",
+        "preferredControlType": "textField",
+        "info": "The DPPA code that determines the level of data access in the API."
+      },
+      "glbCode": {
+        "displayName": "GLB Purpose Code",
+        "preferredControlType": "textField",
+        "info": "The GLB code that determines the level of data access in the API."
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "The password for your API User"
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": "The username for your API user."
+      }
+    }
+  },
+  {
+    "name": "Telesign",
+    "connectorId": "telesignConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Password",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "providerName": {
+        "type": "string",
+        "displayName": "Provider Name",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "username": {
+        "type": "string",
+        "displayName": "Username",
+        "createdDate": 1694542169587,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Twilio",
+    "connectorId": "twilioConnector",
+    "connectorCategories": [
+      {
+        "name": "Operate",
+        "value": "operate"
+      }
+    ],
+    "properties": {
+      "accountSid": {
+        "displayName": "Account Sid",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authDescription": {
+        "type": "string",
+        "displayName": "Authentication Description",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authMessageTemplate": {
+        "type": "string",
+        "displayName": "Text Message Template (Authentication)",
+        "createdDate": 1694542169660,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "authToken": {
+        "displayName": "Auth Token",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "description": {
+        "type": "string",
+        "displayName": "Description",
+        "createdDate": 1694542169636,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "registerMessageTemplate": {
+        "type": "string",
+        "displayName": "Text Message Template (Registration)",
+        "createdDate": 1694542169715,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "senderPhoneNumber": {
+        "displayName": "Sender Phone Number",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "title": {
+        "type": "string",
+        "displayName": "Title",
+        "createdDate": 1694542169716,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "X Login",
+    "connectorId": "twitterIdpConnector",
+    "connectorCategories": [
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Veriff",
+    "connectorId": "veriffConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "access_token": {
+        "displayName": "API Key",
+        "preferredControlType": "textField",
+        "info": "The API Key provided by Veriff, such as \"323aa031-b4af-4e12-b354-de0da91a2ab0\"."
+      },
+      "baseUrl": {
+        "type": "string",
+        "displayName": "Base URL",
+        "createdDate": 1694542169717,
+        "preferredControlType": "textField",
+        "info": "The API URL to target, such as “https://stationapi.veriff.com/”."
+      },
+      "password": {
+        "type": "string",
+        "displayName": "Shared Secret Key",
+        "createdDate": 1694542169711,
+        "preferredControlType": "textField",
+        "info": "The Share Secret Key from Veriff to create HMAC signature, such as \"20bf4sf0-fbg7-488c-b4f1-d9594lf707bk\"."
+      }
+    }
+  },
+  {
+    "name": "UnifyID",
+    "connectorId": "unifyIdConnector",
+    "connectorCategories": [
+      {
+        "name": "Fraud",
+        "value": "fraud"
+      },
+      {
+        "name": "Authenticate",
+        "value": "authenticate"
+      }
+    ],
+    "properties": {
+      "accountId": {
+        "displayName": "Account ID",
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "connectorName": {
+        "type": "string",
+        "displayName": "Connector Name",
+        "createdDate": 1694542169723,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details1": {
+        "type": "string",
+        "displayName": "Credentials Details 1",
+        "createdDate": 1694542169712,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "details2": {
+        "type": "string",
+        "displayName": "Credentials Details 2",
+        "createdDate": 1694542169591,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrl": {
+        "type": "string",
+        "displayName": "Icon URL",
+        "createdDate": 1694542169721,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "iconUrlPng": {
+        "type": "string",
+        "displayName": "Icon URL in PNG",
+        "createdDate": 1694542169592,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "sdkToken": {
+        "type": "string",
+        "displayName": "SDK Token",
+        "createdDate": 1694542169676,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "showCredAddedOn": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added On?",
+        "createdDate": 1694542169614,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "showCredAddedVia": {
+        "type": "boolean",
+        "displayName": "Show Credentials Added through ?",
+        "createdDate": 1694542169610,
+        "preferredControlType": "toggleSwitch",
+        "info": ""
+      },
+      "toolTip": {
+        "type": "string",
+        "displayName": "Tooltip",
+        "createdDate": 1694542169555,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Yoti",
+    "connectorId": "yotiConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "customAuth": {
+        "type": "array",
+        "displayName": "Custom Parameters",
+        "createdDate": 1694542169719,
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Zoop.one",
+    "connectorId": "zoopConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "agencyId": {
+        "type": "string",
+        "displayName": "Zoop Agency ID",
+        "createdDate": 1694542169670,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "apiKey": {
+        "type": "string",
+        "displayName": "Zoop API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "Zoop API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "LexisNexis",
+    "connectorId": "lexisnexisV2Connector",
+    "connectorCategories": [
+      {
+        "name": "Authorize",
+        "value": "authorize"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": "Your LexisNexis API key, such as “o3x9ywfs26rm1zvl”."
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "dropDown",
+        "info": "The API URL to target. For a custom value, select Use Custom API URL and enter a value in the Custom API URL field."
+      },
+      "orgId": {
+        "displayName": "Organization ID",
+        "preferredControlType": "textField",
+        "info": "Your LexisNexis organization ID, such as “4en6ll2s”."
+      },
+      "useCustomApiURL": {
+        "displayName": "Custom API URL",
+        "preferredControlType": "textField",
+        "info": "The API URL to target, such as “https://h.online-metrix.net”."
+      }
+    }
+  },
+  {
+    "name": "ID R&D",
+    "connectorId": "idranddConnector",
+    "connectorCategories": [
+      {
+        "name": "Verify",
+        "value": "verify"
+      }
+    ],
+    "properties": {
+      "apiKey": {
+        "type": "string",
+        "displayName": "API Key",
+        "createdDate": 1694542169671,
+        "preferredControlType": "textField",
+        "info": ""
+      },
+      "apiUrl": {
+        "type": "string",
+        "displayName": "API Server URL",
+        "createdDate": 1694542169613,
+        "preferredControlType": "textField",
+        "info": ""
+      }
+    }
+  },
+  {
+    "name": "Location Policy",
+    "connectorId": "locationPolicyConnector",
+    "connectorCategories": [
+      {
+        "name": "Core",
+        "value": "core"
+      }
+    ],
+    "properties": {}
   },
   {
     "name": "PingOne Scope Consent",
