@@ -73,9 +73,9 @@ func getConnectorGeneratorTypes(dvSchemaPropertyType string) (terraformType stri
 	case "number":
 		return "number", "number"
 	case "object":
-		return "object", "json"
+		return "string", "json"
 	case "array":
-		return "list", "json"
+		return "string", "json"
 	default:
 		return "string", "string"
 	}
