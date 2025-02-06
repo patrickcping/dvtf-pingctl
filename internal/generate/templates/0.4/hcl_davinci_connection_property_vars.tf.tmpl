@@ -11,7 +11,7 @@ variable "davinci_connection_{{$resourceName}}_{{$property.Name}}" {
   type = {{$property.TerraformType}}
   
   description = <<EOT
-The '{{if $property.DisplayName}}{{$property.DisplayName}}{{else}}{{$property.Name}}{{end}}' property for the connector named '{{$connectorName}}' with connector ID '{{$connectorID}}'.{{if $property.Description}} {{$property.Description}}{{end}}"
+The '{{if $property.DisplayName}}{{$property.DisplayName}}{{else}}{{$property.Name}}{{end}}' property for the connector named '{{$connectorName}}' with connector ID '{{$connectorID}}'.{{if $property.Description}} {{$property.Description}}{{end}}
 EOT
   default = null
 }
