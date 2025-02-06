@@ -4587,8 +4587,8 @@
     "connectorId": "microsoftIdpConnector",
     "connectorCategories": [
       {
-        "name": "Authenticate",
-        "value": "authenticate"
+        "name": "Identity Provider (IDP)",
+        "value": "idp"
       }
     ],
     "properties": {
