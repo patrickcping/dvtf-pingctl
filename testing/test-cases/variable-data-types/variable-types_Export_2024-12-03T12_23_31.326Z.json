@@ -66,6 +66,41 @@
           "grabbable": true,
           "pannable": false,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "wfdzb6lvcb",
+            "nodeType": "CONNECTION",
+            "connectionId": "2262ed1176c1dc53d47eea68947e9451",
+            "connectorId": "codeSnippetConnector",
+            "name": "Validate Hostname Against Whitelist",
+            "label": "Validate Hostname Against Whitelist",
+            "status": "configured",
+            "capabilityName": "snippet",
+            "type": "trigger",
+            "properties": {
+              "functionArgumentList": {
+                "value": {
+                  "hostname": {
+                    "type": "string",
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"ping-devops.com\"\n      }\n    ]\n  }\n]"
+                  }
+                }
+              }
+            }
+          },
+          "position": {
+            "x": 277,
+            "y": 349.80952380952385
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
         }
       ]
     },
