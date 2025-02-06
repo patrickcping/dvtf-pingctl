@@ -846,7 +846,7 @@ func (d *DaVinciGenerator) writeAssets() error {
 
 	outputDir := fmt.Sprintf("%s/assets/flows/", d.outputPath)
 
-	err := os.MkdirAll(outputDir, os.ModePerm)
+	err := os.MkdirAll(outputDir, 0750)
 	if err != nil {
 		return fmt.Errorf("failed to create directory %q. err: %s", outputDir, err.Error())
 	}
@@ -868,7 +868,7 @@ func (d *DaVinciGenerator) writeAsset(flowAsset flowAssetData) error {
 		return fmt.Errorf("Cannot marshal asset data: %s", err)
 	}
 
-	err = os.WriteFile(fmt.Sprintf("%s/%s", d.outputPath, flowAsset.path), fileData, 0644)
+	err = os.WriteFile(fmt.Sprintf("%s/%s", d.outputPath, flowAsset.path), fileData, 0600)
 	if err != nil {
 		return fmt.Errorf("Cannot write asset file %s: %s", flowAsset.path, err)
 	}
