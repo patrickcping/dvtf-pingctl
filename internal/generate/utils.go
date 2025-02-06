@@ -36,7 +36,7 @@ func ensureDirExists(dirPath string) error {
 	_, err := os.Stat(dirPath)
 	if os.IsNotExist(err) {
 		// Directory does not exist, create it
-		err = os.MkdirAll(dirPath, os.ModePerm)
+		err = os.MkdirAll(dirPath, 0750)
 		if err != nil {
 			return fmt.Errorf("failed to create directory %q: %v", dirPath, err)
 		}

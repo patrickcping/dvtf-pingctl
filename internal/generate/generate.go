@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"path/filepath"
 	"regexp"
 	"slices"
 	"strings"
@@ -447,6 +448,7 @@ func (d *DaVinciGenerator) writeBaseVars(version string, overwrite bool) error {
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -487,6 +489,7 @@ func (d *DaVinciGenerator) writeBaseVersions(version string, overwrite bool) err
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -527,6 +530,7 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -569,6 +573,7 @@ func (d *DaVinciGenerator) writeVariableVars(version string, overwrite bool) err
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -611,6 +616,7 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -653,6 +659,7 @@ func (d *DaVinciGenerator) writeConnectionsPropertyVars(version string, overwrit
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -694,6 +701,7 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -735,6 +743,7 @@ func (d *DaVinciGenerator) writeFlowVars(version string, overwrite bool) error {
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -776,6 +785,7 @@ func (d *DaVinciGenerator) writeFlowOutputs(version string, overwrite bool) erro
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
@@ -817,6 +827,7 @@ func (d *DaVinciGenerator) writeReadme(version string, overwrite bool) error {
 		return fmt.Errorf("failed to check if file exists: %v", err)
 	}
 
+	fileName = filepath.Clean(fileName)
 	outputFile, err := os.Create(fileName)
 	if err != nil {
 		return err
