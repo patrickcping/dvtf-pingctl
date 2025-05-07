@@ -2,9 +2,11 @@ module github.com/patrickcping/dvtf-pingctl
 
 go 1.23.3
 
+toolchain go1.24.1
+
 require (
 	github.com/fatih/color v1.18.0
-	github.com/rs/zerolog v1.33.0
+	github.com/rs/zerolog v1.34.0
 	github.com/samir-gandhi/davinci-client-go v0.8.0
 	github.com/spf13/cobra v1.9.1
 	github.com/spf13/pflag v1.0.6
