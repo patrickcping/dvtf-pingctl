@@ -11,7 +11,7 @@ require (
 	github.com/spf13/viper v1.19.0
 )
 
-require github.com/google/go-cmp v0.6.0
+require github.com/google/go-cmp v0.7.0
 
 require (
 	github.com/fsnotify/fsnotify v1.7.0 // indirect
