@@ -61,6 +61,7 @@ module "davinci_flows" {
   # davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId = null
   # davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret = null
   # davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envId = null
+  # davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envRegionInfo = null
   # davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region = null
 
   #######################################
@@ -302,6 +303,7 @@ The variables and their default values have been generated from the provided DaV
 | `davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientId` | The `Client ID` property for the connector named `PingOne` with connector ID `pingOneSSOConnector`. The Client ID of your PingOne Worker application. | string | *No default value* |
 | `davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_clientSecret` | The `Client Secret` property for the connector named `PingOne` with connector ID `pingOneSSOConnector`. The Client Secret of your PingOne Worker application. | string | *No default value* |
 | `davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envId` | The `Environment ID` property for the connector named `PingOne` with connector ID `pingOneSSOConnector`. Your PingOne environment ID. | string | *No default value* |
+| `davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envRegionInfo` | The `The default PingOne environment is configured automatically.` property for the connector named `PingOne` with connector ID `pingOneSSOConnector`. If you want to connect with a different PingOne environment, enter the environment and credential information below. | string | *No default value* |
 | `davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region` | The `Region` property for the connector named `PingOne` with connector ID `pingOneSSOConnector`. The region in which your PingOne environment exists. | string | *No default value* |
 
 ### Terraform variables for davinci_variable resources

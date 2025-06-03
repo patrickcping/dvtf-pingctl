@@ -290,6 +290,16 @@ EOT
   default = null
 }
 
+// The 'The default PingOne environment is configured automatically.' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. If you want to connect with a different PingOne environment, enter the environment and credential information below.
+variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envRegionInfo" {
+  type = string
+  
+  description = <<EOT
+The 'The default PingOne environment is configured automatically.' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. If you want to connect with a different PingOne environment, enter the environment and credential information below.
+EOT
+  default = null
+}
+
 // The 'Region' property for the connector named 'PingOne' with connector ID 'pingOneSSOConnector'. The region in which your PingOne environment exists.
 variable "davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region" {
   type = string
