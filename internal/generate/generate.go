@@ -261,7 +261,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 				}) {
 					connectionProperties, err := getConnectionProperties(*nodeData.ConnectorID)
 					if err != nil {
-						return fmt.Errorf("Failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
+						return fmt.Errorf("failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
 					}
 
 					d.ConnectionsData = append(d.ConnectionsData, connectionData{
@@ -289,7 +289,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 					subflowID := nodeData.Properties.SubFlowID.Value
 
 					if subflowID.Label == nil || subflowID.Value == nil {
-						return fmt.Errorf("Potentially corrupt DaVinci export file.  Subflow connector with ID %s is missing required fields", *nodeData.ID)
+						return fmt.Errorf("potentially corrupt DaVinci export file.  Subflow connector with ID %s is missing required fields", *nodeData.ID)
 					}
 
 					if !slices.ContainsFunc(subflowLinks, func(v flowSubflowLink) bool {
@@ -915,12 +915,12 @@ func (d *DaVinciGenerator) writeAsset(flowAsset flowAssetData) error {
 
 	fileData, err := json.MarshalIndent(flowAsset.flowMap, "", "  ")
 	if err != nil {
-		return fmt.Errorf("Cannot marshal asset data: %s", err)
+		return fmt.Errorf("cannot marshal asset data: %s", err)
 	}
 
 	err = os.WriteFile(fmt.Sprintf("%s/%s", d.outputPath, flowAsset.path), fileData, 0600)
 	if err != nil {
-		return fmt.Errorf("Cannot write asset file %s: %s", flowAsset.path, err)
+		return fmt.Errorf("cannot write asset file %s: %s", flowAsset.path, err)
 	}
 
 	return nil
