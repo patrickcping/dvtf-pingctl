@@ -90,10 +90,10 @@ func (d *DaVinciValidator) Validate() error {
 		return d.terraformCustomTypeValidator(flowExportJsonCmpOptsConfiguration)
 	}
 
-	return errors.New("Invalid field type")
+	return errors.New("invalid field type")
 }
 
-var ErrSubflowsPresent = errors.New("Subflows are present in the export.  Subflows should be managed separately as their own independent flows.")
+var ErrSubflowsPresent = errors.New("subflows are present in the export.  Subflows should be managed separately as their own independent flows")
 
 // Replicated from the Terraform provider https://github.com/pingidentity/terraform-provider-davinci/blob/007d4dd02f01438b0f28feee44ad03b6325e3263/internal/framework/customtypes/davinciexporttype/parsed_value.go#L96
 func (d *DaVinciValidator) terraformCustomTypeValidator(fieldOpts davinci.ExportCmpOpts) error {
