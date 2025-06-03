@@ -152,7 +152,7 @@ func (d *DaVinciGenerator) buildData(data any, parsedIntf map[string]interface{}
 			return err
 		}
 	default:
-		return fmt.Errorf("Unknown data type: %T", data)
+		return fmt.Errorf("unknown data type: %T", data)
 	}
 
 	return nil
@@ -180,7 +180,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 	for _, variable := range flow.Variables {
 
 		if variable.Context == nil || variable.Fields == nil || variable.Fields.Type == nil {
-			return fmt.Errorf("Potentially corrupt DaVinci export file.  Variable %s is missing required fields", variable.Name)
+			return fmt.Errorf("potentially corrupt DaVinci export file.  Variable %s is missing required fields", variable.Name)
 		}
 
 		reg := regexp.MustCompile(`^([a-zA-Z0-9-_]*)[[#]{2}.+]*$`)
@@ -195,7 +195,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 			// matches[1] is the first capture group
 			variableName = matches[1]
 		} else {
-			return fmt.Errorf("No match found for variable name parsing: %s", variable.Name)
+			return fmt.Errorf("no match found for variable name parsing: %s", variable.Name)
 		}
 
 		resourceName := sanitiseResourceName(variableName)
@@ -261,7 +261,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 				}) {
 					connectionProperties, err := getConnectionProperties(*nodeData.ConnectorID)
 					if err != nil {
-						return fmt.Errorf("Failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
+						return fmt.Errorf("failed to get connection properties for connector ID %s: %s", *nodeData.ConnectorID, err)
 					}
 
 					d.ConnectionsData = append(d.ConnectionsData, connectionData{
@@ -289,7 +289,7 @@ func (d *DaVinciGenerator) buildDataSingleFlow(flow davinci.Flow, parsedIntf map
 					subflowID := nodeData.Properties.SubFlowID.Value
 
 					if subflowID.Label == nil || subflowID.Value == nil {
-						return fmt.Errorf("Potentially corrupt DaVinci export file.  Subflow connector with ID %s is missing required fields", *nodeData.ID)
+						return fmt.Errorf("potentially corrupt DaVinci export file.  Subflow connector with ID %s is missing required fields", *nodeData.ID)
 					}
 
 					if !slices.ContainsFunc(subflowLinks, func(v flowSubflowLink) bool {
@@ -453,7 +453,12 @@ func (d *DaVinciGenerator) writeBaseVars(version string, overwrite bool) error {
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	err = hclTemplate.Execute(outputFile, nil)
 	if err != nil {
@@ -494,7 +499,12 @@ func (d *DaVinciGenerator) writeBaseVersions(version string, overwrite bool) err
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	err = hclTemplate.Execute(outputFile, nil)
 	if err != nil {
@@ -535,7 +545,12 @@ func (d *DaVinciGenerator) writeVariables(version string, overwrite bool) error 
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, variableData := range d.VariablesData {
 		err = hclTemplate.Execute(outputFile, variableData)
@@ -578,7 +593,12 @@ func (d *DaVinciGenerator) writeVariableVars(version string, overwrite bool) err
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, variableData := range d.VariablesData {
 		err = hclTemplate.Execute(outputFile, variableData)
@@ -621,7 +641,12 @@ func (d *DaVinciGenerator) writeConnections(version string, overwrite bool) erro
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, connectionData := range d.ConnectionsData {
 		err = hclTemplate.Execute(outputFile, connectionData)
@@ -664,7 +689,12 @@ func (d *DaVinciGenerator) writeConnectionsPropertyVars(version string, overwrit
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, connectionData := range d.ConnectionsData {
 		err = hclTemplate.Execute(outputFile, connectionData)
@@ -706,7 +736,12 @@ func (d *DaVinciGenerator) writeFlows(version string, overwrite bool) error {
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
@@ -748,7 +783,12 @@ func (d *DaVinciGenerator) writeFlowVars(version string, overwrite bool) error {
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
@@ -790,7 +830,12 @@ func (d *DaVinciGenerator) writeFlowOutputs(version string, overwrite bool) erro
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	for _, flowData := range d.FlowsData {
 		err = hclTemplate.Execute(outputFile, flowData)
@@ -832,7 +877,12 @@ func (d *DaVinciGenerator) writeReadme(version string, overwrite bool) error {
 	if err != nil {
 		return err
 	}
-	defer outputFile.Close()
+	defer func() {
+		if err := outputFile.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	err = readmeTemplate.Execute(outputFile, d)
 	if err != nil {
@@ -865,12 +915,12 @@ func (d *DaVinciGenerator) writeAsset(flowAsset flowAssetData) error {
 
 	fileData, err := json.MarshalIndent(flowAsset.flowMap, "", "  ")
 	if err != nil {
-		return fmt.Errorf("Cannot marshal asset data: %s", err)
+		return fmt.Errorf("cannot marshal asset data: %s", err)
 	}
 
 	err = os.WriteFile(fmt.Sprintf("%s/%s", d.outputPath, flowAsset.path), fileData, 0600)
 	if err != nil {
-		return fmt.Errorf("Cannot write asset file %s: %s", flowAsset.path, err)
+		return fmt.Errorf("cannot write asset file %s: %s", flowAsset.path, err)
 	}
 
 	return nil

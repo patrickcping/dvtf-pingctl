@@ -66,7 +66,7 @@ func (d *DaVinciExport) Validate(providerField terraform.ProviderField) (ok, war
 func (d *DaVinciExport) readJSONFile() error {
 
 	if d.ExportPath == nil {
-		return errors.New("No export path provided")
+		return errors.New("no export path provided")
 	}
 
 	// Open the JSON file
@@ -74,7 +74,12 @@ func (d *DaVinciExport) readJSONFile() error {
 	if err != nil {
 		return err
 	}
-	defer file.Close()
+	defer func() {
+		if err := file.Close(); err != nil {
+			l := logger.Get()
+			l.Error().Err(err).Msg("Failed to close file")
+		}
+	}()
 
 	// Read the file contents
 	bytes, err := io.ReadAll(file)
