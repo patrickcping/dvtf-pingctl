@@ -1,6 +1,6 @@
 module github.com/patrickcping/dvtf-pingctl/tools
 
-go 1.23.3
+go 1.24.3
 
 require (
 	github.com/golangci/golangci-lint v1.62.0
