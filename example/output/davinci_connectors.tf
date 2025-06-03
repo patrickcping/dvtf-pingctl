@@ -355,6 +355,12 @@ resource "davinci_connection" "pingonessoconnector__94141bf2f1b9b59a5f5365ff135e
         type  = "string"
         value = tostring(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envId)
       }] : [],
+      // The default PingOne environment is configured automatically.
+      var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envRegionInfo != null ? [{
+        name  = "envRegionInfo"
+        type  = "string"
+        value = tostring(var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_envRegionInfo)
+      }] : [],
       // Region
       var.davinci_connection_pingonessoconnector__94141bf2f1b9b59a5f5365ff135e02bb_region != null ? [{
         name  = "region"
