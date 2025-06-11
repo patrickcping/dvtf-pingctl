@@ -2,7 +2,8 @@
 
 A simple CLI tool to assist HCL generation and debugging with using the [DaVinci Terraform provider](https://registry.terraform.io/providers/pingidentity/davinci/latest).
 
-* Supported DaVinci Terraform provider version: `v0.4.2+`
+* Supported DaVinci Terraform provider version: `v0.5.0+`
+* Requires Terraform CLI version: `v1.12.0+`
 
 ## Install
 
