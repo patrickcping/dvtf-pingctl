@@ -1,10 +1,10 @@
 terraform {
-  required_version = ">= 1.9"
+  required_version = ">= 1.12"
 
   required_providers {
     davinci = {
       source  = "pingidentity/davinci"
-      version = ">= 0.4.2, < 1.0.0"
+      version = ">= 0.5.0, < 1.0.0"
     }
   }
 }

@@ -44,6 +44,7 @@ module "davinci_flows" {
   ## Resource: davinci_flow.{{$flowData.ResourceName}}
   # davinci_flow_{{$flowData.ResourceName}}_name           = "{{$flowData.Name}}"
   # davinci_flow_{{$flowData.ResourceName}}_description    = {{if $flowData.Description}}"{{$flowData.Description}}"{{else}}null{{- end}}
+  # davinci_flow_{{$flowData.ResourceName}}_log_level      = 2
   # davinci_flow_{{$flowData.ResourceName}}_json_file_path = "{{$flowData.FlowJSONPath}}"
   # davinci_flow_{{$flowData.ResourceName}}_json           = null
 {{end -}}
@@ -79,6 +80,7 @@ The variables and their default values have been generated from the provided DaV
 {{- range $flowData := .FlowsData}}
 | `davinci_flow_{{$flowData.ResourceName}}_name`           | The name of the flow with resource name `{{$flowData.ResourceName}}`. | string | `{{$flowData.Name}}` |
 | `davinci_flow_{{$flowData.ResourceName}}_description`    | The description of the flow with resource name `{{$flowData.ResourceName}}`. | string | {{- if $flowData.Description}}`{{$flowData.Description}}`{{else}}*No default value*{{- end}} |
+| `davinci_flow_{{$flowData.ResourceName}}_log_level`      | An integer that specifies the log level for the flow with resource name `{{$flowData.ResourceName}}`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_{{$flowData.ResourceName}}_json_file_path` | The filesystem location of the flow JSON with resource name `{{$flowData.ResourceName}}`. Cannot be set with the `davinci_flow_{{$flowData.ResourceName}}_json` variable. | string | `{{$flowData.FlowJSONPath}}` |
 | `davinci_flow_{{$flowData.ResourceName}}_json`           | A string representing the raw DaVinci import JSON for resource name `{{$flowData.ResourceName}}`. Cannot be set with the `davinci_flow_{{$flowData.ResourceName}}_json_file_path` variable. | string | *No default value* |
 {{- end}}

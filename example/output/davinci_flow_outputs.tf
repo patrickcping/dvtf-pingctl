@@ -9,6 +9,7 @@ output "davinci_flow_ciam_passwordless_protect_account_recovery_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_account_recovery_subflow.subflow_link
     }
@@ -24,6 +25,7 @@ output "davinci_flow_ciam_passwordless_protect_account_registration_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_account_registration_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_account_registration_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_account_registration_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_account_registration_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_account_registration_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_account_registration_subflow.subflow_link
     }
@@ -39,6 +41,7 @@ output "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_agreement_tos_subflow.subflow_link
     }
@@ -54,6 +57,7 @@ output "davinci_flow_ciam_passwordless_protect_change_password_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_change_password_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_change_password_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_change_password_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_change_password_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_change_password_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_change_password_subflow.subflow_link
     }
@@ -69,6 +73,7 @@ output "davinci_flow_ciam_passwordless_protect_device_authentication_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_device_authentication_subflow.subflow_link
     }
@@ -84,6 +89,7 @@ output "davinci_flow_ciam_passwordless_protect_device_registration_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_device_registration_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_device_registration_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_device_registration_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_device_registration_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_device_registration_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_device_registration_subflow.subflow_link
     }
@@ -99,6 +105,7 @@ output "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow
         description     = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow.subflow_link
     }
@@ -114,6 +121,7 @@ output "davinci_flow_ciam_passwordless_protect_registration_authentication_accou
         description     = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.log_level
         name            = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.subflow_link
     }
@@ -129,6 +137,7 @@ output "davinci_flow_ciam_passwordless_protect_threat_detection_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_threat_detection_subflow.subflow_link
     }
@@ -144,6 +153,7 @@ output "davinci_flow_ciam_passwordless_protect_verify_email_subflow" {
         description     = davinci_flow.ciam_passwordless_protect_verify_email_subflow.description
         environment_id  = davinci_flow.ciam_passwordless_protect_verify_email_subflow.environment_id
         id              = davinci_flow.ciam_passwordless_protect_verify_email_subflow.id
+        log_level       = davinci_flow.ciam_passwordless_protect_verify_email_subflow.log_level
         name            = davinci_flow.ciam_passwordless_protect_verify_email_subflow.name
         subflow_link    = davinci_flow.ciam_passwordless_protect_verify_email_subflow.subflow_link
     }
@@ -159,6 +169,7 @@ output "davinci_flow_ootb_basic_profile_management" {
         description     = davinci_flow.ootb_basic_profile_management.description
         environment_id  = davinci_flow.ootb_basic_profile_management.environment_id
         id              = davinci_flow.ootb_basic_profile_management.id
+        log_level       = davinci_flow.ootb_basic_profile_management.log_level
         name            = davinci_flow.ootb_basic_profile_management.name
         subflow_link    = davinci_flow.ootb_basic_profile_management.subflow_link
     }
@@ -174,6 +185,7 @@ output "davinci_flow_ootb_change_password_subflow_1" {
         description     = davinci_flow.ootb_change_password_subflow_1.description
         environment_id  = davinci_flow.ootb_change_password_subflow_1.environment_id
         id              = davinci_flow.ootb_change_password_subflow_1.id
+        log_level       = davinci_flow.ootb_change_password_subflow_1.log_level
         name            = davinci_flow.ootb_change_password_subflow_1.name
         subflow_link    = davinci_flow.ootb_change_password_subflow_1.subflow_link
     }
@@ -189,6 +201,7 @@ output "davinci_flow_ootb_device_management_main_flow" {
         description     = davinci_flow.ootb_device_management_main_flow.description
         environment_id  = davinci_flow.ootb_device_management_main_flow.environment_id
         id              = davinci_flow.ootb_device_management_main_flow.id
+        log_level       = davinci_flow.ootb_device_management_main_flow.log_level
         name            = davinci_flow.ootb_device_management_main_flow.name
         subflow_link    = davinci_flow.ootb_device_management_main_flow.subflow_link
     }
@@ -204,6 +217,7 @@ output "davinci_flow_ootb_device_registration_subflow_1" {
         description     = davinci_flow.ootb_device_registration_subflow_1.description
         environment_id  = davinci_flow.ootb_device_registration_subflow_1.environment_id
         id              = davinci_flow.ootb_device_registration_subflow_1.id
+        log_level       = davinci_flow.ootb_device_registration_subflow_1.log_level
         name            = davinci_flow.ootb_device_registration_subflow_1.name
         subflow_link    = davinci_flow.ootb_device_registration_subflow_1.subflow_link
     }
@@ -219,6 +233,7 @@ output "davinci_flow_ootb_password_reset_main_flow" {
         description     = davinci_flow.ootb_password_reset_main_flow.description
         environment_id  = davinci_flow.ootb_password_reset_main_flow.environment_id
         id              = davinci_flow.ootb_password_reset_main_flow.id
+        log_level       = davinci_flow.ootb_password_reset_main_flow.log_level
         name            = davinci_flow.ootb_password_reset_main_flow.name
         subflow_link    = davinci_flow.ootb_password_reset_main_flow.subflow_link
     }

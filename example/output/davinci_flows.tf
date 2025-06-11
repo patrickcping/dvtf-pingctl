@@ -15,6 +15,7 @@ resource "davinci_flow" "ciam_passwordless_protect_account_recovery_subflow" {
 
   name        = var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json
 
@@ -113,6 +114,7 @@ resource "davinci_flow" "ciam_passwordless_protect_account_registration_subflow"
 
   name        = var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_json
 
@@ -217,6 +219,7 @@ resource "davinci_flow" "ciam_passwordless_protect_agreement_tos_subflow" {
 
   name        = var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json
 
@@ -274,6 +277,7 @@ resource "davinci_flow" "ciam_passwordless_protect_change_password_subflow" {
 
   name        = var.davinci_flow_ciam_passwordless_protect_change_password_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_change_password_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_change_password_subflow_json
 
@@ -342,6 +346,7 @@ resource "davinci_flow" "ciam_passwordless_protect_device_authentication_subflow
 
   name        = var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json
 
@@ -449,6 +454,7 @@ resource "davinci_flow" "ciam_passwordless_protect_device_registration_subflow" 
 
   name        = var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_json
 
@@ -522,6 +528,7 @@ resource "davinci_flow" "ciam_passwordless_protect_magic_link_authentication_sub
 
   name        = var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json
 
@@ -613,6 +620,7 @@ resource "davinci_flow" "ciam_passwordless_protect_registration_authentication_a
 
   name        = var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_name
   description = var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json
 
@@ -762,6 +770,7 @@ resource "davinci_flow" "ciam_passwordless_protect_threat_detection_subflow" {
 
   name        = var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json
 
@@ -813,6 +822,7 @@ resource "davinci_flow" "ciam_passwordless_protect_verify_email_subflow" {
 
   name        = var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_name
   description = var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_description
+  log_level   = var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level
 
   flow_json = var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path != null ? (fileexists(var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path) ? file(var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path))) : var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_json
 
@@ -877,6 +887,7 @@ resource "davinci_flow" "ootb_basic_profile_management" {
 
   name        = var.davinci_flow_ootb_basic_profile_management_name
   description = var.davinci_flow_ootb_basic_profile_management_description
+  log_level   = var.davinci_flow_ootb_basic_profile_management_log_level
 
   flow_json = var.davinci_flow_ootb_basic_profile_management_json_file_path != null ? (fileexists(var.davinci_flow_ootb_basic_profile_management_json_file_path) ? file(var.davinci_flow_ootb_basic_profile_management_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ootb_basic_profile_management_json_file_path))) : var.davinci_flow_ootb_basic_profile_management_json
 
@@ -931,6 +942,7 @@ resource "davinci_flow" "ootb_change_password_subflow_1" {
 
   name        = var.davinci_flow_ootb_change_password_subflow_1_name
   description = var.davinci_flow_ootb_change_password_subflow_1_description
+  log_level   = var.davinci_flow_ootb_change_password_subflow_1_log_level
 
   flow_json = var.davinci_flow_ootb_change_password_subflow_1_json_file_path != null ? (fileexists(var.davinci_flow_ootb_change_password_subflow_1_json_file_path) ? file(var.davinci_flow_ootb_change_password_subflow_1_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ootb_change_password_subflow_1_json_file_path))) : var.davinci_flow_ootb_change_password_subflow_1_json
 
@@ -993,6 +1005,7 @@ resource "davinci_flow" "ootb_device_management_main_flow" {
 
   name        = var.davinci_flow_ootb_device_management_main_flow_name
   description = var.davinci_flow_ootb_device_management_main_flow_description
+  log_level   = var.davinci_flow_ootb_device_management_main_flow_log_level
 
   flow_json = var.davinci_flow_ootb_device_management_main_flow_json_file_path != null ? (fileexists(var.davinci_flow_ootb_device_management_main_flow_json_file_path) ? file(var.davinci_flow_ootb_device_management_main_flow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ootb_device_management_main_flow_json_file_path))) : var.davinci_flow_ootb_device_management_main_flow_json
 
@@ -1065,6 +1078,7 @@ resource "davinci_flow" "ootb_device_registration_subflow_1" {
 
   name        = var.davinci_flow_ootb_device_registration_subflow_1_name
   description = var.davinci_flow_ootb_device_registration_subflow_1_description
+  log_level   = var.davinci_flow_ootb_device_registration_subflow_1_log_level
 
   flow_json = var.davinci_flow_ootb_device_registration_subflow_1_json_file_path != null ? (fileexists(var.davinci_flow_ootb_device_registration_subflow_1_json_file_path) ? file(var.davinci_flow_ootb_device_registration_subflow_1_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ootb_device_registration_subflow_1_json_file_path))) : var.davinci_flow_ootb_device_registration_subflow_1_json
 
@@ -1133,6 +1147,7 @@ resource "davinci_flow" "ootb_password_reset_main_flow" {
 
   name        = var.davinci_flow_ootb_password_reset_main_flow_name
   description = var.davinci_flow_ootb_password_reset_main_flow_description
+  log_level   = var.davinci_flow_ootb_password_reset_main_flow_log_level
 
   flow_json = var.davinci_flow_ootb_password_reset_main_flow_json_file_path != null ? (fileexists(var.davinci_flow_ootb_password_reset_main_flow_json_file_path) ? file(var.davinci_flow_ootb_password_reset_main_flow_json_file_path) : file(format("%s/%s", path.module, var.davinci_flow_ootb_password_reset_main_flow_json_file_path))) : var.davinci_flow_ootb_password_reset_main_flow_json
 
