@@ -31,6 +31,11 @@ variable "davinci_flow_{{.ResourceName}}_log_level" {
   
   description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
   default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_{{.ResourceName}}_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
