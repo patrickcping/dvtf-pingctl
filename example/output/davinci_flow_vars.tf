@@ -19,6 +19,19 @@ variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_descri
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path" {
   type = string
@@ -58,6 +71,19 @@ variable "davinci_flow_ciam_passwordless_protect_account_registration_subflow_de
   description = "The description of the flow with resource name 'ciam_passwordless_protect_account_registration_subflow'."
   default = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -101,6 +127,19 @@ variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_descripti
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path" {
   type = string
@@ -140,6 +179,19 @@ variable "davinci_flow_ciam_passwordless_protect_change_password_subflow_descrip
   description = "The description of the flow with resource name 'ciam_passwordless_protect_change_password_subflow'."
   default = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -183,6 +235,19 @@ variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_d
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path" {
   type = string
@@ -222,6 +287,19 @@ variable "davinci_flow_ciam_passwordless_protect_device_registration_subflow_des
   description = "The description of the flow with resource name 'ciam_passwordless_protect_device_registration_subflow'."
   default = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -265,6 +343,19 @@ variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subfl
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path" {
   type = string
@@ -304,6 +395,19 @@ variable "davinci_flow_ciam_passwordless_protect_registration_authentication_acc
   description = "The description of the flow with resource name 'ciam_passwordless_protect_registration_authentication_account_recovery_main_flow'."
   default = "Imported on Wed Sep 13 2023 17:10:12 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -347,6 +451,19 @@ variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_descri
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path" {
   type = string
@@ -386,6 +503,19 @@ variable "davinci_flow_ciam_passwordless_protect_verify_email_subflow_descriptio
   description = "The description of the flow with resource name 'ciam_passwordless_protect_verify_email_subflow'."
   default = "Imported on Mon Apr 01 2024 07:56:25 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -429,6 +559,19 @@ variable "davinci_flow_ootb_basic_profile_management_description" {
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ootb_basic_profile_management_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ootb_basic_profile_management_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ootb_basic_profile_management_json_file_path" {
   type = string
@@ -468,6 +611,19 @@ variable "davinci_flow_ootb_change_password_subflow_1_description" {
   description = "The description of the flow with resource name 'ootb_change_password_subflow_1'."
   default = "Cloned on Wed Sep 13 2023 17:45:46 GMT+0000 (Coordinated Universal Time). \nImported on Wed Sep 13 2023 17:10:10 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ootb_change_password_subflow_1_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ootb_change_password_subflow_1_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path
@@ -511,6 +667,19 @@ variable "davinci_flow_ootb_device_management_main_flow_description" {
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ootb_device_management_main_flow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ootb_device_management_main_flow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ootb_device_management_main_flow_json_file_path" {
   type = string
@@ -552,6 +721,19 @@ variable "davinci_flow_ootb_device_registration_subflow_1_description" {
   
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_ootb_device_registration_subflow_1_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ootb_device_registration_subflow_1_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
+}
+
 // The location of the flow file path
 variable "davinci_flow_ootb_device_registration_subflow_1_json_file_path" {
   type = string
@@ -591,6 +773,19 @@ variable "davinci_flow_ootb_password_reset_main_flow_description" {
   description = "The description of the flow with resource name 'ootb_password_reset_main_flow'."
   default = "Imported on Wed Sep 13 2023 17:10:38 GMT+0000 (Coordinated Universal Time)"
   
+}
+
+// The Log level to apply to the flow
+variable "davinci_flow_ootb_password_reset_main_flow_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+
+  validation {
+    condition     = contains([1, 2, 3], var.davinci_flow_ootb_password_reset_main_flow_log_level)
+    error_message = "The value must be one of 1, 2, or 3."
+  }
 }
 
 // The location of the flow file path

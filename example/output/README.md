@@ -178,90 +178,105 @@ module "davinci_flows" {
   ## Resource: davinci_flow.ciam_passwordless_protect_account_recovery_subflow
   # davinci_flow_ciam_passwordless_protect_account_recovery_subflow_name           = "CIAM-Passwordless-Protect-Account-Recovery-Subflow"
   # davinci_flow_ciam_passwordless_protect_account_recovery_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_account_recovery_subflow.json"
   # davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_account_registration_subflow
   # davinci_flow_ciam_passwordless_protect_account_registration_subflow_name           = "CIAM-Passwordless-Protect-Account-Registration-Subflow"
   # davinci_flow_ciam_passwordless_protect_account_registration_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_account_registration_subflow.json"
   # davinci_flow_ciam_passwordless_protect_account_registration_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_agreement_tos_subflow
   # davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_name           = "CIAM-Passwordless-Protect-Agreement(ToS)-Subflow"
   # davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_agreement_tos_subflow.json"
   # davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_change_password_subflow
   # davinci_flow_ciam_passwordless_protect_change_password_subflow_name           = "CIAM-Passwordless-Protect-Change-Password-Subflow"
   # davinci_flow_ciam_passwordless_protect_change_password_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_change_password_subflow.json"
   # davinci_flow_ciam_passwordless_protect_change_password_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_device_authentication_subflow
   # davinci_flow_ciam_passwordless_protect_device_authentication_subflow_name           = "CIAM-Passwordless-Protect-Device-Authentication-Subflow"
   # davinci_flow_ciam_passwordless_protect_device_authentication_subflow_description    = "Imported on Mon Apr 01 2024 07:56:27 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_device_authentication_subflow.json"
   # davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_device_registration_subflow
   # davinci_flow_ciam_passwordless_protect_device_registration_subflow_name           = "CIAM-Passwordless-Protect-Device-Registration-Subflow"
   # davinci_flow_ciam_passwordless_protect_device_registration_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_device_registration_subflow.json"
   # davinci_flow_ciam_passwordless_protect_device_registration_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_magic_link_authentication_subflow
   # davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_name           = "CIAM-Passwordless-Protect-Magic-Link-Authentication-Subflow"
   # davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_description    = "Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_magic_link_authentication_subflow.json"
   # davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_registration_authentication_account_recovery_main_flow
   # davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_name           = "CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow"
   # davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_description    = "Imported on Wed Sep 13 2023 17:10:12 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path = "assets/flows/ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.json"
   # davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_threat_detection_subflow
   # davinci_flow_ciam_passwordless_protect_threat_detection_subflow_name           = "CIAM-Passwordless-Protect-Threat-Detection-Subflow"
   # davinci_flow_ciam_passwordless_protect_threat_detection_subflow_description    = "Imported on Mon Apr 01 2024 07:56:25 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_threat_detection_subflow.json"
   # davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json           = null
 
   ## Resource: davinci_flow.ciam_passwordless_protect_verify_email_subflow
   # davinci_flow_ciam_passwordless_protect_verify_email_subflow_name           = "CIAM-Passwordless-Protect-Verify-Email-Subflow"
   # davinci_flow_ciam_passwordless_protect_verify_email_subflow_description    = "Imported on Mon Apr 01 2024 07:56:25 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level      = 2
   # davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path = "assets/flows/ciam_passwordless_protect_verify_email_subflow.json"
   # davinci_flow_ciam_passwordless_protect_verify_email_subflow_json           = null
 
   ## Resource: davinci_flow.ootb_basic_profile_management
   # davinci_flow_ootb_basic_profile_management_name           = "OOTB - Basic Profile Management"
   # davinci_flow_ootb_basic_profile_management_description    = "Imported on Wed Sep 13 2023 17:10:34 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ootb_basic_profile_management_log_level      = 2
   # davinci_flow_ootb_basic_profile_management_json_file_path = "assets/flows/ootb_basic_profile_management.json"
   # davinci_flow_ootb_basic_profile_management_json           = null
 
   ## Resource: davinci_flow.ootb_change_password_subflow_1
   # davinci_flow_ootb_change_password_subflow_1_name           = "OOTB - Change Password - Subflow - 1"
   # davinci_flow_ootb_change_password_subflow_1_description    = "Cloned on Wed Sep 13 2023 17:45:46 GMT+0000 (Coordinated Universal Time). \nImported on Wed Sep 13 2023 17:10:10 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ootb_change_password_subflow_1_log_level      = 2
   # davinci_flow_ootb_change_password_subflow_1_json_file_path = "assets/flows/ootb_change_password_subflow_1.json"
   # davinci_flow_ootb_change_password_subflow_1_json           = null
 
   ## Resource: davinci_flow.ootb_device_management_main_flow
   # davinci_flow_ootb_device_management_main_flow_name           = "OOTB - Device Management - Main Flow"
   # davinci_flow_ootb_device_management_main_flow_description    = "Imported on Wed Sep 13 2023 17:10:40 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ootb_device_management_main_flow_log_level      = 2
   # davinci_flow_ootb_device_management_main_flow_json_file_path = "assets/flows/ootb_device_management_main_flow.json"
   # davinci_flow_ootb_device_management_main_flow_json           = null
 
   ## Resource: davinci_flow.ootb_device_registration_subflow_1
   # davinci_flow_ootb_device_registration_subflow_1_name           = "OOTB - Device Registration - Subflow - 1"
   # davinci_flow_ootb_device_registration_subflow_1_description    = "Cloned on Wed Sep 13 2023 17:44:09 GMT+0000 (Coordinated Universal Time). \nImported on Wed Sep 13 2023 17:09:57 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ootb_device_registration_subflow_1_log_level      = 2
   # davinci_flow_ootb_device_registration_subflow_1_json_file_path = "assets/flows/ootb_device_registration_subflow_1.json"
   # davinci_flow_ootb_device_registration_subflow_1_json           = null
 
   ## Resource: davinci_flow.ootb_password_reset_main_flow
   # davinci_flow_ootb_password_reset_main_flow_name           = "OOTB - Password Reset - Main Flow"
   # davinci_flow_ootb_password_reset_main_flow_description    = "Imported on Wed Sep 13 2023 17:10:38 GMT+0000 (Coordinated Universal Time)"
+  # davinci_flow_ootb_password_reset_main_flow_log_level      = 2
   # davinci_flow_ootb_password_reset_main_flow_json_file_path = "assets/flows/ootb_password_reset_main_flow.json"
   # davinci_flow_ootb_password_reset_main_flow_json           = null
 }
@@ -363,62 +378,77 @@ The variables and their default values have been generated from the provided DaV
 | ------------------ | ----------- | ---- | ------------- |
 | `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_account_recovery_subflow`. | string | `CIAM-Passwordless-Protect-Account-Recovery-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_account_recovery_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_account_recovery_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_account_recovery_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_account_recovery_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_account_recovery_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_recovery_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_account_registration_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_account_registration_subflow`. | string | `CIAM-Passwordless-Protect-Account-Registration-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_account_registration_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_account_registration_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_account_registration_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_account_registration_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_account_registration_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_account_registration_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_account_registration_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_agreement_tos_subflow`. | string | `CIAM-Passwordless-Protect-Agreement(ToS)-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_agreement_tos_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_agreement_tos_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_agreement_tos_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_agreement_tos_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_agreement_tos_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_change_password_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_change_password_subflow`. | string | `CIAM-Passwordless-Protect-Change-Password-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_change_password_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_change_password_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_change_password_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_change_password_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_change_password_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_change_password_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_change_password_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_change_password_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_change_password_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_device_authentication_subflow`. | string | `CIAM-Passwordless-Protect-Device-Authentication-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_device_authentication_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:27 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_device_authentication_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_device_authentication_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_device_authentication_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_device_authentication_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_authentication_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_device_registration_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_device_registration_subflow`. | string | `CIAM-Passwordless-Protect-Device-Registration-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_device_registration_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_device_registration_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_device_registration_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_device_registration_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_device_registration_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_device_registration_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_device_registration_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_magic_link_authentication_subflow`. | string | `CIAM-Passwordless-Protect-Magic-Link-Authentication-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_magic_link_authentication_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:26 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_magic_link_authentication_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_magic_link_authentication_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_magic_link_authentication_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_magic_link_authentication_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_name`           | The name of the flow with resource name `ciam_passwordless_protect_registration_authentication_account_recovery_main_flow`. | string | `CIAM-Passwordless-Protect-Registration-Authentication-Account-Recovery-Main Flow` |
 | `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_description`    | The description of the flow with resource name `ciam_passwordless_protect_registration_authentication_account_recovery_main_flow`. | string |`Imported on Wed Sep 13 2023 17:10:12 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_registration_authentication_account_recovery_main_flow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_registration_authentication_account_recovery_main_flow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json` variable. | string | `assets/flows/ciam_passwordless_protect_registration_authentication_account_recovery_main_flow.json` |
 | `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_registration_authentication_account_recovery_main_flow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_threat_detection_subflow`. | string | `CIAM-Passwordless-Protect-Threat-Detection-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_threat_detection_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:25 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_threat_detection_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_threat_detection_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_threat_detection_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_threat_detection_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_threat_detection_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ciam_passwordless_protect_verify_email_subflow_name`           | The name of the flow with resource name `ciam_passwordless_protect_verify_email_subflow`. | string | `CIAM-Passwordless-Protect-Verify-Email-Subflow` |
 | `davinci_flow_ciam_passwordless_protect_verify_email_subflow_description`    | The description of the flow with resource name `ciam_passwordless_protect_verify_email_subflow`. | string |`Imported on Mon Apr 01 2024 07:56:25 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level`      | An integer that specifies the log level for the flow with resource name `ciam_passwordless_protect_verify_email_subflow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path` | The filesystem location of the flow JSON with resource name `ciam_passwordless_protect_verify_email_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json` variable. | string | `assets/flows/ciam_passwordless_protect_verify_email_subflow.json` |
 | `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json`           | A string representing the raw DaVinci import JSON for resource name `ciam_passwordless_protect_verify_email_subflow`. Cannot be set with the `davinci_flow_ciam_passwordless_protect_verify_email_subflow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ootb_basic_profile_management_name`           | The name of the flow with resource name `ootb_basic_profile_management`. | string | `OOTB - Basic Profile Management` |
 | `davinci_flow_ootb_basic_profile_management_description`    | The description of the flow with resource name `ootb_basic_profile_management`. | string |`Imported on Wed Sep 13 2023 17:10:34 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ootb_basic_profile_management_log_level`      | An integer that specifies the log level for the flow with resource name `ootb_basic_profile_management`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ootb_basic_profile_management_json_file_path` | The filesystem location of the flow JSON with resource name `ootb_basic_profile_management`. Cannot be set with the `davinci_flow_ootb_basic_profile_management_json` variable. | string | `assets/flows/ootb_basic_profile_management.json` |
 | `davinci_flow_ootb_basic_profile_management_json`           | A string representing the raw DaVinci import JSON for resource name `ootb_basic_profile_management`. Cannot be set with the `davinci_flow_ootb_basic_profile_management_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ootb_change_password_subflow_1_name`           | The name of the flow with resource name `ootb_change_password_subflow_1`. | string | `OOTB - Change Password - Subflow - 1` |
 | `davinci_flow_ootb_change_password_subflow_1_description`    | The description of the flow with resource name `ootb_change_password_subflow_1`. | string |`Cloned on Wed Sep 13 2023 17:45:46 GMT+0000 (Coordinated Universal Time). \nImported on Wed Sep 13 2023 17:10:10 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ootb_change_password_subflow_1_log_level`      | An integer that specifies the log level for the flow with resource name `ootb_change_password_subflow_1`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ootb_change_password_subflow_1_json_file_path` | The filesystem location of the flow JSON with resource name `ootb_change_password_subflow_1`. Cannot be set with the `davinci_flow_ootb_change_password_subflow_1_json` variable. | string | `assets/flows/ootb_change_password_subflow_1.json` |
 | `davinci_flow_ootb_change_password_subflow_1_json`           | A string representing the raw DaVinci import JSON for resource name `ootb_change_password_subflow_1`. Cannot be set with the `davinci_flow_ootb_change_password_subflow_1_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ootb_device_management_main_flow_name`           | The name of the flow with resource name `ootb_device_management_main_flow`. | string | `OOTB - Device Management - Main Flow` |
 | `davinci_flow_ootb_device_management_main_flow_description`    | The description of the flow with resource name `ootb_device_management_main_flow`. | string |`Imported on Wed Sep 13 2023 17:10:40 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ootb_device_management_main_flow_log_level`      | An integer that specifies the log level for the flow with resource name `ootb_device_management_main_flow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ootb_device_management_main_flow_json_file_path` | The filesystem location of the flow JSON with resource name `ootb_device_management_main_flow`. Cannot be set with the `davinci_flow_ootb_device_management_main_flow_json` variable. | string | `assets/flows/ootb_device_management_main_flow.json` |
 | `davinci_flow_ootb_device_management_main_flow_json`           | A string representing the raw DaVinci import JSON for resource name `ootb_device_management_main_flow`. Cannot be set with the `davinci_flow_ootb_device_management_main_flow_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ootb_device_registration_subflow_1_name`           | The name of the flow with resource name `ootb_device_registration_subflow_1`. | string | `OOTB - Device Registration - Subflow - 1` |
 | `davinci_flow_ootb_device_registration_subflow_1_description`    | The description of the flow with resource name `ootb_device_registration_subflow_1`. | string |`Cloned on Wed Sep 13 2023 17:44:09 GMT+0000 (Coordinated Universal Time). \nImported on Wed Sep 13 2023 17:09:57 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ootb_device_registration_subflow_1_log_level`      | An integer that specifies the log level for the flow with resource name `ootb_device_registration_subflow_1`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ootb_device_registration_subflow_1_json_file_path` | The filesystem location of the flow JSON with resource name `ootb_device_registration_subflow_1`. Cannot be set with the `davinci_flow_ootb_device_registration_subflow_1_json` variable. | string | `assets/flows/ootb_device_registration_subflow_1.json` |
 | `davinci_flow_ootb_device_registration_subflow_1_json`           | A string representing the raw DaVinci import JSON for resource name `ootb_device_registration_subflow_1`. Cannot be set with the `davinci_flow_ootb_device_registration_subflow_1_json_file_path` variable. | string | *No default value* |
 | `davinci_flow_ootb_password_reset_main_flow_name`           | The name of the flow with resource name `ootb_password_reset_main_flow`. | string | `OOTB - Password Reset - Main Flow` |
 | `davinci_flow_ootb_password_reset_main_flow_description`    | The description of the flow with resource name `ootb_password_reset_main_flow`. | string |`Imported on Wed Sep 13 2023 17:10:38 GMT+0000 (Coordinated Universal Time)` |
+| `davinci_flow_ootb_password_reset_main_flow_log_level`      | An integer that specifies the log level for the flow with resource name `ootb_password_reset_main_flow`. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging). | number | **No default value** |
 | `davinci_flow_ootb_password_reset_main_flow_json_file_path` | The filesystem location of the flow JSON with resource name `ootb_password_reset_main_flow`. Cannot be set with the `davinci_flow_ootb_password_reset_main_flow_json` variable. | string | `assets/flows/ootb_password_reset_main_flow.json` |
 | `davinci_flow_ootb_password_reset_main_flow_json`           | A string representing the raw DaVinci import JSON for resource name `ootb_password_reset_main_flow`. Cannot be set with the `davinci_flow_ootb_password_reset_main_flow_json_file_path` variable. | string | *No default value* |
 
