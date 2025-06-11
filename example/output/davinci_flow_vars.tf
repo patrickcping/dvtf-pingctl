@@ -27,7 +27,7 @@ variable "davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_le
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_recovery_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -81,7 +81,7 @@ variable "davinci_flow_ciam_passwordless_protect_account_registration_subflow_lo
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_account_registration_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -135,7 +135,7 @@ variable "davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_agreement_tos_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -189,7 +189,7 @@ variable "davinci_flow_ciam_passwordless_protect_change_password_subflow_log_lev
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_change_password_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -243,7 +243,7 @@ variable "davinci_flow_ciam_passwordless_protect_device_authentication_subflow_l
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_authentication_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -297,7 +297,7 @@ variable "davinci_flow_ciam_passwordless_protect_device_registration_subflow_log
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_device_registration_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -351,7 +351,7 @@ variable "davinci_flow_ciam_passwordless_protect_magic_link_authentication_subfl
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_magic_link_authentication_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -405,7 +405,7 @@ variable "davinci_flow_ciam_passwordless_protect_registration_authentication_acc
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_registration_authentication_account_recovery_main_flow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -459,7 +459,7 @@ variable "davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_le
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_threat_detection_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -513,7 +513,7 @@ variable "davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level"
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level)
+    condition     = var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level == null || contains([1, 2, 3], var.davinci_flow_ciam_passwordless_protect_verify_email_subflow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -567,7 +567,7 @@ variable "davinci_flow_ootb_basic_profile_management_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ootb_basic_profile_management_log_level)
+    condition     = var.davinci_flow_ootb_basic_profile_management_log_level == null || contains([1, 2, 3], var.davinci_flow_ootb_basic_profile_management_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -621,7 +621,7 @@ variable "davinci_flow_ootb_change_password_subflow_1_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ootb_change_password_subflow_1_log_level)
+    condition     = var.davinci_flow_ootb_change_password_subflow_1_log_level == null || contains([1, 2, 3], var.davinci_flow_ootb_change_password_subflow_1_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -675,7 +675,7 @@ variable "davinci_flow_ootb_device_management_main_flow_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ootb_device_management_main_flow_log_level)
+    condition     = var.davinci_flow_ootb_device_management_main_flow_log_level == null || contains([1, 2, 3], var.davinci_flow_ootb_device_management_main_flow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -729,7 +729,7 @@ variable "davinci_flow_ootb_device_registration_subflow_1_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ootb_device_registration_subflow_1_log_level)
+    condition     = var.davinci_flow_ootb_device_registration_subflow_1_log_level == null || contains([1, 2, 3], var.davinci_flow_ootb_device_registration_subflow_1_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
@@ -783,7 +783,7 @@ variable "davinci_flow_ootb_password_reset_main_flow_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_ootb_password_reset_main_flow_log_level)
+    condition     = var.davinci_flow_ootb_password_reset_main_flow_log_level == null || contains([1, 2, 3], var.davinci_flow_ootb_password_reset_main_flow_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
