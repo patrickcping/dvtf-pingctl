@@ -5,3 +5,4 @@ output.log
 generated*
 dvtf-pingctl
 .davinci-pingcli.yaml
+.env
