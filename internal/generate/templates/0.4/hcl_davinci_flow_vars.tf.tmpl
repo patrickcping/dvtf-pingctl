@@ -25,6 +25,14 @@ variable "davinci_flow_{{.ResourceName}}_description" {
   {{- end}}
 }
 
+// The Log level to apply to the flow
+variable "davinci_flow_{{.ResourceName}}_log_level" {
+  type = number
+  
+  description = "An integer that specifies the log level for the flow. Valid values are: `1` (no logging), `2` (info logging - the default set by the service), and `3` (debug logging)."
+  default = null
+}
+
 // The location of the flow file path
 variable "davinci_flow_{{.ResourceName}}_json_file_path" {
   type = string

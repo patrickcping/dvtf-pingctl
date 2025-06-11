@@ -9,6 +9,7 @@ output "davinci_flow_{{.ResourceName}}" {
         description     = davinci_flow.{{.ResourceName}}.description
         environment_id  = davinci_flow.{{.ResourceName}}.environment_id
         id              = davinci_flow.{{.ResourceName}}.id
+        log_level       = davinci_flow.{{.ResourceName}}.log_level
         name            = davinci_flow.{{.ResourceName}}.name
         subflow_link    = davinci_flow.{{.ResourceName}}.subflow_link
     }
