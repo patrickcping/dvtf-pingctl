@@ -33,7 +33,7 @@ variable "davinci_flow_{{.ResourceName}}_log_level" {
   default = null
 
   validation {
-    condition     = contains([1, 2, 3], var.davinci_flow_{{.ResourceName}}_log_level)
+    condition     = var.davinci_flow_{{.ResourceName}}_log_level == null || contains([1, 2, 3], var.davinci_flow_{{.ResourceName}}_log_level)
     error_message = "The value must be one of 1, 2, or 3."
   }
 }
